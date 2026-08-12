@@ -150,6 +150,8 @@ img {
   position: relative;
   width: 100%;
   height: calc(100vh - 4.75rem);
+  height: calc(var(--vh, 1vh) * 100 - 4.75rem);
+  height: calc(100svh - 4.75rem);
   min-height: 35rem;
   background-size: cover;
   background-position: top center;
@@ -159,6 +161,8 @@ img {
 @media (max-width: 1024px) {
   .banner-area {
     height: calc(100vh - 4.75rem);
+    height: calc(var(--vh, 1vh) * 100 - 4.75rem);
+    height: calc(100svh - 4.75rem);
     min-height: 30rem;
     background-position: left -18.75rem center;
   }
@@ -167,6 +171,8 @@ img {
 @media (max-width: 768px) {
   .banner-area {
     height: calc(100vh - 3.75rem);
+    height: calc(var(--vh, 1vh) * 100 - 3.75rem);
+    height: calc(100svh - 3.75rem);
     min-height: 25rem;
   }
 }

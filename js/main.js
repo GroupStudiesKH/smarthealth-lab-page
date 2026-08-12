@@ -3,11 +3,34 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initVhHeight();
   initDomainAnimations();
   initCountUpAnimations();
   initMobileFooterMenu();
   initModalEscKey();
 });
+
+/**
+ * 0. 解決 iOS 行動裝置網址列滾動動態展開/隱藏導致 Banner 高度與影片重組縮放 Bug
+ */
+function initVhHeight() {
+  let lastWidth = window.innerWidth;
+
+  function updateVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  updateVh();
+
+  window.addEventListener('resize', () => {
+    // 僅當寬度改變（如螢幕旋轉）時才重新計算 --vh，避免 iOS 上下滾動隱藏網址列時視窗高度微調觸發 Resize 導致影片縮放
+    if (window.innerWidth !== lastWidth) {
+      lastWidth = window.innerWidth;
+      updateVh();
+    }
+  });
+}
 
 /**
  * 1. 三大認證賽道區塊 (動態載入效果已取消，靜態呈現)

@@ -7,7 +7,7 @@
   <title>衛生福利部 國家數位健康互通性與效能認證實驗室</title>
   <meta name="description" content="國家數位健康互通性與效能認證實驗室">
   <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="css/style.css?v=1.0.3">
+  <link rel="stylesheet" href="css/style.css?v=1.1.0">
 </head>
 
 <body>
@@ -493,23 +493,215 @@
           建構國家級醫療作業系統生態，落實標準化專業人才培訓與三階技術授權體系
         </p>
 
-        <!-- 區塊 1: FHIR Box 13 大技術授權生態樹 (Tree Layout) -->
-        <div class="tree-hero-card">
-          <div class="tree-hero-content">
-            <h3 class="tree-card-title">FHIR Box 13 大技術授權矩陣 (License Portfolio)</h3>
-            <p class="tree-card-desc">
-              圍繞 FHIR Box 醫療作業系統核心，建立包含 OS 維運、TWDS 資料標準化、SMART on FHIR、CQL & CDS Hooks 以及 AI 治理合規等完整技術授權生態樹。
-            </p>
-            <div class="license-tags-grid">
-              <span class="license-tag">L_OS 系統維運</span>
-              <span class="license-tag">L_TWDS 資料標準化</span>
-              <span class="license-tag">L_SMART (SMART on FHIR)</span>
-              <span class="license-tag">L_CDS (CQL & CDS Hooks)</span>
-              <span class="license-tag">L_AIG (AI 治理與合規)</span>
+        <!-- 區塊 1: FHIR Box 四大專業能力領域與 10 大核心認證學程架構 (Curriculum Matrix) -->
+        <div class="curriculum-matrix-card">
+          <div class="curriculum-hero-header">
+            <div class="curriculum-header-text">
+              <div class="curriculum-badge-pill">國家級認證專業學程矩陣</div>
+              <h3 class="curriculum-card-title">FHIR Box 四大專業能力領域與 10 大核心認證學程</h3>
+              <p class="curriculum-card-desc">
+                圍繞衛福部 FHIR Box 國家醫療作業系統生態，規劃基礎設施維運、醫療資料標準化、臨床決策與應用、智慧醫療 AI 治理四大能力領域，提供 10 門核心學程與 100 小時系統化實戰培訓。點擊各學程卡片即可查看完整 10 堂詳細單元課綱。
+              </p>
+            </div>
+            <div class="curriculum-stats-banner">
+              <div class="curr-stat-item">
+                <span class="curr-stat-num">4</span>
+                <span class="curr-stat-label">大專業能力領域</span>
+              </div>
+              <div class="curr-stat-divider"></div>
+              <div class="curr-stat-item">
+                <span class="curr-stat-num">10</span>
+                <span class="curr-stat-label">門專業認證學程</span>
+              </div>
+              <div class="curr-stat-divider"></div>
+              <div class="curr-stat-item">
+                <span class="curr-stat-num">100</span>
+                <span class="curr-stat-label">小時實作與實戰</span>
+              </div>
             </div>
           </div>
-          <div class="tree-hero-image-wrapper">
-            <img src="assets/tree.webp" alt="FHIR Box 技術授權矩陣生態樹" class="tree-image" />
+
+          <!-- 四大領域與十堂課程卡片清單 -->
+          <div class="domains-matrix-grid">
+            <!-- Domain A -->
+            <div class="domain-block domain-block-a">
+              <div class="domain-block-header">
+                <div class="domain-badge-title-wrap">
+                  <span class="domain-id-badge">Domain A</span>
+                  <div class="domain-title-group">
+                    <h4 class="domain-name-zh">基礎設施與系統維運工程</h4>
+                    <span class="domain-name-en">FHIR BOX Infrastructure Engineer</span>
+                  </div>
+                </div>
+                <div class="domain-course-count">2 門學程 · 20 小時</div>
+              </div>
+              <div class="domain-courses-list">
+                <div class="course-item-card" data-course-target="course-1" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 01</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">FHIR BOX 硬體安裝與作業系統維運</h5>
+                  <p class="course-item-summary">系統架構、現場機房環境、OS Hardening、K8s/RKE2 容器叢集、HA/DR 與自動化升級。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-2" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 02</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">FHIR BOX 與 UCC (衛生所公版 HIS) 統一臨床協作</h5>
+                  <p class="course-item-summary">UCC 架構解析、病患/就醫/處方/檢驗雙向同步、FHIR Converter 與事件通知實作。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Domain B -->
+            <div class="domain-block domain-block-b">
+              <div class="domain-block-header">
+                <div class="domain-badge-title-wrap">
+                  <span class="domain-id-badge">Domain B</span>
+                  <div class="domain-title-group">
+                    <h4 class="domain-name-zh">醫療資料標準化工程</h4>
+                    <span class="domain-name-en">Healthcare Data Standardization Engineer</span>
+                  </div>
+                </div>
+                <div class="domain-course-count">4 門學程 · 40 小時</div>
+              </div>
+              <div class="domain-courses-list">
+                <div class="course-item-card" data-course-target="course-3" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 03</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">TWDS 資料標準化 (FHIR IG、TWCDI 以及病歷對應等等)</h5>
+                  <p class="course-item-summary">TWDS 發展脈絡、TWCDI 欄位 Mapping、StructureDefinition、Validation 與專案實作。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-4" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 04</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">SNOMED CT 國際臨床術語標準</h5>
+                  <p class="course-item-summary">邏輯模型、後組合與 ECL、台灣 National Release Refset、ICD-10 對映及 Snowstorm 建置。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-5" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 05</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">LOINC 臨床檢驗與評估量表標準</h5>
+                  <p class="course-item-summary">六大軸向剖析、檢驗與生命徵象實務、健保碼 Mapping、5050 資料庫查詢與 FHIR 整合。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-6" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 06</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">RxNorm 國際藥品標準與交互作用</h5>
+                  <p class="course-item-summary">實體模型解析、健保藥品對映、RxNav API 實作、處方成分歸一化與藥品交互作用 (DDI)。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Domain C -->
+            <div class="domain-block domain-block-c">
+              <div class="domain-block-header">
+                <div class="domain-badge-title-wrap">
+                  <span class="domain-id-badge">Domain C</span>
+                  <div class="domain-title-group">
+                    <h4 class="domain-name-zh">臨床應用與決策支援工程</h4>
+                    <span class="domain-name-en">Clinical Application & CDS Engineer</span>
+                  </div>
+                </div>
+                <div class="domain-course-count">2 門學程 · 20 小時</div>
+              </div>
+              <div class="domain-courses-list">
+                <div class="course-item-card" data-course-target="course-7" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 07</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">CQL & CDS Hooks 臨床決策支援</h5>
+                  <p class="course-item-summary">CQL 語法與 FHIR 綁定、CDS Hooks 觸發點與 Cards 設計、FHIR BOX 內建 CDS 引擎部署。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-8" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 08</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">SMART on FHIR 醫療應用整合</h5>
+                  <p class="course-item-summary">OAuth 2.0 / OIDC 醫療資安、SMART App Launch、細粒度授權、EHR 介面整合與 App Store 管理。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Domain D -->
+            <div class="domain-block domain-block-d">
+              <div class="domain-block-header">
+                <div class="domain-badge-title-wrap">
+                  <span class="domain-id-badge">Domain D</span>
+                  <div class="domain-title-group">
+                    <h4 class="domain-name-zh">智慧醫療 AI 工程</h4>
+                    <span class="domain-name-en">Healthcare AI Engineer</span>
+                  </div>
+                </div>
+                <div class="domain-course-count">2 門學程 · 20 小時</div>
+              </div>
+              <div class="domain-courses-list">
+                <div class="course-item-card" data-course-target="course-9" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 09</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">AI 治理 (AI Governance)</h5>
+                  <p class="course-item-summary">三大 AI 中心任務、TFDA/FDA 上市前驗證、MLOps、去識別化、可解釋性 AI、聯邦學習與風險管理。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+
+                <div class="course-item-card" data-course-target="course-10" role="button" tabindex="0">
+                  <div class="course-card-top">
+                    <span class="course-seq-badge">學程 10</span>
+                    <span class="course-hours-pill">10 堂課 · 10 小時</span>
+                  </div>
+                  <h5 class="course-item-title">LLM 病歷編碼</h5>
+                  <p class="course-item-summary">自由文本病歷解析、Prompt Engineering、RAG 術語庫檢索、地端專用微調與端側輕量化部署。</p>
+                  <div class="course-card-footer">
+                    <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -631,6 +823,36 @@
         <div class="modal-body">
           <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 課程詳細課綱彈出視窗 (Course Syllabus Modal) -->
+    <div id="courseDetailModal" class="course-modal-overlay" onclick="closeCourseModal(event)">
+      <div class="course-modal-dialog">
+        <button class="course-modal-close-btn" onclick="closeCourseModalDirect()" title="關閉視窗">&times;</button>
+        <div class="course-modal-header">
+          <div class="course-modal-badge-group">
+            <span id="courseModalDomainBadge" class="course-modal-domain-badge">Domain</span>
+            <span id="courseModalTotalHours" class="course-modal-hours-badge">共 10 堂課 · 總計 10 小時</span>
+          </div>
+          <h3 id="courseModalTitle" class="course-modal-title">課程名稱</h3>
+          <p id="courseModalDomainName" class="course-modal-domain-sub">所屬領域說明</p>
+        </div>
+        <div class="course-modal-body">
+          <div class="course-modal-desc-box">
+            <h4 class="course-desc-label">學程核心目標與培訓範疇</h4>
+            <p id="courseModalDesc" class="course-desc-content"></p>
+          </div>
+          <div class="course-syllabus-section">
+            <h4 class="course-syllabus-title">10 堂精選單元課綱清單 (Syllabus)</h4>
+            <div id="courseModalLessonsList" class="course-lessons-container">
+              <!-- 動態載入 10 堂課綱 -->
+            </div>
+          </div>
+        </div>
+        <div class="course-modal-footer">
+          <button type="button" class="course-modal-btn-close" onclick="closeCourseModalDirect()">關閉課綱視窗</button>
         </div>
       </div>
     </div>
@@ -893,7 +1115,7 @@
     </footer>
   </div>
 
-  <script src="js/main.js?v=1.0.1"></script>
+  <script src="js/main.js?v=1.1.0"></script>
 </body>
 
 </html>

@@ -690,8 +690,34 @@ img {
 
 /* ----------- 6. 處長的話 (Quotes Section) ----------- */
 .quotes-section {
-  padding: 4rem 1.25rem;
-  background-color: #ffffff;
+  padding: 4.5rem 1.25rem;
+  background: linear-gradient(145deg, #011638 0%, #022964 50%, #083b77 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.quotes-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(2, 41, 100, 0) 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.quotes-section::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(2, 41, 100, 0) 70%);
+  pointer-events: none;
+  border-radius: 50%;
 }
 
 @media (max-width: 768px) {
@@ -703,30 +729,37 @@ img {
 .quotes-container {
   max-width: 75rem;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .quotes-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #022964;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
   text-align: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {
   .quotes-title {
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 .quote-card {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-  border-radius: 0.75rem;
-  padding: 2rem 1.5rem;
-  color: #022964;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 2.25rem 2rem;
+  color: #f1f5f9;
   position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .quote-top {
@@ -758,10 +791,11 @@ img {
   width: 12.5rem;
   height: 12.5rem;
   border-radius: 50%;
-  border: 4px solid #022964;
+  border: 4px solid #60a5fa;
   margin-top: -6rem;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -783,7 +817,7 @@ img {
 .person-name {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #022964;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -796,7 +830,7 @@ img {
 .person-ename {
   font-size: 1.75rem;
   line-height: 1.2;
-  color: #022964;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 768px) {
@@ -809,54 +843,61 @@ img {
 .quote-text {
   position: relative;
   margin-top: 0;
-  color: #555555;
+  color: #e2e8f0;
   font-size: 1.0625rem;
-  line-height: 1.85;
+  line-height: 1.9;
   padding: 1.5rem 3.5rem;
   max-height: 60vh;
   overflow-y: auto;
 }
 
-/* 內文滾動條美化 */
+/* 內文滾動條美化 (深色高質感) */
 .quote-text::-webkit-scrollbar {
   width: 8px;
 }
 
 .quote-text::-webkit-scrollbar-track {
-  background: rgba(2, 41, 100, 0.06);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 4px;
 }
 
 .quote-text::-webkit-scrollbar-thumb {
-  background: rgba(2, 41, 100, 0.3);
+  background: rgba(96, 165, 250, 0.45);
   border-radius: 4px;
 }
 
 .quote-text::-webkit-scrollbar-thumb:hover {
-  background: rgba(2, 41, 100, 0.5);
+  background: rgba(96, 165, 250, 0.75);
 }
 
 @media (max-width: 768px) {
   .quote-text {
-    padding: 1rem 1rem;
-    font-size: 0.9375rem;
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
     max-height: 65vh;
   }
 }
 
 .quote-html p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
   text-align: justify;
+  color: #f1f5f9;
+}
+
+.quote-html strong {
+  color: #60a5fa;
+  font-weight: 700;
 }
 
 .quote-bullet-list {
-  margin: 0.5rem 0 1.25rem 1.5rem;
+  margin: 0.75rem 0 1.5rem 1.5rem;
   list-style-type: disc;
 }
 
 .quote-bullet-list li {
   margin-bottom: 0.5rem;
-  color: #444444;
+  color: #cbd5e1;
+  line-height: 1.7;
 }
 
 /* ----------- 7. 觀看影片與 Watch Area ----------- */

@@ -488,9 +488,11 @@ img {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6), 0 16px 40px rgba(0, 0, 0, 0.16);
   }
+
   40% {
     box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.35), 0 20px 48px rgba(37, 99, 235, 0.25);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0), 0 16px 40px rgba(0, 0, 0, 0.16);
   }
@@ -872,14 +874,17 @@ img {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
   }
+
   25% {
     transform: scale(1.025);
     box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.4), 0 14px 32px rgba(37, 99, 235, 0.25);
   }
+
   50% {
     transform: scale(1);
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35), 0 12px 28px rgba(37, 99, 235, 0.22);
   }
+
   100% {
     transform: scale(1);
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
@@ -1015,6 +1020,7 @@ img {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -3097,5 +3103,329 @@ img {
   .compare-table td {
     padding: 0.85rem 0.75rem;
     font-size: 0.875rem;
+  }
+}
+
+/* ==========================================================================
+   手機版 (Mobile Responsive) 精準優化調整
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* ----------------------------------------------------
+     2. Header Logo 尺寸優化
+     ---------------------------------------------------- */
+  .standalone-navbar {
+    padding: 14px 16px;
+  }
+
+  .standalone-navbar .logo-container img {
+    /* 調整為合適的視覺比例 (由 36px 放大至 48px，並支援響應式上限) */
+    height: 46px;
+    max-height: 12vw;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* ----------------------------------------------------
+     3. FHIR Box 10 大技術授權矩陣 Tag 橫向手勢滑動
+     ---------------------------------------------------- */
+  .license-tags-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    /* 強制單排不折行 */
+    overflow-x: auto;
+    /* 支援橫向滑動 */
+    overflow-y: hidden;
+    gap: 0.6rem;
+    padding: 0.5rem 0.25rem 0.75rem 0.25rem;
+    margin: 0 -0.5rem;
+    /* 負邊距提供更自然的滑動邊界 */
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    /* iOS 慣性滾動 */
+    scroll-snap-type: x mandatory;
+    /* 滑動對齊手感 */
+  }
+
+  /* 隱藏滾動條，保持介面極簡美觀 */
+  .license-tags-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .license-tags-grid {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .license-tag {
+    flex-shrink: 0;
+    /* 防止標籤被壓縮 */
+    scroll-snap-align: start;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.85rem;
+    white-space: nowrap;
+    /* 文字不換行 */
+  }
+
+  /* ----------------------------------------------------
+     1. 四大專業能力領域與 10 大認證學程 全面重整防爆版
+     ---------------------------------------------------- */
+  .plan-section {
+    padding: 2rem 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .plan-container-redesign {
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* 矩陣外層卡片容器 */
+  .curriculum-matrix-card {
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    gap: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .curriculum-hero-header {
+    padding-bottom: 1.25rem;
+    gap: 1rem;
+  }
+
+  /* 數據 Banner 橫排緊湊化 */
+  .curriculum-stats-banner {
+    width: 100%;
+    padding: 0.85rem 0.5rem;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  .curr-stat-num {
+    font-size: 1.5rem;
+  }
+
+  .curr-stat-label {
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+  }
+
+  .curr-stat-divider {
+    height: 1.6rem;
+  }
+
+  /* 四大 Domain Grid 單欄與防溢出 */
+  .domains-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  /* 單個 Domain 卡片容器 */
+  .domain-block {
+    padding: 1.15rem 1rem;
+    border-radius: 0.85rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* 防止內部元素溢出 */
+  }
+
+  /* Domain 頂部標題區重新排版 */
+  .domain-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .domain-badge-title-wrap {
+    width: 100%;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .domain-id-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .domain-title-group {
+    flex: 1;
+    min-width: 0;
+    /* 確保 flex 子元素可以正確縮放 */
+  }
+
+  .domain-name-zh {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .domain-name-en {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
+
+  .domain-course-count {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* 課程列表項目卡片 */
+  .domain-courses-list {
+    gap: 0.75rem;
+  }
+
+  .course-item-card {
+    padding: 1rem;
+    border-radius: 0.65rem;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .course-item-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .course-item-summary {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .course-card-footer {
+    margin-top: 0.25rem;
+    padding-top: 0.4rem;
+  }
+
+  .back-to-tree-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .view-syllabus-btn {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* 1. 確保外層 Plan 區塊不會被任何子元素撐破 */
+  .plan-section {
+    padding: 2rem 1rem !important;
+    margin-top: 1rem !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .plan-container-redesign {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    gap: 1.5rem !important;
+  }
+
+  /* 2. 重整生態樹卡片 (Tree Hero Card) 手機版佈局 */
+  .tree-hero-card {
+    display: flex !important;
+    /* 改用 flex 垂直排列，避免 grid 計算被撐開 */
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.25rem 1rem !important;
+    border-radius: 1rem !important;
+    gap: 1.25rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    /* 鎖住卡片邊界 */
+  }
+
+  .tree-hero-content {
+    width: 100% !important;
+    min-width: 0 !important;
+    /* 關鍵：允許 Flex 項目縮小至比內容小，才能觸發滾動 */
+    box-sizing: border-box !important;
+  }
+
+  .tree-card-title {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+  }
+
+  .tree-card-desc {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 3. Tag 標籤單排橫向滑動 (解決無法滾動與撐開問題) */
+  .license-tags-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    /* 單排不換行 */
+    overflow-x: auto !important;
+    /* 開啟水平滑動 */
+    overflow-y: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0.25rem 0.75rem 0.25rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* iOS 順暢手勢滾動 */
+    scroll-snap-type: x proximity;
+    touch-action: pan-x;
+    /* 確保觸控手勢綁定橫向滾動 */
+  }
+
+  /* 隱藏原生滾動條維持簡潔 */
+  .license-tags-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .license-tags-grid {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .license-tag {
+    flex-shrink: 0 !important;
+    /* 避免 tag 被擠壓變形 */
+    white-space: nowrap !important;
+    /* 文字不換行 */
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.8rem !important;
+    scroll-snap-align: start;
+  }
+
+  /* 4. 底下生態樹圖片自適應縮放，不超出螢幕 */
+  .tree-hero-image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .tree-image {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
   }
 }

@@ -493,8 +493,54 @@
           建構國家級醫療作業系統生態，落實標準化專業人才培訓與三階技術授權體系
         </p>
 
-        <!-- 區塊 1: FHIR Box 四大專業能力領域與 10 大核心認證學程架構 (Curriculum Matrix) -->
-        <div class="curriculum-matrix-card">
+        <!-- 區塊 1: FHIR Box 10 大技術授權生態樹 (Tree Layout) -->
+        <div class="tree-hero-card" id="tree-license-portfolio">
+          <div class="tree-hero-content">
+            <div class="tree-card-badge">技術授權與核心學程導覽</div>
+            <h3 class="tree-card-title">FHIR Box 10 大技術授權矩陣 (License Portfolio)</h3>
+            <p class="tree-card-desc">
+              圍繞 FHIR Box 醫療作業系統核心，建立包含硬體安裝、OS 維運、TWDS 資料標準化、SNOMED CT、LOINC、RxNorm、CQL & CDS Hooks、SMART on FHIR 以及 AI 治理與 LLM 病歷編碼等完整技術授權生態樹。點擊下方藍色標籤可直接平滑導覽至該課程介紹。
+            </p>
+            <div class="license-tags-grid">
+              <button type="button" class="license-tag" data-scroll-target="course-card-1" title="點擊前往硬體規格、安裝與擴充">
+                <span class="tag-code">L_HW</span> 硬體安裝
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-2" title="點擊前往作業系統與維運">
+                <span class="tag-code">L_OS</span> OS 維運
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-3" title="點擊前往 TWDS 資料標準化">
+                <span class="tag-code">L_TWDS</span> 資料標準化
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-4" title="點擊前往 SNOMED CT 臨床術語標準">
+                <span class="tag-code">L_SNO</span> SNOMED CT
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-5" title="點擊前往 LOINC 臨床檢驗標準">
+                <span class="tag-code">L_LOI</span> LOINC
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-6" title="點擊前往 RxNorm 國際藥品標準">
+                <span class="tag-code">L_RxN</span> RxNorm
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-7" title="點擊前往 CQL & CDS Hooks 臨床決策支援">
+                <span class="tag-code">L_CDS</span> CQL & CDS Hooks
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-8" title="點擊前往 SMART on FHIR 醫療應用整合">
+                <span class="tag-code">L_SMART</span> SMART on FHIR
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-9" title="點擊前往 AI 治理與合規">
+                <span class="tag-code">L_AIG</span> AI 治理
+              </button>
+              <button type="button" class="license-tag" data-scroll-target="course-card-10" title="點擊前往 LLM 病歷編碼">
+                <span class="tag-code">L_LLM</span> LLM 病歷編碼
+              </button>
+            </div>
+          </div>
+          <div class="tree-hero-image-wrapper">
+            <img src="assets/tree.webp" alt="FHIR Box 技術授權矩陣生態樹" class="tree-image" />
+          </div>
+        </div>
+
+        <!-- 區塊 2: FHIR Box 四大專業能力領域與 10 大核心認證學程架構 (Curriculum Matrix) -->
+        <div class="curriculum-matrix-card" id="curriculum-matrix">
           <div class="curriculum-hero-header">
             <div class="curriculum-header-text">
               <div class="curriculum-badge-pill">國家級認證專業學程矩陣</div>
@@ -536,26 +582,28 @@
                 <div class="domain-course-count">2 門學程 · 20 小時</div>
               </div>
               <div class="domain-courses-list">
-                <div class="course-item-card" data-course-target="course-1" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-1" data-course-target="course-1" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 01</span>
+                    <span class="course-seq-badge">學程 01 · L_HW</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
-                  <h5 class="course-item-title">FHIR BOX 硬體安裝與作業系統維運</h5>
-                  <p class="course-item-summary">系統架構、現場機房環境、OS Hardening、K8s/RKE2 容器叢集、HA/DR 與自動化升級。</p>
+                  <h5 class="course-item-title">硬體規格、安裝與擴充</h5>
+                  <p class="course-item-summary">系統架構與硬體認識、邊緣運算規格分析、機房環境與電力保護、BIOS/UEFI 安全性、RAID/NVMe 配置、燒機壓力測試與 RMA 維修流程。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-2" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-2" data-course-target="course-2" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 02</span>
+                    <span class="course-seq-badge">學程 02 · L_OS</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
-                  <h5 class="course-item-title">FHIR BOX 與 UCC (衛生所公版 HIS) 統一臨床協作</h5>
-                  <p class="course-item-summary">UCC 架構解析、病患/就醫/處方/檢驗雙向同步、FHIR Converter 與事件通知實作。</p>
+                  <h5 class="course-item-title">作業系統與維運</h5>
+                  <p class="course-item-summary">最小化核心部署、OS Hardening 資安硬化、系統核心參數調優、網路防火牆規劃、K8s/RKE2 容器叢集、核心服務部署、HA/DR 與自動化升級。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
@@ -575,50 +623,54 @@
                 <div class="domain-course-count">4 門學程 · 40 小時</div>
               </div>
               <div class="domain-courses-list">
-                <div class="course-item-card" data-course-target="course-3" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-3" data-course-target="course-3" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 03</span>
+                    <span class="course-seq-badge">學程 03 · L_TWDS</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">TWDS 資料標準化 (FHIR IG、TWCDI 以及病歷對應等等)</h5>
                   <p class="course-item-summary">TWDS 發展脈絡、TWCDI 欄位 Mapping、StructureDefinition、Validation 與專案實作。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-4" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-4" data-course-target="course-4" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 04</span>
+                    <span class="course-seq-badge">學程 04 · L_SNO</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">SNOMED CT 國際臨床術語標準</h5>
                   <p class="course-item-summary">邏輯模型、後組合與 ECL、台灣 National Release Refset、ICD-10 對映及 Snowstorm 建置。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-5" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-5" data-course-target="course-5" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 05</span>
+                    <span class="course-seq-badge">學程 05 · L_LOI</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">LOINC 臨床檢驗與評估量表標準</h5>
                   <p class="course-item-summary">六大軸向剖析、檢驗與生命徵象實務、健保碼 Mapping、5050 資料庫查詢與 FHIR 整合。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-6" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-6" data-course-target="course-6" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 06</span>
+                    <span class="course-seq-badge">學程 06 · L_RxN</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">RxNorm 國際藥品標準與交互作用</h5>
                   <p class="course-item-summary">實體模型解析、健保藥品對映、RxNav API 實作、處方成分歸一化與藥品交互作用 (DDI)。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
@@ -638,26 +690,28 @@
                 <div class="domain-course-count">2 門學程 · 20 小時</div>
               </div>
               <div class="domain-courses-list">
-                <div class="course-item-card" data-course-target="course-7" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-7" data-course-target="course-7" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 07</span>
+                    <span class="course-seq-badge">學程 07 · L_CDS</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">CQL & CDS Hooks 臨床決策支援</h5>
                   <p class="course-item-summary">CQL 語法與 FHIR 綁定、CDS Hooks 觸發點與 Cards 設計、FHIR BOX 內建 CDS 引擎部署。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-8" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-8" data-course-target="course-8" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 08</span>
+                    <span class="course-seq-badge">學程 08 · L_SMART</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">SMART on FHIR 醫療應用整合</h5>
                   <p class="course-item-summary">OAuth 2.0 / OIDC 醫療資安、SMART App Launch、細粒度授權、EHR 介面整合與 App Store 管理。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
@@ -677,26 +731,28 @@
                 <div class="domain-course-count">2 門學程 · 20 小時</div>
               </div>
               <div class="domain-courses-list">
-                <div class="course-item-card" data-course-target="course-9" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-9" data-course-target="course-9" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 09</span>
+                    <span class="course-seq-badge">學程 09 · L_AIG</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">AI 治理 (AI Governance)</h5>
                   <p class="course-item-summary">三大 AI 中心任務、TFDA/FDA 上市前驗證、MLOps、去識別化、可解釋性 AI、聯邦學習與風險管理。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>
 
-                <div class="course-item-card" data-course-target="course-10" role="button" tabindex="0">
+                <div class="course-item-card" id="course-card-10" data-course-target="course-10" role="button" tabindex="0">
                   <div class="course-card-top">
-                    <span class="course-seq-badge">學程 10</span>
+                    <span class="course-seq-badge">學程 10 · L_LLM</span>
                     <span class="course-hours-pill">10 堂課 · 10 小時</span>
                   </div>
                   <h5 class="course-item-title">LLM 病歷編碼</h5>
                   <p class="course-item-summary">自由文本病歷解析、Prompt Engineering、RAG 術語庫檢索、地端專用微調與端側輕量化部署。</p>
                   <div class="course-card-footer">
+                    <button type="button" class="back-to-tree-btn" data-back-to-tree title="返回上方技術授權生態樹"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg> 回到生態樹</button>
                     <span class="view-syllabus-btn">查看 10 堂課綱 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                   </div>
                 </div>

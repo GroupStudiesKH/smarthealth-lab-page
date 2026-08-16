@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileFooterMenu();
   initModalEscKey();
   initCourseModal();
+  initTreeNavigation();
 });
 
 /**
@@ -129,22 +130,22 @@ const courseCurriculumData = [
     domainBadge: "Domain A",
     domainName: "FHIR BOX Infrastructure Engineer",
     domainZh: "基礎設施與系統維運工程",
-    courseCategory: "FHIR BOX 硬體安裝與作業系統維運",
-    courseTitle: "FHIR BOX 硬體安裝與作業系統維運",
+    courseCategory: "硬體規格、安裝與擴充",
+    courseTitle: "硬體規格、安裝與擴充",
     totalHours: 10,
     totalLessons: 10,
-    description: "全面掌握 FHIR BOX 醫療作業系統之硬體配置、OS Hardening 安全強化、Kubernetes / RKE2 容器叢集架構、高可用性 (HA) 與災難復原 (DR) 策略，以及 CI/CD 自動化升級維運實務。",
+    description: "全面掌握 FHIR BOX 邊緣運算定位與硬體規格需求分析、現場機房環境與電力保護機制、BIOS/UEFI 底層韌體調校、儲存子系統 RAID/NVMe 配置、硬體壓力燒機測試及現場安裝與 RMA 保固維修 SOP。",
     lessons: [
       { num: "01", title: "FHIR BOX 系統架構與硬體認識", hours: "1 小時" },
-      { num: "02", title: "FHIR BOX 現場安裝與機房環境", hours: "1 小時" },
-      { num: "03", title: "作業系統安裝與系統硬化（OS Hardening）", hours: "1 小時" },
-      { num: "04", title: "網路架構規劃與防火牆配置", hours: "1 小時" },
+      { num: "02", title: "邊緣運算定位與硬體規格需求分析", hours: "1 小時" },
+      { num: "03", title: "安裝、機房環境與電力異常保護機制", hours: "1 小時" },
+      { num: "04", title: "BIOS / UEFI 底層韌體配置與安全性最佳化", hours: "1 小時" },
       { num: "05", title: "容器化基礎設施建置（Docker / Container Runtime）", hours: "1 小時" },
-      { num: "06", title: "Kubernetes / RKE2 基礎", hours: "1 小時" },
-      { num: "07", title: "FHIR BOX 核心服務部署實務", hours: "1 小時" },
-      { num: "08", title: "系統資源監控與日誌收集", hours: "1 小時" },
-      { num: "09", title: "資料庫備份、高可用性（HA）與災難復原（DR）策略", hours: "1 小時" },
-      { num: "10", title: "系統更新、漏洞修補與 CI/CD 自動化升級", hours: "1 小時" }
+      { num: "06", title: "儲存子系統架構與 RAID / NVMe 磁碟陣列配置", hours: "1 小時" },
+      { num: "07", title: "硬體壓力測試、燒機檢驗與效能基準評估", hours: "1 小時" },
+      { num: "08", title: "實體網路介面規劃與多網卡/光纖介面配置", hours: "1 小時" },
+      { num: "09", title: "現場安裝作業規範、機櫃理線與環境佈建 SOP", hours: "1 小時" },
+      { num: "10", title: "硬體故障診斷、備品管理與保固維修（RMA）流程", hours: "1 小時" }
     ]
   },
   {
@@ -152,22 +153,22 @@ const courseCurriculumData = [
     domainBadge: "Domain A",
     domainName: "FHIR BOX Infrastructure Engineer",
     domainZh: "基礎設施與系統維運工程",
-    courseCategory: "FHIR BOX 與 UCC (衛生所公版 HIS) 統一臨床協作",
-    courseTitle: "FHIR BOX 與 UCC (衛生所公版 HIS) 統一臨床協作",
+    courseCategory: "作業系統與維運",
+    courseTitle: "作業系統與維運",
     totalHours: 10,
     totalLessons: 10,
-    description: "深入剖析衛生所公版 HIS (UCC) 資料庫架構，實作病患、就醫、處方及檢查檢驗結果之 FHIR 雙向同步、FHIR Converter 資料轉換、事件通知機制與端到端模擬測試。",
+    description: "深入實作作業系統安裝與最小化核心部署、OS Hardening 資安硬化、核心效能調優、網路架構與防火牆配置、Kubernetes / RKE2 容器叢集架構、FHIR BOX 核心服務部署、HA/DR 災難復原策略與 CI/CD 自動化升級。",
     lessons: [
-      { num: "01", title: "UCC 架構解析與資料庫架構理解", hours: "1 小時" },
-      { num: "02", title: "FHIR BOX 與 UCC 介接模式規劃", hours: "1 小時" },
-      { num: "03", title: "病人基本資料（Patient）與就醫紀錄（Encounter）雙向同步", hours: "1 小時" },
-      { num: "04", title: "門診處方（MedicationRequest）與用藥歷程整合", hours: "1 小時" },
-      { num: "05", title: "檢查檢驗結果（Observation / DiagnosticReport）同步", hours: "1 小時" },
-      { num: "06", title: "UCC 臨床資料擷取", hours: "1 小時" },
-      { num: "07", title: "UCC 整合 FHIR Converter", hours: "1 小時" },
-      { num: "08", title: "FHIR Event Notification 與事件驅動臨床通知", hours: "1 小時" },
-      { num: "09", title: "UCC 協作測試環境建立與端到端（E2E）模擬測試", hours: "1 小時" },
-      { num: "10", title: "衛生所現場部署 SOP 與常見故障排除", hours: "1 小時" }
+      { num: "01", title: "作業系統安裝與最小化核心部署", hours: "1 小時" },
+      { num: "02", title: "資安與系統硬化（OS Hardening）", hours: "1 小時" },
+      { num: "03", title: "系統效能調優與核心參數最佳化", hours: "1 小時" },
+      { num: "04", title: "網路架構規劃與防火牆配置", hours: "1 小時" },
+      { num: "05", title: "容器化基礎設施建置（Docker / Container Runtime）", hours: "1 小時" },
+      { num: "06", title: "Kubernetes / RKE2 基礎", hours: "1 小時" },
+      { num: "07", title: "FHIR BOX 核心服務部署實務", hours: "1 小時" },
+      { num: "08", title: "系統資源監控與日誌收集", hours: "1 小時" },
+      { num: "09", title: "資料庫備份、高可用性（HA）與災難復原（DR）策略", hours: "1 小時" },
+      { num: "10", title: "系統更新、漏洞修補與 CI/CD 自動化升級", hours: "1 小時" }
     ]
   },
   {
@@ -437,7 +438,55 @@ function initModalEscKey() {
 }
 
 /**
- * 6. 手機版 Footer 折疊選單 (Accordion)
+ * 7. 技術授權樹 (Tree Portfolio) 藍色 Tag 雙向平滑滾動與高亮聚焦導航
+ */
+function initTreeNavigation() {
+  const treeTags = document.querySelectorAll('.license-tag[data-scroll-target]');
+  const backButtons = document.querySelectorAll('.back-to-tree-btn, [data-back-to-tree]');
+  const treeSection = document.getElementById('tree-license-portfolio');
+
+  treeTags.forEach((tag) => {
+    tag.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = tag.getAttribute('data-scroll-target');
+      if (!targetId) return;
+
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        // 平滑滾動至目標學程卡片
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // 移除現有的高亮動畫 class
+        document.querySelectorAll('.course-item-card.highlight-focus').forEach(el => {
+          el.classList.remove('highlight-focus');
+        });
+
+        // 加上高亮聚焦呼吸燈效果
+        targetEl.classList.add('highlight-focus');
+        setTimeout(() => {
+          targetEl.classList.remove('highlight-focus');
+        }, 2200);
+      }
+    });
+  });
+
+  backButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // 避免點擊返回時冒泡觸發卡片的開啟課綱 Modal
+      if (treeSection) {
+        treeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        treeSection.classList.add('tree-highlight-focus');
+        setTimeout(() => {
+          treeSection.classList.remove('tree-highlight-focus');
+        }, 1800);
+      }
+    });
+  });
+}
+
+/**
+ * 8. 手機版 Footer 折疊選單 (Accordion)
  */
 function initMobileFooterMenu() {
   const mobileHeaders = document.querySelectorAll('.mobile-menu-header');
@@ -460,4 +509,5 @@ function initMobileFooterMenu() {
     });
   });
 }
+
 

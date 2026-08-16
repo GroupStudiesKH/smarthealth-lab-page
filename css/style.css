@@ -1,5 +1,5 @@
 /* ==========================================================================
-   cmio-apply 獨立頁面完整樣式表 (Pure CSS)
+   衛生福利部 國家數位健康互通性與效能認證實驗室 樣式表 (Pure CSS)
    ========================================================================== */
 
 /* ----------- 1. 基礎 Reset 與 全局變數 ----------- */
@@ -131,15 +131,23 @@ img {
 
 @media (max-width: 768px) {
   .standalone-navbar {
-    padding: 12px 16px;
+    padding: 14px 16px;
   }
+
+  .standalone-navbar .logo-container img {
+    height: 46px;
+    max-height: 12vw;
+    width: auto;
+    object-fit: contain;
+  }
+}
 
   .standalone-navbar .logo-container img {
     height: 36px;
   }
 }
 
-/* ----------- 3. CmioApply 頁面佈局與區塊 ----------- */
+/* ----------- 3. CmioApply 頁面佈局與區塊 (Banner & Countdown) ----------- */
 .all-courses-page {
   display: flex;
   flex-direction: column;
@@ -287,7 +295,148 @@ img {
   }
 }
 
-/* ----------- 4. 四大領域學程 (Three Domains / 三大認證賽道) ----------- */
+/* ----------- 4. 處長的話 (Quotes Section) ----------- */
+.quotes-section {
+  padding: 4.5rem 1.25rem;
+  background: linear-gradient(135deg, #022154 0%, #010d24 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.quotes-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("../assets/countdown-left-bg.webp") no-repeat center / cover;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .quotes-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.quotes-container {
+  max-width: 75rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.quotes-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .quotes-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.quote-card {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  padding: 1.5rem 0;
+  color: #f1f5f9;
+  position: relative;
+  box-shadow: none;
+  border: none;
+}
+
+.person-photo {
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
+  border: 4px solid #60a5fa;
+  margin-top: -6rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .person-photo {
+    width: 7.5rem;
+    height: 7.5rem;
+    margin: 0;
+    border-width: 3px;
+    grid-area: photo;
+  }
+}
+
+.quote-text {
+  position: relative;
+  margin-top: 0;
+  color: #e2e8f0;
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  padding: 1.5rem 3.5rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 內文滾動條美化 (深色高質感) */
+.quote-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.quote-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.quote-text::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+}
+
+.quote-text::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .quote-text {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+    max-height: 65vh;
+  }
+}
+
+.quote-html p {
+  margin-bottom: 1.35rem;
+  text-align: justify;
+  color: #f1f5f9;
+}
+
+.quote-html strong {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.quote-bullet-list {
+  margin: 0.75rem 0 1.5rem 1.5rem;
+  list-style-type: disc;
+}
+
+.quote-bullet-list li {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* ----------- 5. 四大領域學程 (Three Domains / 三大認證賽道) ----------- */
 .four-domains-section {
   position: relative;
   display: flex;
@@ -434,7 +583,522 @@ img {
   }
 }
 
-/* ----------- 5. 認證課程內容全新佈局 (Plan Section with tree.webp) ----------- */
+/* ----------- 6. 認證賽道詳細說明 (Experts Section) ----------- */
+.experts-section {
+  padding: 4rem 1.25rem;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .experts-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.experts-container {
+  max-width: 75rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.experts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .experts-section {
+    padding: 3rem 1rem;
+  }
+
+  .experts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.expert-card {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(247, 249, 254, 0.96) 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.expert-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(2, 41, 100, 0.1);
+  padding-bottom: 0.85rem;
+}
+
+.expert-icon-wrapper {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #022964 0%, #464eb8 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(2, 41, 100, 0.2);
+  flex-shrink: 0;
+}
+
+.expert-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.expert-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #022964;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.expert-intro {
+  font-size: 0.9375rem;
+  color: #555555;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 0;
+  height: 50vh;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .expert-intro {
+    height: 45vh;
+    max-height: 45vh;
+  }
+}
+
+/* Scrollbar for expert-intro */
+.expert-intro::-webkit-scrollbar {
+  width: 6px;
+}
+
+.expert-intro::-webkit-scrollbar-track {
+  background: rgba(2, 41, 100, 0.05);
+  border-radius: 3px;
+}
+
+.expert-intro::-webkit-scrollbar-thumb {
+  background: rgba(2, 41, 100, 0.3);
+  border-radius: 3px;
+}
+
+.expert-intro::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 41, 100, 0.5);
+}
+
+.expert-intro p {
+  margin-bottom: 0.85rem;
+}
+
+.expert-bullet-list {
+  margin: 0.25rem 0 0.85rem 1.25rem;
+  list-style-type: disc;
+}
+
+.expert-bullet-list li {
+  margin-bottom: 0.25rem;
+  color: #444444;
+}
+
+/* ----------- 7. 軟體認證：從技術合規到真實世界落地 ----------- */
+.software-flow-section {
+  padding: 4rem 1.25rem;
+  background-color: #022964;
+}
+
+@media (max-width: 768px) {
+  .software-flow-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.software-flow-container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.section-main-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-main-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.flow-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .flow-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .flow-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flow-step-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 247, 252, 0.98) 100%);
+  border-radius: 0.75rem;
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flow-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.step-badge {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #464eb8 0%, #022964 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(2, 41, 100, 0.3);
+}
+
+.flow-step-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #022964;
+  margin-bottom: 0.75rem;
+}
+
+.flow-step-desc {
+  font-size: 0.9375rem;
+  color: #444444;
+  line-height: 1.6;
+}
+
+.flow-step-desc strong {
+  color: #022964;
+  font-weight: 700;
+}
+
+/* ----------- 8. 軟硬整合：免費授權與效能認證 ----------- */
+.puzzle-section {
+  padding: 4rem 1.25rem;
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .puzzle-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.puzzle-section .section-main-title {
+  color: #022964;
+}
+
+.puzzle-container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .puzzle-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.puzzle-card {
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.puzzle-card-software {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.96) 0%, rgba(186, 230, 253, 0.96) 100%);
+  border: 2px solid #38bdf8;
+}
+
+.puzzle-card-hardware {
+  background: linear-gradient(135deg, rgba(254, 237, 232, 0.96) 0%, rgba(254, 215, 202, 0.96) 100%);
+  border: 2px solid #fb923c;
+}
+
+.puzzle-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #022964;
+}
+
+.puzzle-card-highlight {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0369a1;
+  margin-bottom: 0.25rem;
+}
+
+.puzzle-card-hardware .puzzle-card-highlight {
+  color: #c2410c;
+}
+
+.puzzle-card-desc {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* ----------- 9. 效能革命：為何需要國家級 FHIR Box？ ----------- */
+.compare-section {
+  padding: 4rem 1.25rem;
+  background-color: #022964;
+}
+
+@media (max-width: 768px) {
+  .compare-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.compare-container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.compare-table-wrapper {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  text-align: left;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.compare-table th {
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.compare-table th.col-item {
+  background: #f1f5f9;
+  color: #334155;
+  width: 20%;
+}
+
+.compare-table th.col-traditional {
+  background: #e2e8f0;
+  color: #475569;
+  width: 40%;
+}
+
+.compare-table th.col-national {
+  background: linear-gradient(135deg, #022964 0%, #464eb8 100%);
+  color: #ffffff;
+  width: 40%;
+}
+
+.compare-table td.cell-item {
+  font-weight: 700;
+  color: #1e293b;
+  background: #f8fafc;
+}
+
+.compare-table td.cell-traditional {
+  color: #64748b;
+  background: #ffffff;
+}
+
+.compare-table td.cell-national {
+  color: #022964;
+  font-weight: 700;
+  background: #f0f9ff;
+}
+
+@media (max-width: 768px) {
+
+  .compare-table th,
+  .compare-table td {
+    padding: 0.85rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ----------- 10. TSP 認證制度：量身打造的導入服務 ----------- */
+.tsp-pyramid-section {
+  padding: 4rem 1.25rem;
+  background-color: #f0f4f8;
+}
+
+@media (max-width: 768px) {
+  .tsp-pyramid-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.tsp-pyramid-section .section-main-title {
+  color: #022964;
+}
+
+.tsp-pyramid-container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  text-align: center;
+  margin-top: -1.75rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.pyramid-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.pyramid-tier {
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.pyramid-tier:hover {
+  transform: translateY(-2px);
+}
+
+.tier-top {
+  width: 70%;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-left: 6px solid #1976d2;
+}
+
+.tier-mid {
+  width: 85%;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-left: 6px solid #f57c00;
+}
+
+.tier-base {
+  width: 100%;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-left: 6px solid #388e3c;
+}
+
+@media (max-width: 768px) {
+
+  .pyramid-tier,
+  .tier-top,
+  .tier-mid,
+  .tier-base {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 0.75rem;
+  }
+}
+
+.tier-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tier-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tier-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #022964;
+}
+
+.tier-desc {
+  font-size: 0.9375rem;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* ----------- 11. 認證課程內容全新佈局 (Plan Section with tree.webp) ----------- */
 .plan-section {
   margin-top: 3rem;
   padding: 3.5rem 1.25rem;
@@ -457,7 +1121,24 @@ img {
   font-weight: 500;
 }
 
-/* ----------- 5.1 FHIR Box 10 大技術授權生態樹 (Tree Layout) ----------- */
+@media (max-width: 768px) {
+  .plan-section {
+    padding: 2rem 1rem;
+    margin-top: 1rem;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .plan-container-redesign {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    gap: 1.5rem;
+  }
+}
+
+/* ----------- 11.1 FHIR Box 10 大技術授權生態樹 (Tree Layout) ----------- */
 .tree-hero-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 246, 255, 0.98) 100%);
   border-radius: 1.25rem;
@@ -526,10 +1207,7 @@ img {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .tree-card-title {
-    font-size: 1.35rem;
-  }
+
 }
 
 .tree-card-desc {
@@ -604,7 +1282,85 @@ img {
   box-shadow: 0 16px 36px rgba(2, 41, 100, 0.18);
 }
 
-/* ----------- 5.2 FHIR Box 四大專業能力領域與 10 大核心認證學程矩陣 ----------- */
+@media (max-width: 768px) {
+  .tree-hero-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    gap: 1.25rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .tree-hero-content {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .tree-card-title {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .tree-card-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .license-tags-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.5rem;
+    padding: 0.5rem 0.25rem 0.75rem 0.25rem;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    touch-action: pan-x;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .license-tags-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .license-tag {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    scroll-snap-align: start;
+  }
+
+  .tree-hero-image-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .tree-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+/* ----------- 11.2 FHIR Box 四大專業能力領域與 10 大核心認證學程矩陣 ----------- */
 .curriculum-matrix-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 248, 255, 0.98) 100%);
   border-radius: 1.25rem;
@@ -670,10 +1426,7 @@ img {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .curriculum-card-title {
-    font-size: 1.35rem;
-  }
+
 }
 
 .curriculum-card-desc {
@@ -983,7 +1736,531 @@ img {
   gap: 0.55rem;
 }
 
-/* ----------- 5.3 課程詳細課綱 Modal 樣式 (Course Syllabus Modal) ----------- */
+@media (max-width: 768px) {
+  .curriculum-matrix-card {
+    padding: 1.25rem 1rem;
+    border-radius: 1rem;
+    gap: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .curriculum-hero-header {
+    padding-bottom: 1.25rem;
+    gap: 1rem;
+  }
+
+  .curriculum-stats-banner {
+    width: 100%;
+    padding: 0.85rem 0.5rem;
+    border-radius: 0.75rem;
+    box-sizing: border-box;
+  }
+
+  .curr-stat-num {
+    font-size: 1.5rem;
+  }
+
+  .curr-stat-label {
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+  }
+
+  .curr-stat-divider {
+    height: 1.6rem;
+  }
+
+  .domains-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .domain-block {
+    padding: 1.15rem 1rem;
+    border-radius: 0.85rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .domain-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .domain-badge-title-wrap {
+    width: 100%;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .domain-id-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .domain-title-group {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .domain-name-zh {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .domain-name-en {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
+
+  .domain-course-count {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .domain-courses-list {
+    gap: 0.75rem;
+  }
+
+  .course-item-card {
+    padding: 1rem;
+    border-radius: 0.65rem;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .course-item-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .course-item-summary {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .course-card-footer {
+    margin-top: 0.25rem;
+    padding-top: 0.4rem;
+  }
+
+  .back-to-tree-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .view-syllabus-btn {
+    font-size: 0.75rem;
+  }
+}
+
+/* ----------- 11.3 TSP 廠商三階認證區塊 (Partner Tiers) ----------- */
+.sub-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tsp-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .tsp-tiers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tier-card {
+  background: #ffffff;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+}
+
+.tier-card-header {
+  padding: 1.25rem 1.5rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tier-card-1 .tier-card-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+}
+
+.tier-card-2 .tier-card-header {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+}
+
+.tier-card-3 .tier-card-header {
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+}
+
+.tier-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.tier-card-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.tier-score {
+  font-size: 0.875rem;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+.tier-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* 4 階段培訓流程 (Training Stages) */
+.training-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .training-stages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .training-stages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stage-step-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.stage-num {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #022964;
+  line-height: 1;
+}
+
+.stage-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #022964;
+}
+
+.stage-desc {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* 年度展延與退場機制 (Annual Renewal Card) */
+.annual-renewal-card {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.96) 0%, rgba(253, 230, 138, 0.96) 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.renewal-badge {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #92400e;
+}
+
+.renewal-text {
+  font-size: 0.9375rem;
+  color: #78350f;
+  line-height: 1.75;
+}
+
+/* ----------- 12. 下載專區 (Download Section) ----------- */
+.download-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 4rem 1.25rem;
+  background-color: #f0f4f8;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .download-section {
+    padding: 2.5rem 1rem;
+  }
+}
+
+.download-container {
+  max-width: 62.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.download-title {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  color: #022964;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .download-title {
+    font-size: var(--font-xl);
+  }
+}
+
+.download-table {
+  background-color: var(--color-bg-light);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.download-header {
+  display: flex;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .download-header {
+    display: none;
+  }
+}
+
+.download-row {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.download-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .download-row {
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    background-color: white;
+  }
+}
+
+.download-col {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.download-col:nth-child(1) {
+  flex: 2;
+  font-weight: 500;
+}
+
+.download-col:nth-child(2) {
+  flex: 3;
+}
+
+.download-col:nth-child(3) {
+  flex: 1;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .download-col {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .download-col:last-child {
+    border-bottom: none;
+  }
+
+  .download-col:nth-child(3) {
+    justify-content: flex-start;
+    padding-top: 0.75rem;
+  }
+}
+
+.download-link {
+  color: var(--color-white);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-accent);
+  border-radius: 86.45px;
+  transition: background-color 0.3s ease;
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+.download-link:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-white);
+}
+
+.download-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>') no-repeat center;
+  background-size: contain;
+}
+
+/* ----------- 13.1 Video Modal 彈出視窗樣式 ----------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: #000;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-person-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.person-details h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #022964;
+}
+
+.person-details p {
+  margin: 4px 0 0 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.modal-body {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 ratio */
+  height: 0;
+  background: #000;
+}
+
+.modal-body iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------- 13.2 課程詳細課綱 Modal 樣式 (Course Syllabus Modal) ----------- */
 .course-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1256,1107 +2533,6 @@ img {
 .course-modal-btn-close:hover {
   background: #0a3d8f;
   transform: translateY(-1px);
-}
-
-/* ----------- 5.3 TSP 廠商三階認證區塊 (Partner Tiers) ----------- */
-.sub-section-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.tsp-tiers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-@media (max-width: 992px) {
-  .tsp-tiers-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.tier-card {
-  background: #ffffff;
-  border-radius: 0.85rem;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-}
-
-.tier-card:hover {
-  transform: translateY(-4px);
-}
-
-.tier-card-header {
-  padding: 1.25rem 1.5rem;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.tier-card-1 .tier-card-header {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
-}
-
-.tier-card-2 .tier-card-header {
-  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
-}
-
-.tier-card-3 .tier-card-header {
-  background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
-}
-
-.tier-badge {
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.9;
-}
-
-.tier-card-name {
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-.tier-score {
-  font-size: 0.875rem;
-  opacity: 0.95;
-  font-weight: 600;
-}
-
-.tier-card-body {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  font-size: 0.9375rem;
-  color: #334155;
-  line-height: 1.6;
-}
-
-/* 4 階段培訓流程 (Training Stages) */
-.training-stages-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-@media (max-width: 1024px) {
-  .training-stages-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .training-stages-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.stage-step-card {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 0.75rem;
-  padding: 1.5rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.stage-num {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: #022964;
-  line-height: 1;
-}
-
-.stage-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #022964;
-}
-
-.stage-desc {
-  font-size: 0.875rem;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* 年度展延與退場機制 (Annual Renewal Card) */
-.annual-renewal-card {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.96) 0%, rgba(253, 230, 138, 0.96) 100%);
-  border: 2px solid #f59e0b;
-  border-radius: 0.75rem;
-  padding: 1.5rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.renewal-badge {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #92400e;
-}
-
-.renewal-text {
-  font-size: 0.9375rem;
-  color: #78350f;
-  line-height: 1.75;
-}
-
-/* ----------- 6. 處長的話 (Quotes Section) ----------- */
-.quotes-section {
-  padding: 4.5rem 1.25rem;
-  background: linear-gradient(135deg, #022154 0%, #010d24 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.quotes-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("../assets/countdown-left-bg.webp") no-repeat center / cover;
-  pointer-events: none;
-  opacity: 0.55;
-  z-index: 0;
-}
-
-@media (max-width: 768px) {
-  .quotes-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.quotes-container {
-  max-width: 75rem;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.quotes-title {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 2rem;
-  letter-spacing: 0.02em;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-@media (max-width: 768px) {
-  .quotes-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.quote-card {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-radius: 0;
-  padding: 1.5rem 0;
-  color: #f1f5f9;
-  position: relative;
-  box-shadow: none;
-  border: none;
-}
-
-.quote-top {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  padding: 0 6.25rem;
-}
-
-@media (max-width: 1024px) {
-  .quote-top {
-    padding: 0 1.25rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .quote-top {
-    display: grid;
-    grid-template-areas:
-      "photo watch"
-      "name watch";
-    grid-template-columns: 1fr auto;
-    gap: 0.625rem 0.9375rem;
-    align-items: start;
-  }
-}
-
-.person-photo {
-  width: 12.5rem;
-  height: 12.5rem;
-  border-radius: 50%;
-  border: 4px solid #60a5fa;
-  margin-top: -6rem;
-  object-fit: cover;
-  flex-shrink: 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  .person-photo {
-    width: 7.5rem;
-    height: 7.5rem;
-    margin: 0;
-    border-width: 3px;
-    grid-area: photo;
-  }
-}
-
-.quote-title {
-  display: flex;
-  flex-direction: column;
-  gap: 0.375rem;
-}
-
-.person-name {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
-}
-
-@media (max-width: 768px) {
-  .person-name {
-    font-size: 1.25rem;
-    text-align: left;
-  }
-}
-
-.person-ename {
-  font-size: 1.75rem;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-@media (max-width: 768px) {
-  .person-ename {
-    font-size: 0.875rem;
-    text-align: left;
-  }
-}
-
-.quote-text {
-  position: relative;
-  margin-top: 0;
-  color: #e2e8f0;
-  font-size: 1.0625rem;
-  line-height: 1.9;
-  padding: 1.5rem 3.5rem;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-/* 內文滾動條美化 (深色高質感) */
-.quote-text::-webkit-scrollbar {
-  width: 4px;
-}
-
-.quote-text::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-}
-
-.quote-text::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 2px;
-}
-
-.quote-text::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-}
-
-@media (max-width: 768px) {
-  .quote-text {
-    padding: 1rem 0.5rem;
-    font-size: 0.95rem;
-    max-height: 65vh;
-  }
-}
-
-.quote-html p {
-  margin-bottom: 1.35rem;
-  text-align: justify;
-  color: #f1f5f9;
-}
-
-.quote-html strong {
-  color: #60a5fa;
-  font-weight: 700;
-}
-
-.quote-bullet-list {
-  margin: 0.75rem 0 1.5rem 1.5rem;
-  list-style-type: disc;
-}
-
-.quote-bullet-list li {
-  margin-bottom: 0.5rem;
-  color: #cbd5e1;
-  line-height: 1.7;
-}
-
-/* ----------- 7. 觀看影片與 Watch Area ----------- */
-.watch-area {
-  position: relative;
-  width: 12.5rem;
-  margin-left: auto;
-  text-align: center;
-  cursor: pointer;
-}
-
-.watch-area:hover .watch-btn {
-  background-color: #464eb8;
-}
-
-@media (max-width: 768px) {
-  .watch-area {
-    width: 8.125rem;
-    margin: 0 auto;
-  }
-}
-
-.watch-thumb {
-  width: 100%;
-  height: 6rem;
-  object-fit: cover;
-  border-radius: 0.25rem;
-}
-
-@media (max-width: 768px) {
-  .watch-thumb {
-    height: 5rem;
-    width: 7.5rem;
-    margin: 0 auto;
-  }
-}
-
-.watch-btn {
-  width: 8.125rem;
-  height: 2.875rem;
-  background-color: #6673ff;
-  color: #ffffff;
-  border: none;
-  font-weight: 700;
-  font-size: 1.125rem;
-  transform: translateY(-50%);
-  border-radius: 86.45px;
-  margin: 0 auto;
-  line-height: 2.875rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .watch-btn {
-    width: 6.25rem;
-    height: 2.1875rem;
-    line-height: 2.1875rem;
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
-  }
-}
-
-/* ----------- 8. 認證賽道詳細說明 (Experts Section) ----------- */
-.experts-section {
-  padding: 4rem 1.25rem;
-  background-color: #f0f4f8;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .experts-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.experts-container {
-  max-width: 75rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.experts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-@media (max-width: 1024px) {
-  .experts-section {
-    padding: 3rem 1rem;
-  }
-
-  .experts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.expert-card {
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.96) 0%,
-      rgba(247, 249, 254, 0.96) 100%);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-.expert-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
-  border-bottom: 1px solid rgba(2, 41, 100, 0.1);
-  padding-bottom: 0.85rem;
-}
-
-.expert-icon-wrapper {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #022964 0%, #464eb8 100%);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(2, 41, 100, 0.2);
-  flex-shrink: 0;
-}
-
-.expert-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.expert-name {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #022964;
-  margin: 0;
-  line-height: 1.3;
-}
-
-.expert-intro {
-  font-size: 0.9375rem;
-  color: #555555;
-  line-height: 1.7;
-  text-align: justify;
-  margin: 0;
-  height: 50vh;
-  max-height: 50vh;
-  overflow-y: auto;
-  padding-right: 0.35rem;
-}
-
-@media (max-width: 768px) {
-  .expert-intro {
-    height: 45vh;
-    max-height: 45vh;
-  }
-}
-
-/* Scrollbar for expert-intro */
-.expert-intro::-webkit-scrollbar {
-  width: 6px;
-}
-
-.expert-intro::-webkit-scrollbar-track {
-  background: rgba(2, 41, 100, 0.05);
-  border-radius: 3px;
-}
-
-.expert-intro::-webkit-scrollbar-thumb {
-  background: rgba(2, 41, 100, 0.3);
-  border-radius: 3px;
-}
-
-.expert-intro::-webkit-scrollbar-thumb:hover {
-  background: rgba(2, 41, 100, 0.5);
-}
-
-.expert-intro p {
-  margin-bottom: 0.85rem;
-}
-
-.expert-bullet-list {
-  margin: 0.25rem 0 0.85rem 1.25rem;
-  list-style-type: disc;
-}
-
-.expert-bullet-list li {
-  margin-bottom: 0.25rem;
-  color: #444444;
-}
-
-/* ----------- 9. 培訓對象與資格 (Training & Eligibility) ----------- */
-.training-section {
-  padding: 4rem 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .training-section {
-    padding: 2rem 0.75rem;
-  }
-}
-
-.training-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.training-title {
-  background: linear-gradient(90deg,
-      rgba(2, 41, 100, 0) 0%,
-      rgba(126, 146, 176, 0.49) 10.1%,
-      rgba(255, 255, 255, 0.9) 32.67%,
-      #ffffff 49.96%,
-      rgba(255, 255, 255, 0.9) 68.75%,
-      rgba(126, 146, 176, 0.63) 87.02%,
-      rgba(2, 41, 100, 0) 100%);
-  color: var(--color-primary);
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 700;
-  font-size: var(--font-4xl);
-  line-height: 1.4;
-  text-align: center;
-  padding: 1rem 0;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .training-title {
-    font-size: var(--font-xl);
-  }
-}
-
-.training-item {
-  margin: 2.5rem 0;
-}
-
-.training-pill {
-  display: inline-block;
-  text-align: center;
-  font-size: var(--font-lg);
-  background: var(--color-accent);
-  color: var(--color-white);
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 700;
-  border-radius: 86.45px;
-  padding: 0.5rem 1.5rem;
-  margin-bottom: 0.75rem;
-  margin-right: 0.864rem;
-}
-
-.training-heading {
-  color: var(--color-white);
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 700;
-  font-size: var(--font-lg);
-  line-height: 2rem;
-  margin: 0 0.5rem;
-  display: inline-block;
-  text-decoration: underline;
-  text-decoration-color: #fff9b9;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
-}
-
-.training-text {
-  color: var(--color-white);
-  font-size: var(--font-base);
-  line-height: 2rem;
-  padding: 0 1.25rem;
-}
-
-@media (max-width: 768px) {
-  .training-text {
-    padding: 0 0.5rem;
-    font-size: var(--font-sm);
-    line-height: 1.6;
-  }
-}
-
-.eligibility-section {
-  padding: 4rem 1.25rem;
-  background: var(--color-white);
-}
-
-.eligibility-container {
-  max-width: 75rem;
-  margin: 0 auto;
-  text-align: center;
-  color: var(--color-primary);
-}
-
-.eligibility-title {
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 700;
-  font-size: var(--font-4xl);
-}
-
-@media (max-width: 768px) {
-  .eligibility-title {
-    font-size: var(--font-xl);
-  }
-}
-
-.eligibility-subtitle {
-  margin-top: 0.75rem;
-  font-weight: 700;
-}
-
-.eligibility-divider {
-  width: 33.75rem;
-  max-width: 80%;
-  height: 0;
-  border-bottom: 2px solid var(--color-primary);
-  margin: 0.75rem auto 1.25rem;
-}
-
-.eligibility-note {
-  opacity: 0.9;
-  margin-bottom: 2rem;
-}
-
-.eligibility-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-
-@media (max-width: 768px) {
-  .eligibility-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-.eligibility-card {
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  min-height: 13.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.eligibility-number {
-  font-size: var(--font-mega);
-  font-weight: 800;
-  line-height: 1;
-}
-
-.eligibility-text {
-  font-size: var(--font-base);
-  line-height: 1.8;
-  text-align: left;
-}
-
-/* ----------- 10. 培訓流程與動態時間軸 (Schedule Steps) ----------- */
-.schedule-section {
-  padding: 4rem 1.25rem;
-  background-size: cover;
-  background-position: center;
-}
-
-.schedule-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.schedule-title {
-  color: var(--color-white);
-  font-size: var(--font-4xl);
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-  .schedule-title {
-    font-size: var(--font-xl);
-  }
-}
-
-.schedule-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 60rem;
-  margin: 2rem auto 0 auto;
-}
-
-.schedule-step {
-  color: var(--color-white);
-}
-
-.step-bar {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  height: 2.5rem;
-  margin-bottom: 0.75rem;
-  width: 43.4375rem;
-  max-width: 100%;
-}
-
-.step-bar-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center right;
-}
-
-.step-bar-text {
-  position: relative;
-  color: var(--color-white);
-  font-size: var(--font-lg);
-  font-weight: 700;
-  padding: 0 1rem;
-}
-
-@media (max-width: 768px) {
-  .step-bar-text {
-    font-size: var(--font-base);
-  }
-}
-
-.step-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  color: var(--color-white);
-  font-size: var(--font-base);
-  line-height: 2rem;
-  max-width: 43.375rem;
-  width: 100%;
-}
-
-.step-label {
-  font-weight: 700;
-}
-
-.step-two {
-  margin-left: 10rem;
-}
-
-@media (max-width: 768px) {
-  .step-two {
-    margin-left: 0;
-  }
-}
-
-/* ----------- 11. 下載專區 (Download Section) ----------- */
-.download-section {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 4rem 1.25rem;
-  background-color: #f0f4f8;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .download-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.download-container {
-  max-width: 62.5rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.download-title {
-  font-size: var(--font-4xl);
-  font-weight: 700;
-  color: #022964;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .download-title {
-    font-size: var(--font-xl);
-  }
-}
-
-.download-table {
-  background-color: var(--color-bg-light);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-}
-
-.download-header {
-  display: flex;
-  background-color: var(--color-primary);
-  color: white;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .download-header {
-    display: none;
-  }
-}
-
-.download-row {
-  display: flex;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.download-row:last-child {
-  border-bottom: none;
-}
-
-@media (max-width: 768px) {
-  .download-row {
-    flex-direction: column;
-    padding: 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    margin-bottom: 0.75rem;
-    background-color: white;
-  }
-}
-
-.download-col {
-  flex: 1;
-  padding: 1rem 1.25rem;
-  display: flex;
-  align-items: center;
-}
-
-.download-col:nth-child(1) {
-  flex: 2;
-  font-weight: 500;
-}
-
-.download-col:nth-child(2) {
-  flex: 3;
-}
-
-.download-col:nth-child(3) {
-  flex: 1;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .download-col {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .download-col:last-child {
-    border-bottom: none;
-  }
-
-  .download-col:nth-child(3) {
-    justify-content: flex-start;
-    padding-top: 0.75rem;
-  }
-}
-
-.download-link {
-  color: var(--color-white);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.25rem;
-  background-color: var(--color-accent);
-  border-radius: 86.45px;
-  transition: background-color 0.3s ease;
-  font-size: var(--font-sm);
-  font-weight: 500;
-}
-
-.download-link:hover {
-  background-color: var(--color-accent-hover);
-  color: var(--color-white);
-}
-
-.download-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>') no-repeat center;
-  background-size: contain;
-}
-
-/* ----------- 12. 聯絡資訊 (Contact Area) ----------- */
-.contact-area {
-  width: 100%;
-  background-color: #ffffff;
-  padding: 2.5rem 1.25rem;
-}
-
-.contact-section {
-  max-width: 62.5rem;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.contact-title {
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
-  text-align: left;
-  font-weight: 700;
-  font-size: var(--font-lg);
-  line-height: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.contact-box {
-  background-color: var(--color-white);
-  padding: 0.5rem 0;
-}
-
-.contact-text {
-  font-size: var(--font-base);
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-
-.contact-email {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.contact-email:hover {
-  text-decoration: underline;
-}
-
-/* ----------- 13. Video Modal 彈出視窗樣式 ----------- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 9999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  backdrop-filter: blur(4px);
-}
-
-.modal-overlay.active {
-  display: flex;
-}
-
-.modal-dialog {
-  background: white;
-  border-radius: 12px;
-  max-width: 800px;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 32px;
-  background: none;
-  border: none;
-  color: #666;
-  cursor: pointer;
-  z-index: 10;
-  line-height: 1;
-  transition: color 0.2s;
-}
-
-.modal-close-btn:hover {
-  color: #000;
-}
-
-.modal-header {
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.modal-person-photo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 12px;
-}
-
-.person-details h3 {
-  margin: 0;
-  font-size: 1.125rem;
-  color: #022964;
-}
-
-.person-details p {
-  margin: 4px 0 0 0;
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.modal-body {
-  position: relative;
-  padding-bottom: 56.25%;
-  /* 16:9 ratio */
-  height: 0;
-  background: #000;
-}
-
-.modal-body iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 /* ----------- 14. Footer 頁尾樣式 (精準對齊截圖) ----------- */
@@ -2644,788 +2820,5 @@ img {
   .footer-logo-mobile .footer-logo {
     height: 38px;
     width: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    padding: 32px 16px 24px;
-  }
-
-  .footer-top-columns,
-  .footer-columns {
-    gap: 16px;
-  }
-
-  .footer-logo {
-    height: 50px;
-  }
-
-  .accessibility-logo {
-    width: 120px;
-  }
-
-  .contact-info p {
-    font-size: 14px;
-  }
-}
-
-.customer-service-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 500;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  margin: 16px 0;
-}
-
-.customer-service-btn:hover {
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
-.customer-service-btn:active {
-  transform: translateY(0);
-}
-
-.customer-service-icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-.desktop-customer-service {
-  margin-top: 20px;
-}
-
-.mobile-customer-service {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.mobile-customer-service .customer-service-btn {
-  margin-top: 0;
-}
-
-@media (max-width: 768px) {
-  .desktop-customer-service {
-    display: none;
-  }
-}
-
-@media (min-width: 769px) {
-  .mobile-customer-service {
-    display: none;
-  }
-}
-
-/* ----------- 9. 軟體認證：從技術合規到真實世界落地 ----------- */
-.software-flow-section {
-  padding: 4rem 1.25rem;
-  background-color: #022964;
-}
-
-@media (max-width: 768px) {
-  .software-flow-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.software-flow-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.section-main-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-@media (max-width: 768px) {
-  .section-main-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-}
-
-.flow-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-
-@media (max-width: 1024px) {
-  .flow-steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .flow-steps-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.flow-step-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 247, 252, 0.98) 100%);
-  border-radius: 0.75rem;
-  padding: 1.75rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.flow-step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-.step-badge {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #464eb8 0%, #022964 100%);
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 10px rgba(2, 41, 100, 0.3);
-}
-
-.flow-step-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #022964;
-  margin-bottom: 0.75rem;
-}
-
-.flow-step-desc {
-  font-size: 0.9375rem;
-  color: #444444;
-  line-height: 1.6;
-}
-
-.flow-step-desc strong {
-  color: #022964;
-  font-weight: 700;
-}
-
-/* ----------- 10. TSP 認證制度：量身打造的導入服務 ----------- */
-.tsp-pyramid-section {
-  padding: 4rem 1.25rem;
-  background-color: #f0f4f8;
-}
-
-@media (max-width: 768px) {
-  .tsp-pyramid-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.tsp-pyramid-section .section-main-title {
-  color: #022964;
-}
-
-.tsp-pyramid-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.section-subtitle {
-  font-size: 1.125rem;
-  color: #475569;
-  text-align: center;
-  margin-top: -1.75rem;
-  margin-bottom: 2.5rem;
-  font-weight: 500;
-}
-
-.pyramid-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-  max-width: 52rem;
-  margin: 0 auto;
-}
-
-.pyramid-tier {
-  border-radius: 0.75rem;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
-}
-
-.pyramid-tier:hover {
-  transform: translateY(-2px);
-}
-
-.tier-top {
-  width: 70%;
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  border-left: 6px solid #1976d2;
-}
-
-.tier-mid {
-  width: 85%;
-  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-  border-left: 6px solid #f57c00;
-}
-
-.tier-base {
-  width: 100%;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-  border-left: 6px solid #388e3c;
-}
-
-@media (max-width: 768px) {
-
-  .pyramid-tier,
-  .tier-top,
-  .tier-mid,
-  .tier-base {
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
-    padding: 1.25rem;
-    gap: 0.75rem;
-  }
-}
-
-.tier-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.tier-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.tier-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #022964;
-}
-
-.tier-desc {
-  font-size: 0.9375rem;
-  color: #333333;
-  line-height: 1.5;
-}
-
-/* ----------- 11. 軟硬整合：免費授權與效能認證 ----------- */
-.puzzle-section {
-  padding: 4rem 1.25rem;
-  background-color: #ffffff;
-}
-
-@media (max-width: 768px) {
-  .puzzle-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.puzzle-section .section-main-title {
-  color: #022964;
-}
-
-.puzzle-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.puzzle-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .puzzle-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-}
-
-.puzzle-card {
-  border-radius: 0.75rem;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.puzzle-card-software {
-  background: linear-gradient(135deg, rgba(224, 242, 254, 0.96) 0%, rgba(186, 230, 253, 0.96) 100%);
-  border: 2px solid #38bdf8;
-}
-
-.puzzle-card-hardware {
-  background: linear-gradient(135deg, rgba(254, 237, 232, 0.96) 0%, rgba(254, 215, 202, 0.96) 100%);
-  border: 2px solid #fb923c;
-}
-
-.puzzle-card-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #022964;
-}
-
-.puzzle-card-highlight {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0369a1;
-  margin-bottom: 0.25rem;
-}
-
-.puzzle-card-hardware .puzzle-card-highlight {
-  color: #c2410c;
-}
-
-.puzzle-card-desc {
-  font-size: 0.95rem;
-  color: #334155;
-  line-height: 1.7;
-}
-
-/* ----------- 12. 效能革命：為何需要國家級 FHIR Box？ ----------- */
-.compare-section {
-  padding: 4rem 1.25rem;
-  background-color: #022964;
-}
-
-@media (max-width: 768px) {
-  .compare-section {
-    padding: 2.5rem 1rem;
-  }
-}
-
-.compare-container {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.compare-table-wrapper {
-  overflow-x: auto;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  text-align: left;
-}
-
-.compare-table th,
-.compare-table td {
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.compare-table th {
-  font-size: 1.125rem;
-  font-weight: 800;
-}
-
-.compare-table th.col-item {
-  background: #f1f5f9;
-  color: #334155;
-  width: 20%;
-}
-
-.compare-table th.col-traditional {
-  background: #e2e8f0;
-  color: #475569;
-  width: 40%;
-}
-
-.compare-table th.col-national {
-  background: linear-gradient(135deg, #022964 0%, #464eb8 100%);
-  color: #ffffff;
-  width: 40%;
-}
-
-.compare-table td.cell-item {
-  font-weight: 700;
-  color: #1e293b;
-  background: #f8fafc;
-}
-
-.compare-table td.cell-traditional {
-  color: #64748b;
-  background: #ffffff;
-}
-
-.compare-table td.cell-national {
-  color: #022964;
-  font-weight: 700;
-  background: #f0f9ff;
-}
-
-@media (max-width: 768px) {
-
-  .compare-table th,
-  .compare-table td {
-    padding: 0.85rem 0.75rem;
-    font-size: 0.875rem;
-  }
-}
-
-/* ==========================================================================
-   手機版 (Mobile Responsive) 精準優化調整
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-  /* ----------------------------------------------------
-     2. Header Logo 尺寸優化
-     ---------------------------------------------------- */
-  .standalone-navbar {
-    padding: 14px 16px;
-  }
-
-  .standalone-navbar .logo-container img {
-    /* 調整為合適的視覺比例 (由 36px 放大至 48px，並支援響應式上限) */
-    height: 46px;
-    max-height: 12vw;
-    width: auto;
-    object-fit: contain;
-  }
-
-  /* ----------------------------------------------------
-     3. FHIR Box 10 大技術授權矩陣 Tag 橫向手勢滑動
-     ---------------------------------------------------- */
-  .license-tags-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    /* 強制單排不折行 */
-    overflow-x: auto;
-    /* 支援橫向滑動 */
-    overflow-y: hidden;
-    gap: 0.6rem;
-    padding: 0.5rem 0.25rem 0.75rem 0.25rem;
-    margin: 0 -0.5rem;
-    /* 負邊距提供更自然的滑動邊界 */
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    /* iOS 慣性滾動 */
-    scroll-snap-type: x mandatory;
-    /* 滑動對齊手感 */
-  }
-
-  /* 隱藏滾動條，保持介面極簡美觀 */
-  .license-tags-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .license-tags-grid {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-  }
-
-  .license-tag {
-    flex-shrink: 0;
-    /* 防止標籤被壓縮 */
-    scroll-snap-align: start;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.85rem;
-    white-space: nowrap;
-    /* 文字不換行 */
-  }
-
-  /* ----------------------------------------------------
-     1. 四大專業能力領域與 10 大認證學程 全面重整防爆版
-     ---------------------------------------------------- */
-  .plan-section {
-    padding: 2rem 0.75rem;
-    margin-top: 1.5rem;
-  }
-
-  .plan-container-redesign {
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* 矩陣外層卡片容器 */
-  .curriculum-matrix-card {
-    padding: 1.25rem 1rem;
-    border-radius: 1rem;
-    gap: 1.25rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .curriculum-hero-header {
-    padding-bottom: 1.25rem;
-    gap: 1rem;
-  }
-
-  /* 數據 Banner 橫排緊湊化 */
-  .curriculum-stats-banner {
-    width: 100%;
-    padding: 0.85rem 0.5rem;
-    border-radius: 0.75rem;
-    box-sizing: border-box;
-  }
-
-  .curr-stat-num {
-    font-size: 1.5rem;
-  }
-
-  .curr-stat-label {
-    font-size: 0.7rem;
-    margin-top: 0.2rem;
-  }
-
-  .curr-stat-divider {
-    height: 1.6rem;
-  }
-
-  /* 四大 Domain Grid 單欄與防溢出 */
-  .domains-matrix-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    width: 100%;
-  }
-
-  /* 單個 Domain 卡片容器 */
-  .domain-block {
-    padding: 1.15rem 1rem;
-    border-radius: 0.85rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    /* 防止內部元素溢出 */
-  }
-
-  /* Domain 頂部標題區重新排版 */
-  .domain-block-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
-    padding-bottom: 0.85rem;
-  }
-
-  .domain-badge-title-wrap {
-    width: 100%;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .domain-id-badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-  }
-
-  .domain-title-group {
-    flex: 1;
-    min-width: 0;
-    /* 確保 flex 子元素可以正確縮放 */
-  }
-
-  .domain-name-zh {
-    font-size: 1.05rem;
-    line-height: 1.35;
-    word-break: break-word;
-  }
-
-  .domain-name-en {
-    font-size: 0.75rem;
-    word-break: break-word;
-  }
-
-  .domain-course-count {
-    align-self: flex-start;
-    font-size: 0.75rem;
-    padding: 0.2rem 0.55rem;
-  }
-
-  /* 課程列表項目卡片 */
-  .domain-courses-list {
-    gap: 0.75rem;
-  }
-
-  .course-item-card {
-    padding: 1rem;
-    border-radius: 0.65rem;
-    gap: 0.5rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .course-item-title {
-    font-size: 0.95rem;
-    line-height: 1.4;
-  }
-
-  .course-item-summary {
-    font-size: 0.8rem;
-    line-height: 1.45;
-  }
-
-  .course-card-footer {
-    margin-top: 0.25rem;
-    padding-top: 0.4rem;
-  }
-
-  .back-to-tree-btn {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  .view-syllabus-btn {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* 1. 確保外層 Plan 區塊不會被任何子元素撐破 */
-  .plan-section {
-    padding: 2rem 1rem !important;
-    margin-top: 1rem !important;
-    overflow-x: hidden !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .plan-container-redesign {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-    gap: 1.5rem !important;
-  }
-
-  /* 2. 重整生態樹卡片 (Tree Hero Card) 手機版佈局 */
-  .tree-hero-card {
-    display: flex !important;
-    /* 改用 flex 垂直排列，避免 grid 計算被撐開 */
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 1.25rem 1rem !important;
-    border-radius: 1rem !important;
-    gap: 1.25rem !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    /* 鎖住卡片邊界 */
-  }
-
-  .tree-hero-content {
-    width: 100% !important;
-    min-width: 0 !important;
-    /* 關鍵：允許 Flex 項目縮小至比內容小，才能觸發滾動 */
-    box-sizing: border-box !important;
-  }
-
-  .tree-card-title {
-    font-size: 1.25rem !important;
-    line-height: 1.4 !important;
-    word-break: break-word !important;
-  }
-
-  .tree-card-desc {
-    font-size: 0.875rem !important;
-    line-height: 1.6 !important;
-  }
-
-  /* 3. Tag 標籤單排橫向滑動 (解決無法滾動與撐開問題) */
-  .license-tags-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    /* 單排不換行 */
-    overflow-x: auto !important;
-    /* 開啟水平滑動 */
-    overflow-y: hidden !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 0.5rem !important;
-    padding: 0.5rem 0.25rem 0.75rem 0.25rem !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-    -webkit-overflow-scrolling: touch !important;
-    /* iOS 順暢手勢滾動 */
-    scroll-snap-type: x proximity;
-    touch-action: pan-x;
-    /* 確保觸控手勢綁定橫向滾動 */
-  }
-
-  /* 隱藏原生滾動條維持簡潔 */
-  .license-tags-grid::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .license-tags-grid {
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-  }
-
-  .license-tag {
-    flex-shrink: 0 !important;
-    /* 避免 tag 被擠壓變形 */
-    white-space: nowrap !important;
-    /* 文字不換行 */
-    font-size: 0.8rem !important;
-    padding: 0.4rem 0.8rem !important;
-    scroll-snap-align: start;
-  }
-
-  /* 4. 底下生態樹圖片自適應縮放，不超出螢幕 */
-  .tree-hero-image-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-  }
-
-  .tree-image {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-    object-fit: contain !important;
-    display: block !important;
   }
 }

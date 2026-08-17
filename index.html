@@ -1026,18 +1026,412 @@
       </div>
     </section>
 
-    <!-- 國家實驗室檢測規範、8 大驗測項目與費用規劃專區 -->
+    <!-- 國家醫療資訊認證實驗室專區：六大原則、軟硬體驗測指標、8 大情境與費用規劃 -->
     <section class="lab-testing-section" id="lab-testing-section">
       <div class="lab-testing-container">
+        <!-- Section 頂部引言 -->
         <div class="lab-section-header">
-          <div class="lab-badge">國家級數位健康認證機制</div>
-          <h2 class="lab-main-title">國家實驗室檢測規範、8 大實機驗測項目與費用規劃</h2>
+          <div class="lab-badge">國家級電子病歷與醫療作業系統認證平台</div>
+          <h2 class="lab-main-title">國家醫療資訊認證實驗室 — 驗測辦法、指標基準與費用規範</h2>
           <p class="lab-main-subtitle">
-            依據衛福部資訊處標準，建立硬體效能基準測試、軟體臨床雙重驗證與 TSP 實機 8 大情境檢定，搭配透明化培訓考照與醫院落地回饋機制。
+            為避免各醫事機構與廠商自行解讀標準，導致資料欄位、身分驗證、授權範圍、批次讀寫與效能標準不一致，本辦法建立國家級電子病歷認證實驗室，作為廠商生態系介接應用軟體產品、硬體與 TSP 廠商之 FHIR BOX 佈署之標準測試、證書核發、年度維護與公開資訊揭露之制度平台。
           </p>
         </div>
 
-        <!-- 模組一：費用規劃與醫院裝機回饋精算 -->
+        <!-- 模組 0：六大認證原則 (6 Core Principles) -->
+        <div class="lab-principles-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">Core Principles</div>
+            <h3 class="lab-block-title">國家醫療資訊認證實驗室 — 六大認證原則</h3>
+            <p class="lab-block-desc">
+              遵循標準化、可追溯與持續監管之核心方針，確保全國智慧醫療生態系具備最高安全性與互通性。
+            </p>
+          </div>
+
+          <div class="principles-grid">
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">01</span>
+                <span class="principle-name">標準優先 / 資料相容</span>
+              </div>
+              <div class="principle-content">
+                以 <strong>TW Core IG</strong>、<strong>TW CDI</strong>、<strong>SMART App</strong> 與 <strong>CQL</strong> 等國家公開標準作為權威依據，徹底消除跨機構資料壁壘。
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">02</span>
+                <span class="principle-name">先測試後認證</span>
+              </div>
+              <div class="principle-content">
+                廠商應先完成<strong>自我評估與可測試環境建置</strong>，經認證實驗室正式測試通過後，再由主管機關審查與核發國家認證證書。
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">03</span>
+                <span class="principle-name">可重現與可稽核</span>
+              </div>
+              <div class="principle-content">
+                測試資料集、測試工具版本、測試案例、執行紀錄與結果報告<strong>均須具備完整可追溯性與稽核憑據</strong>。
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">04</span>
+                <span class="principle-name">公開透明</span>
+              </div>
+              <div class="principle-content">
+                認證結果、認證範圍、產品版本、測試能量等級與維護狀態，一律於<strong>衛福部指定官方網站即時公開揭露</strong>。
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">05</span>
+                <span class="principle-name">最小權限與資安保護</span>
+              </div>
+              <div class="principle-content">
+                SMART 授權、Token 管理、TLS 加密傳輸、稽核紀錄、Provenance 與數位簽章機制，須嚴格符合<strong>最小權限原則與可追蹤標準</strong>。
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-badge-col">
+                <span class="principle-num">06</span>
+                <span class="principle-name">持續監管</span>
+              </div>
+              <div class="principle-content">
+                認證並非一次性通過即可，需透過<strong>年度續證、真實世界臨床測試 (RWT) 與重大版本更新重驗</strong>維持長期有效性。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組 1：軟體驗證規範 (Software Track Validation) -->
+        <div class="lab-software-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">Software Track Validation</div>
+            <h3 class="lab-block-title">軟體驗證：生態系介接應用功能認證</h3>
+            <p class="lab-block-desc">
+              針對 SMART on FHIR 與 CQL 臨床決策模組進行技術相容性與臨床互通雙重嚴謹檢測。
+            </p>
+          </div>
+
+          <div class="software-track-matrix">
+            <div class="software-meta-banner">
+              <div class="meta-item">
+                <span class="meta-label">認證類型</span>
+                <span class="meta-val">生態系介接應用功能認證</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">驗測項目</span>
+                <span class="meta-val">SMART、CQL (含技術測試與臨床測試)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">驗測重點</span>
+                <span class="meta-val">安全性、相容性與互通性</span>
+              </div>
+            </div>
+
+            <div class="software-details-grid">
+              <div class="software-detail-card">
+                <h4 class="software-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  主要驗測範疇與項目細則
+                </h4>
+                <ul class="software-check-list">
+                  <li><strong>SMART 應用架構：</strong>SMART App Launch、OAuth 2.0 / OpenID Connect、Standalone Launch 與 EHR Launch 雙模式支援。</li>
+                  <li><strong>授權與資安控管：</strong>Token Refresh、Introspection API、v1/v2 Scopes 細粒度權限、TLS 安全加密傳輸與數位簽章驗證。</li>
+                  <li><strong>臨床決策邏輯：</strong>CQL 邏輯語法相容性、ELM JSON 解析與 CDS Hooks Service 觸發卡片機制。</li>
+                </ul>
+              </div>
+
+              <div class="software-detail-card">
+                <h4 class="software-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  認證執行程序與實驗室規範 SOP
+                </h4>
+                <div class="sop-steps-list">
+                  <div class="sop-step-row">
+                    <span class="sop-step-tag">自測先行</span>
+                    <p>正式測試前，廠商應先完成自測並提交自我評估清單；正式測試以認證實驗室測試環境與工具版本為準。</p>
+                  </div>
+                  <div class="sop-step-row">
+                    <span class="sop-step-tag">完整追溯</span>
+                    <p>所有測試皆保存原始 log、測試工具版本、測試資料集版本、執行時間、測試人員與測試環境設定。</p>
+                  </div>
+                  <div class="sop-step-row">
+                    <span class="sop-step-tag">輔導補正</span>
+                    <p>針對無法通過認證之案例，實驗室提供驗證錯誤訊息與具體建議補正方向。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組 2：硬體效能驗證 (Hardware Track: Bulk Data & Performance Benchmark) -->
+        <div class="lab-hardware-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">Hardware Performance Benchmark</div>
+            <h3 class="lab-block-title">硬體效能驗證：Bulk Data 大規模資料交換與壓力測試</h3>
+            <p class="lab-block-desc">
+              用於驗證硬體系統支援大規模資料交換與高負載穩定服務能力。測試項目包含批次匯入、併發使用者數、API 成功率、Latency、Token refresh 成功率與 Bulk job 完成率。
+            </p>
+          </div>
+
+          <!-- 硬體效能 7 大量化指標數據基準表 -->
+          <div class="benchmark-table-wrapper">
+            <table class="benchmark-table">
+              <thead>
+                <tr>
+                  <th class="col-indicator">驗測指標</th>
+                  <th class="col-standard">國家驗測基準 (Standard)</th>
+                  <th class="col-description">規範說明 (Specification Details)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 01</span>
+                    <strong>API 成功率</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val highlight-green">2xx / total；建議 &gt; 99%</span>
+                  </td>
+                  <td class="cell-description">一般 FHIR API 與 SMART 流程呼叫之成功比例。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 02</span>
+                    <strong>平均 Latency</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val highlight-blue">&lt; 500 ms</span>
+                  </td>
+                  <td class="cell-description">常用查詢與單筆資源讀取之平均反應時間。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 03</span>
+                    <strong>Token refresh 成功率</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val highlight-green">&gt; 99%</span>
+                  </td>
+                  <td class="cell-description">大量使用者情境下 refresh token 流程成功比例。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 04</span>
+                    <strong>Concurrency 併發數量</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val">20、80、150、200 (依等級)</span>
+                  </td>
+                  <td class="cell-description">同時連線或同時任務承載能力評估。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 05</span>
+                    <strong>SMART login 成功率</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val highlight-green">&gt; 99%</span>
+                  </td>
+                  <td class="cell-description">大量使用者登入與 Launch 場景之成功率。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 06</span>
+                    <strong>Bundle R/W 吞吐量</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val highlight-blue">2,500 – 3,000 bundle resources/s</span>
+                  </td>
+                  <td class="cell-description">CQL/CDS Hooks、SMART App 或資料交換場景下之 bundle 讀寫能力。</td>
+                </tr>
+                <tr>
+                  <td class="cell-indicator">
+                    <span class="ind-badge">指標 07</span>
+                    <strong>單筆 Request R/W</strong>
+                  </td>
+                  <td class="cell-standard">
+                    <span class="benchmark-val">約 500 req/s</span>
+                  </td>
+                  <td class="cell-description">單筆 API 讀寫請求之吞吐能力參考。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 邊界規格與病歷規模分級 -->
+          <div class="hardware-scale-banner">
+            <div class="scale-item scale-timeout">
+              <span class="scale-label">系統 Time-out 設定</span>
+              <span class="scale-val">60 秒 (60s)</span>
+            </div>
+            <div class="scale-divider"></div>
+            <div class="scale-item scale-records">
+              <span class="scale-label">病歷規模測試等級 (Dataset Scales)</span>
+              <div class="scale-pills-list">
+                <span class="scale-pill">10 萬筆</span>
+                <span class="scale-pill">20 萬筆</span>
+                <span class="scale-pill">30 萬筆</span>
+                <span class="scale-pill">50 萬筆</span>
+                <span class="scale-pill">100 萬筆</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組 3：TSP 實機認證 8 大驗測情境項目 -->
+        <div class="lab-scenarios-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">8 Hands-on Testing Scenarios</div>
+            <h3 class="lab-block-title">TSP 實機認證 8 大驗測情境項目與驗收指標</h3>
+            <p class="lab-block-desc">
+              於國家級沙盒環境進行實機上機檢定，全面考核標準佈署、CDS/CQL 規則、術語映射、AI 語意檢索及故障排除能力。
+            </p>
+          </div>
+
+          <div class="scenarios-grid">
+            <!-- 情境一 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境一</span>
+                <h4 class="scenario-title">標準環境安裝 (FHIR BOX 佈署)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>安裝指定容器環境與相依套件</li>
+                  <li>設定環境變數與安全系統設定</li>
+                  <li>交付服務清單、安裝紀錄與操作截圖報告</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境二 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境二</span>
+                <h4 class="scenario-title">SMART App 佈署與啟動 (THAS)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>建立符合標準之 SMART Client 端應用</li>
+                  <li>設定 Scope 存取權限與 Token 授權機制</li>
+                  <li>完成標準 EHR Launch 流程整合與介面呼叫</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境三 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境三</span>
+                <h4 class="scenario-title">CQL / CDS Hooks (THRS)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>上傳 CQL 臨床邏輯檔或編譯之 ELM JSON</li>
+                  <li>設定 CDS Hooks Service 與觸發 Hook 端點</li>
+                  <li>排除 Library、Terminology 或 Parameter 參數錯誤</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境四 -->
+            <div class="scenario-card scenario-card-featured">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境四</span>
+                <h4 class="scenario-title">維運與故障排除 (現場隨機抽題)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <p class="scenario-note">受測 TSP 應能排除至少五類現場隨機抽題之維運問題：</p>
+                <ul class="scenario-checklist">
+                  <li>TLS Certificate 憑證效期與信任鏈錯誤排查</li>
+                  <li>SMART App <code>redirect_uri</code> mismatch 驗證異常排除</li>
+                  <li>FHIR Server 驗證失敗、網路中斷或連線逾時處理</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境五 -->
+            <div class="scenario-card scenario-card-featured">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境五</span>
+                <h4 class="scenario-title">術語共同核心實作 (含 LLM)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>建立簡單 ConceptMap 資源完成跨體系映射</li>
+                  <li>向量資料庫 (Vector DB) 切片策略與語意檢索優化</li>
+                  <li>精確辨識「查到相似名稱但語意不相等」之錯誤案例</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境六 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境六</span>
+                <h4 class="scenario-title">SNOMED CT 臨床術語實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>判斷父子概念層級與 Subsumption 關係</li>
+                  <li>撰寫基本 ECL (Expression Constraint Language) 查詢</li>
+                  <li>撰寫本地化 Extension 擴充規範需求書</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境七 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境七</span>
+                <h4 class="scenario-title">LOINC 臨床檢驗實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>完成指定筆數本地院內檢驗項目精準映射至 LOINC</li>
+                  <li>掌握 Component、System 等六軸向 (Six Axes) 基本觀念與檢核</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境八 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境八</span>
+                <h4 class="scenario-title">RxNorm 國際藥品標準實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>由藥品成分名稱取得正確 RxCUI 唯一識別碼</li>
+                  <li>完成院內藥碼精準映射至 RxNorm 國際標準</li>
+                  <li>具備正確邏輯判斷單方與複方藥品架構</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組 4：費用規劃與醫院裝機回饋精算 -->
         <div class="lab-pricing-block">
           <div class="lab-block-header">
             <div class="lab-block-tag">Pricing & ROI Model</div>
@@ -1110,232 +1504,6 @@
               <p class="rebate-desc">
                 通過認證之 TSP 廠商協助醫療院所（醫學中心、區域醫院、基層診所）完成 FHIR Box 系統實體或虛擬化安裝部署與驗收，<strong>每完成一家醫療院所即提供 1 萬元回饋</strong>，實質加速投資回收並帶動全國智慧醫療升級。
               </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 模組二：硬體認證與軟體認證之實驗室規範與辦法 -->
-        <div class="lab-rules-block">
-          <div class="lab-block-header">
-            <div class="lab-block-tag">Certification Specifications</div>
-            <h3 class="lab-block-title">硬體與軟體認證之實驗室驗測辦法</h3>
-            <p class="lab-block-desc">
-              遵循國家標準建立客觀透明的評估機制，確保軟體應用具備臨床安全性，硬體設備具備高通量運算可靠度。
-            </p>
-          </div>
-
-          <div class="lab-rules-grid">
-            <!-- 硬體認證規範 -->
-            <div class="rule-panel rule-panel-hardware">
-              <div class="rule-panel-header">
-                <div class="rule-icon-wrap">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                  </svg>
-                </div>
-                <div>
-                  <span class="rule-category">Hardware Track</span>
-                  <h4 class="rule-title">硬體認證驗測辦法</h4>
-                </div>
-              </div>
-              <div class="rule-items-list">
-                <div class="rule-item">
-                  <div class="rule-item-num">01</div>
-                  <div class="rule-item-body">
-                    <strong>標準測試資料集壓力驗證：</strong>
-                    <span>於硬體設備佈署完整 FHIR Box OS，依序以 10 萬筆、25 萬筆、50 萬筆不同等級規模病例資料進行資料轉換效率與高負載極限測試。</span>
-                  </div>
-                </div>
-                <div class="rule-item">
-                  <div class="rule-item-num">02</div>
-                  <div class="rule-item-body">
-                    <strong>Data Flow 與即時延遲評測：</strong>
-                    <span>模擬大量終端並發存取情境，嚴格監測 Request-to-Response Time、資料交換吞吐量與系統即時反應指標。</span>
-                  </div>
-                </div>
-                <div class="rule-item">
-                  <div class="rule-item-num">03</div>
-                  <div class="rule-item-body">
-                    <strong>客觀數據公開透明：</strong>
-                    <span>測試結果由國家醫療資訊認證實驗室完整公開，提供各級醫療院所依實際需求（大型醫學中心或區域基層）選用最適性價比設備。</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 軟體認證規範 -->
-            <div class="rule-panel rule-panel-software">
-              <div class="rule-panel-header">
-                <div class="rule-icon-wrap">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <span class="rule-category">Software Track</span>
-                  <h4 class="rule-title">軟體認證驗測辦法</h4>
-                </div>
-              </div>
-              <div class="rule-items-list">
-                <div class="rule-item">
-                  <div class="rule-item-num">01</div>
-                  <div class="rule-item-body">
-                    <strong>技術相容性驗證 (Technical Validation)：</strong>
-                    <span>審查 CQL / SMART on FHIR 模組與臺灣核心資料集 (TW Core Data / TWCDI) 之相容性，確認符合 OAuth 2.0 / OIDC 鑑別與細粒度授權規範。</span>
-                  </div>
-                </div>
-                <div class="rule-item">
-                  <div class="rule-item-num">02</div>
-                  <div class="rule-item-body">
-                    <strong>臨床情境落地驗證 (Clinical Validation)：</strong>
-                    <span>委託長庚大學、三軍總醫院等臨床研究團隊，於真實 HIS 環境與虛擬病歷架構中進行演算法邏輯閉環與回傳準確度驗證。</span>
-                  </div>
-                </div>
-                <div class="rule-item">
-                  <div class="rule-item-num">03</div>
-                  <div class="rule-item-body">
-                    <strong>國家認證標章與市集上架：</strong>
-                    <span>通過技術與臨床雙重驗證後獲頒國家認證標章，取得進入國家醫療應用市集 (App Marketplace) 之官方推薦白名單資格。</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 模組三：TSP 實機認證 8 大驗測情境項目 -->
-        <div class="lab-scenarios-block">
-          <div class="lab-block-header">
-            <div class="lab-block-tag">8 Hands-on Testing Scenarios</div>
-            <h3 class="lab-block-title">TSP 實機認證 8 大驗測情境項目與驗收指標</h3>
-            <p class="lab-block-desc">
-              於國家級沙盒環境進行實機上機檢定，全面考核標準佈署、CDS/CQL 規則、術語映射、AI 語意檢索及故障排除能力。
-            </p>
-          </div>
-
-          <div class="scenarios-grid">
-            <!-- 情境一 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境一</span>
-                <h4 class="scenario-title">標準環境安裝 (FHIR BOX 佈署)</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>安裝指定容器環境與相依套件</li>
-                  <li>正確配置系統環境變數與安全設定</li>
-                  <li>交付服務清單、安裝紀錄與操作截圖報告</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境二 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境二</span>
-                <h4 class="scenario-title">SMART App 佈署與啟動 (THAS)</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>建立符合標準之 SMART Client 端應用</li>
-                  <li>設定存取權限 Scope 與 Token 授權機制</li>
-                  <li>完成標準 EHR Launch 流程整合與介面呼叫</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境三 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境三</span>
-                <h4 class="scenario-title">CQL / CDS Hooks (THRS)</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>上傳 CQL 臨床邏輯檔或編譯之 ELM JSON</li>
-                  <li>配置 CDS Hooks Service 與觸發 Hook 端點</li>
-                  <li>即時排除 Library、Terminology 或 Parameter 參數錯誤</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境四 -->
-            <div class="scenario-card scenario-card-featured">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境四</span>
-                <h4 class="scenario-title">維運與故障排除 (現場隨機抽題)</h4>
-              </div>
-              <div class="scenario-card-body">
-                <p class="scenario-note">受測 TSP 應能在限時內排除<strong>至少五類現場隨機抽取</strong>之維運異常：</p>
-                <ul class="scenario-checklist">
-                  <li>TLS Certificate 憑證效期與信任鏈錯誤排除</li>
-                  <li>SMART App <code>redirect_uri</code> mismatch 驗證失敗排查</li>
-                  <li>FHIR Server 驗證失敗、網路中斷或連線逾時處理</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境五 -->
-            <div class="scenario-card scenario-card-featured">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境五</span>
-                <h4 class="scenario-title">術語共同核心實作 (含 LLM)</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>建立 ConceptMap 資源完成不同編碼系統映射</li>
-                  <li>向量資料庫 (Vector DB) 切片策略與語意檢索最佳化</li>
-                  <li>精準辨識並排除「查到相似名稱但語意不相等」之錯誤案例</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境六 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境六</span>
-                <h4 class="scenario-title">SNOMED CT 臨床術語實作</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>精確判斷父子概念層級與 Subsumption 關係</li>
-                  <li>撰寫基本 ECL (Expression Constraint Language) 查詢</li>
-                  <li>撰寫本地化 Extension 擴充規範需求書</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境七 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境七</span>
-                <h4 class="scenario-title">LOINC 臨床檢驗實作</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>完成指定筆數本地院內檢驗項目精準映射至 LOINC</li>
-                  <li>掌握 Component、System 等六軸向 (Six Axes) 基本觀念與檢核</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 情境八 -->
-            <div class="scenario-card">
-              <div class="scenario-card-header">
-                <span class="scenario-badge">情境八</span>
-                <h4 class="scenario-title">RxNorm 國際藥品標準實作</h4>
-              </div>
-              <div class="scenario-card-body">
-                <ul class="scenario-checklist">
-                  <li>由藥品成分名稱取得正確 RxCUI 唯一識別碼</li>
-                  <li>完成院內藥碼精準映射至 RxNorm 國際標準規範</li>
-                  <li>具備正確邏輯判斷單方與複方藥品架構</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>

@@ -131,7 +131,7 @@ img {
 }
 
 .logo-container img {
-  height: 42px;
+  height: 46px;
   width: auto;
   display: block;
 }
@@ -174,12 +174,12 @@ img {
   background-color: rgba(2, 41, 100, 0.08);
 }
 
-/* 手機漢堡切換按鈕 */
+/* 手機漢堡切換按鈕 (精確置中) */
 .mobile-menu-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
-  padding: 8px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border-radius: 6px;
   background-color: #f1f5f9;
   border: 1px solid #cbd5e1;
@@ -187,6 +187,7 @@ img {
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .mobile-menu-toggle:hover {
@@ -196,7 +197,7 @@ img {
 .hamburger-box {
   width: 22px;
   height: 16px;
-  display: inline-block;
+  display: block;
   position: relative;
 }
 
@@ -204,10 +205,11 @@ img {
 .hamburger-inner::before,
 .hamburger-inner::after {
   width: 22px;
-  height: 2px;
+  height: 2.5px;
   background-color: #0f172a;
   border-radius: 2px;
   position: absolute;
+  left: 0;
   transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
@@ -223,11 +225,11 @@ img {
 }
 
 .hamburger-inner::before {
-  top: -6px;
+  top: -6.5px;
 }
 
 .hamburger-inner::after {
-  bottom: -6px;
+  bottom: -6.5px;
 }
 
 /* 漢堡開關動畫 */
@@ -489,10 +491,14 @@ img {
 @media (max-width: 768px) {
   .navbar-container {
     padding: 10px 16px;
+    min-height: 60px;
   }
 
   .logo-container img {
-    height: 36px;
+    height: 44px;
+    max-height: 12vw;
+    width: auto;
+    object-fit: contain;
   }
 }
 

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>衛生福利部 國家數位健康互通性與效能認證實驗室</title>
   <meta name="description" content="國家數位健康互通性與效能認證實驗室">
   <link rel="icon" href="favicon.ico">
@@ -12,12 +12,119 @@
 
 <body>
   <div class="all-courses-page">
-    <!-- Header 區域：僅保留一個 Logo，完全移除選單 -->
-    <header class="standalone-navbar">
-      <div class="logo-container">
-        <a href="#">
-          <img src="assets/smarthealth_logo.svg" alt="臺灣智慧醫療學校 Logo" />
-        </a>
+    <!-- Header 區域：桌機全導覽 + 手機漢堡選單 + 手機快速橫向滑動列 -->
+    <header class="standalone-navbar" id="main-navbar">
+      <div class="navbar-container">
+        <div class="logo-container">
+          <a href="#" class="logo-link">
+            <img src="assets/smarthealth_logo.svg" alt="臺灣智慧醫療學校 Logo" />
+          </a>
+        </div>
+
+        <!-- 桌機版導覽連結 -->
+        <nav class="desktop-nav" aria-label="主要選單">
+          <ul class="nav-links-list">
+            <li><a href="#policy-concept" class="nav-link">政策概念</a></li>
+            <li><a href="#certification-tracks" class="nav-link">認證賽道</a></li>
+            <li><a href="#tech-architecture" class="nav-link">軟硬架構</a></li>
+            <li><a href="#training-curriculum" class="nav-link">TSP 培訓學程</a></li>
+            <li><a href="#lab-testing-section" class="nav-link">實驗室驗測與費用</a></li>
+            <li><a href="#download-section" class="nav-link">文件下載</a></li>
+          </ul>
+        </nav>
+
+        <!-- 手機版漢堡切換按鈕 -->
+        <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切換導覽選單" aria-expanded="false">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+
+      <!-- 手機版頂部橫向滑動快速標籤列 (Quick Scroll Tabs) -->
+      <nav class="mobile-quick-nav" aria-label="行動版快速導覽">
+        <div class="mobile-quick-tabs-track">
+          <a href="#policy-concept" class="quick-tab-pill active">政策概念</a>
+          <a href="#certification-tracks" class="quick-tab-pill">認證賽道</a>
+          <a href="#tech-architecture" class="quick-tab-pill">軟硬架構</a>
+          <a href="#training-curriculum" class="quick-tab-pill">TSP 培訓</a>
+          <a href="#lab-testing-section" class="quick-tab-pill">驗測與費用</a>
+          <a href="#download-section" class="quick-tab-pill">文件下載</a>
+        </div>
+      </nav>
+
+      <!-- 手機版抽屜式選單 (Mobile Drawer Menu) -->
+      <div class="mobile-drawer-overlay" id="mobileDrawerOverlay">
+        <div class="mobile-drawer-panel">
+          <div class="mobile-drawer-header">
+            <span class="mobile-drawer-title">章節快速導覽</span>
+            <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="關閉選單">&times;</button>
+          </div>
+          <ul class="mobile-drawer-links">
+            <li>
+              <a href="#policy-concept" class="mobile-drawer-link">
+                <span class="drawer-link-num">01</span>
+                <div class="drawer-link-text">
+                  <strong>政策概念</strong>
+                  <span>醫療作業系統與三大賽道願景</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#certification-tracks" class="mobile-drawer-link">
+                <span class="drawer-link-num">02</span>
+                <div class="drawer-link-text">
+                  <strong>三大認證賽道</strong>
+                  <span>軟體、硬體與 TSP 全方位解決方案</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#tech-architecture" class="mobile-drawer-link">
+                <span class="drawer-link-num">03</span>
+                <div class="drawer-link-text">
+                  <strong>軟硬架構與效能</strong>
+                  <span>軟硬整合免費授權與國家級效能評測</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#training-curriculum" class="mobile-drawer-link">
+                <span class="drawer-link-num">04</span>
+                <div class="drawer-link-text">
+                  <strong>TSP 培訓體系與學程</strong>
+                  <span>10 大技術授權生態樹與 100 小時實戰</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#lab-testing-section" class="mobile-drawer-link">
+                <span class="drawer-link-num">05</span>
+                <div class="drawer-link-text">
+                  <strong>實驗室驗測與費用規劃</strong>
+                  <span>8 大實機檢定情境與每院裝機回饋 1 萬</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#download-section" class="mobile-drawer-link">
+                <span class="drawer-link-num">06</span>
+                <div class="drawer-link-text">
+                  <strong>相關文件下載</strong>
+                  <span>114 年度培訓計畫官方辦法</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="mobile-drawer-footer">
+            <a href="attachment/(1201奉核版)114年度衛生福利部資訊處臺灣智慧醫療學校培訓計畫辦法.pdf" class="drawer-download-btn" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
+              </svg>
+              下載培訓計畫辦法 PDF
+            </a>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -41,7 +148,7 @@
 
 
     <!-- 國家數位健康互通性與效能認證實驗室政策概念 (Quotes Section) -->
-    <section class="quotes-section">
+    <section class="quotes-section" id="policy-concept">
       <h2 class="quotes-title">國家數位健康互通性與效能認證實驗室政策概念</h2>
       <div class="quotes-container">
         <div class="quote-card">
@@ -166,7 +273,7 @@
       </div>
     </section>
     <!-- 三大認證賽道 -->
-    <section class="four-domains-section">
+    <section class="four-domains-section" id="certification-tracks">
       <div class="domains-container">
         <h2 class="domains-title">三大認證賽道</h2>
         <div class="domains-grid">
@@ -328,7 +435,7 @@
     </section>
 
     <!-- 軟體認證：從技術合規到真實世界落地 -->
-    <section class="software-flow-section">
+    <section class="software-flow-section" id="tech-architecture">
       <div class="software-flow-container">
         <h2 class="section-main-title">軟體認證：從技術合規到真實世界落地</h2>
         <div class="flow-steps-grid">
@@ -485,7 +592,7 @@
     </section>
 
     <!-- 認證課程內容 Section：臺灣 FHIR Box 全方位解決方案提供者 (TSP) 分級認證與培訓體系 -->
-    <section class="plan-section">
+    <section class="plan-section" id="training-curriculum">
       <div class="plan-container-redesign">
         <h2 class="section-main-title" style="color: #ffffff; margin-bottom: 0.5rem;">臺灣 FHIR Box 全方位解決方案提供者 (TSP)
           分級認證與培訓體系</h2>
@@ -919,8 +1026,324 @@
       </div>
     </section>
 
+    <!-- 國家實驗室檢測規範、8 大驗測項目與費用規劃專區 -->
+    <section class="lab-testing-section" id="lab-testing-section">
+      <div class="lab-testing-container">
+        <div class="lab-section-header">
+          <div class="lab-badge">國家級數位健康認證機制</div>
+          <h2 class="lab-main-title">國家實驗室檢測規範、8 大實機驗測項目與費用規劃</h2>
+          <p class="lab-main-subtitle">
+            依據衛福部資訊處標準，建立硬體效能基準測試、軟體臨床雙重驗證與 TSP 實機 8 大情境檢定，搭配透明化培訓考照與醫院落地回饋機制。
+          </p>
+        </div>
+
+        <!-- 模組一：費用規劃與醫院裝機回饋精算 -->
+        <div class="lab-pricing-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">Pricing & ROI Model</div>
+            <h3 class="lab-block-title">實驗室認證費用規劃與醫院裝機回饋機制</h3>
+            <p class="lab-block-desc">
+              以模組化學程與嚴謹上機實測為核心，建立清楚透明的考照投資架構，並以政策回饋實質獎勵加速醫療院所落地導入。
+            </p>
+          </div>
+
+          <div class="pricing-matrix-grid">
+            <div class="pricing-card">
+              <div class="pricing-card-type">學科培訓</div>
+              <div class="pricing-card-figure">
+                <span class="currency">NT$</span>
+                <span class="amount">2,000</span>
+                <span class="unit">/ 堂課</span>
+              </div>
+              <div class="pricing-card-detail">
+                單張證照需修習 10 堂核心課程，單證學科培訓成本為 <strong>NT$ 20,000</strong>。
+              </div>
+            </div>
+
+            <div class="pricing-card">
+              <div class="pricing-card-type">術科實機測驗</div>
+              <div class="pricing-card-figure">
+                <span class="currency">NT$</span>
+                <span class="amount">10,000</span>
+                <span class="unit">/ 次</span>
+              </div>
+              <div class="pricing-card-detail">
+                於工研院國家級沙盒實驗室進行限時任務導向實機上機檢定（得分需 ≥ 85%）。
+              </div>
+            </div>
+
+            <div class="pricing-card pricing-card-total">
+              <div class="pricing-card-type">單張證照取得總成本</div>
+              <div class="pricing-card-figure">
+                <span class="currency">NT$</span>
+                <span class="amount">30,000</span>
+                <span class="unit">/ 張</span>
+              </div>
+              <div class="pricing-card-detail">
+                包含 10 堂學科完整培訓 (2萬) + 術科實機認證測驗 (1萬)。
+              </div>
+            </div>
+
+            <div class="pricing-card pricing-card-highlight">
+              <div class="pricing-card-type">TSP 夥伴認證總資格</div>
+              <div class="pricing-card-figure">
+                <span class="currency">NT$</span>
+                <span class="amount">300,000</span>
+                <span class="unit">/ 10 張證照</span>
+              </div>
+              <div class="pricing-card-detail">
+                TSP 全方位解決方案夥伴需取得完整 10 張專業證照，累計成本 30 萬元。
+              </div>
+            </div>
+          </div>
+
+          <!-- 醫院裝機回饋激勵 Banner -->
+          <div class="hospital-rebate-banner">
+            <div class="rebate-icon-box">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="rebate-info">
+              <div class="rebate-badge">落地激勵機制</div>
+              <h4 class="rebate-title">取證後完成醫院裝機，每家醫院專案回饋 NT$ 10,000</h4>
+              <p class="rebate-desc">
+                通過認證之 TSP 廠商協助醫療院所（醫學中心、區域醫院、基層診所）完成 FHIR Box 系統實體或虛擬化安裝部署與驗收，<strong>每完成一家醫療院所即提供 1 萬元回饋</strong>，實質加速投資回收並帶動全國智慧醫療升級。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組二：硬體認證與軟體認證之實驗室規範與辦法 -->
+        <div class="lab-rules-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">Certification Specifications</div>
+            <h3 class="lab-block-title">硬體與軟體認證之實驗室驗測辦法</h3>
+            <p class="lab-block-desc">
+              遵循國家標準建立客觀透明的評估機制，確保軟體應用具備臨床安全性，硬體設備具備高通量運算可靠度。
+            </p>
+          </div>
+
+          <div class="lab-rules-grid">
+            <!-- 硬體認證規範 -->
+            <div class="rule-panel rule-panel-hardware">
+              <div class="rule-panel-header">
+                <div class="rule-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                  </svg>
+                </div>
+                <div>
+                  <span class="rule-category">Hardware Track</span>
+                  <h4 class="rule-title">硬體認證驗測辦法</h4>
+                </div>
+              </div>
+              <div class="rule-items-list">
+                <div class="rule-item">
+                  <div class="rule-item-num">01</div>
+                  <div class="rule-item-body">
+                    <strong>標準測試資料集壓力驗證：</strong>
+                    <span>於硬體設備佈署完整 FHIR Box OS，依序以 10 萬筆、25 萬筆、50 萬筆不同等級規模病例資料進行資料轉換效率與高負載極限測試。</span>
+                  </div>
+                </div>
+                <div class="rule-item">
+                  <div class="rule-item-num">02</div>
+                  <div class="rule-item-body">
+                    <strong>Data Flow 與即時延遲評測：</strong>
+                    <span>模擬大量終端並發存取情境，嚴格監測 Request-to-Response Time、資料交換吞吐量與系統即時反應指標。</span>
+                  </div>
+                </div>
+                <div class="rule-item">
+                  <div class="rule-item-num">03</div>
+                  <div class="rule-item-body">
+                    <strong>客觀數據公開透明：</strong>
+                    <span>測試結果由國家醫療資訊認證實驗室完整公開，提供各級醫療院所依實際需求（大型醫學中心或區域基層）選用最適性價比設備。</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 軟體認證規範 -->
+            <div class="rule-panel rule-panel-software">
+              <div class="rule-panel-header">
+                <div class="rule-icon-wrap">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span class="rule-category">Software Track</span>
+                  <h4 class="rule-title">軟體認證驗測辦法</h4>
+                </div>
+              </div>
+              <div class="rule-items-list">
+                <div class="rule-item">
+                  <div class="rule-item-num">01</div>
+                  <div class="rule-item-body">
+                    <strong>技術相容性驗證 (Technical Validation)：</strong>
+                    <span>審查 CQL / SMART on FHIR 模組與臺灣核心資料集 (TW Core Data / TWCDI) 之相容性，確認符合 OAuth 2.0 / OIDC 鑑別與細粒度授權規範。</span>
+                  </div>
+                </div>
+                <div class="rule-item">
+                  <div class="rule-item-num">02</div>
+                  <div class="rule-item-body">
+                    <strong>臨床情境落地驗證 (Clinical Validation)：</strong>
+                    <span>委託長庚大學、三軍總醫院等臨床研究團隊，於真實 HIS 環境與虛擬病歷架構中進行演算法邏輯閉環與回傳準確度驗證。</span>
+                  </div>
+                </div>
+                <div class="rule-item">
+                  <div class="rule-item-num">03</div>
+                  <div class="rule-item-body">
+                    <strong>國家認證標章與市集上架：</strong>
+                    <span>通過技術與臨床雙重驗證後獲頒國家認證標章，取得進入國家醫療應用市集 (App Marketplace) 之官方推薦白名單資格。</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 模組三：TSP 實機認證 8 大驗測情境項目 -->
+        <div class="lab-scenarios-block">
+          <div class="lab-block-header">
+            <div class="lab-block-tag">8 Hands-on Testing Scenarios</div>
+            <h3 class="lab-block-title">TSP 實機認證 8 大驗測情境項目與驗收指標</h3>
+            <p class="lab-block-desc">
+              於國家級沙盒環境進行實機上機檢定，全面考核標準佈署、CDS/CQL 規則、術語映射、AI 語意檢索及故障排除能力。
+            </p>
+          </div>
+
+          <div class="scenarios-grid">
+            <!-- 情境一 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境一</span>
+                <h4 class="scenario-title">標準環境安裝 (FHIR BOX 佈署)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>安裝指定容器環境與相依套件</li>
+                  <li>正確配置系統環境變數與安全設定</li>
+                  <li>交付服務清單、安裝紀錄與操作截圖報告</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境二 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境二</span>
+                <h4 class="scenario-title">SMART App 佈署與啟動 (THAS)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>建立符合標準之 SMART Client 端應用</li>
+                  <li>設定存取權限 Scope 與 Token 授權機制</li>
+                  <li>完成標準 EHR Launch 流程整合與介面呼叫</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境三 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境三</span>
+                <h4 class="scenario-title">CQL / CDS Hooks (THRS)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>上傳 CQL 臨床邏輯檔或編譯之 ELM JSON</li>
+                  <li>配置 CDS Hooks Service 與觸發 Hook 端點</li>
+                  <li>即時排除 Library、Terminology 或 Parameter 參數錯誤</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境四 -->
+            <div class="scenario-card scenario-card-featured">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境四</span>
+                <h4 class="scenario-title">維運與故障排除 (現場隨機抽題)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <p class="scenario-note">受測 TSP 應能在限時內排除<strong>至少五類現場隨機抽取</strong>之維運異常：</p>
+                <ul class="scenario-checklist">
+                  <li>TLS Certificate 憑證效期與信任鏈錯誤排除</li>
+                  <li>SMART App <code>redirect_uri</code> mismatch 驗證失敗排查</li>
+                  <li>FHIR Server 驗證失敗、網路中斷或連線逾時處理</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境五 -->
+            <div class="scenario-card scenario-card-featured">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境五</span>
+                <h4 class="scenario-title">術語共同核心實作 (含 LLM)</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>建立 ConceptMap 資源完成不同編碼系統映射</li>
+                  <li>向量資料庫 (Vector DB) 切片策略與語意檢索最佳化</li>
+                  <li>精準辨識並排除「查到相似名稱但語意不相等」之錯誤案例</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境六 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境六</span>
+                <h4 class="scenario-title">SNOMED CT 臨床術語實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>精確判斷父子概念層級與 Subsumption 關係</li>
+                  <li>撰寫基本 ECL (Expression Constraint Language) 查詢</li>
+                  <li>撰寫本地化 Extension 擴充規範需求書</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境七 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境七</span>
+                <h4 class="scenario-title">LOINC 臨床檢驗實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>完成指定筆數本地院內檢驗項目精準映射至 LOINC</li>
+                  <li>掌握 Component、System 等六軸向 (Six Axes) 基本觀念與檢核</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 情境八 -->
+            <div class="scenario-card">
+              <div class="scenario-card-header">
+                <span class="scenario-badge">情境八</span>
+                <h4 class="scenario-title">RxNorm 國際藥品標準實作</h4>
+              </div>
+              <div class="scenario-card-body">
+                <ul class="scenario-checklist">
+                  <li>由藥品成分名稱取得正確 RxCUI 唯一識別碼</li>
+                  <li>完成院內藥碼精準映射至 RxNorm 國際標準規範</li>
+                  <li>具備正確邏輯判斷單方與複方藥品架構</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 下載專區 -->
-    <section class="download-section">
+    <section class="download-section" id="download-section">
       <div class="download-container">
         <h2 class="download-title">相關文件下載區</h2>
         <div class="download-table">

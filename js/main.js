@@ -4,12 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initVhHeight();
+  initDisableDoubleTapZoom();
   initDomainAnimations();
   initCountUpAnimations();
   initMobileFooterMenu();
   initModalEscKey();
   initCourseModal();
   initTreeNavigation();
+  initNavbarNavigation();
 });
 
 /**
@@ -32,6 +34,23 @@ function initVhHeight() {
       updateVh();
     }
   });
+}
+
+/**
+ * 0.1 關閉行動裝置雙擊放大 (Disable Double Tap Zoom)
+ */
+function initDisableDoubleTapZoom() {
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      // 避免阻止預設點擊表單輸入或連結，僅對快速連點雙擊做限制
+      if (!['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+        e.preventDefault();
+      }
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
 }
 
 /**
@@ -508,6 +527,144 @@ function initMobileFooterMenu() {
       }
     });
   });
+}
+
+/**
+ * 9. 全站導覽列 (Navbar) 互動與手機快速選單邏輯
+ */
+function initNavbarNavigation() {
+  const toggleBtn = document.getElementById('mobileMenuToggle');
+  const drawerOverlay = document.getElementById('mobileDrawerOverlay');
+  const drawerClose = document.getElementById('mobileDrawerClose');
+  const desktopLinks = document.querySelectorAll('.desktop-nav .nav-link');
+  const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link');
+  const quickTabs = document.querySelectorAll('.quick-tab-pill');
+
+  // 開啟 / 關閉手機抽屜選單
+  function openDrawer() {
+    if (drawerOverlay && toggleBtn) {
+      drawerOverlay.classList.add('active');
+      toggleBtn.classList.add('is-active');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDrawer() {
+    if (drawerOverlay && toggleBtn) {
+      drawerOverlay.classList.remove('active');
+      toggleBtn.classList.remove('is-active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = drawerOverlay && drawerOverlay.classList.contains('active');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (drawerClose) {
+    drawerClose.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', (e) => {
+      if (e.target === drawerOverlay) {
+        closeDrawer();
+      }
+    });
+  }
+
+  // 點擊手機抽屜選單連結自動關閉選單
+  mobileDrawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // ESC 鍵關閉抽屜
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDrawer();
+    }
+  });
+
+  // Scrollspy: 監聽滾動並動態更新各選單當前 Active 狀態
+  const sections = [
+    document.getElementById('policy-concept'),
+    document.getElementById('certification-tracks'),
+    document.getElementById('tech-architecture'),
+    document.getElementById('training-curriculum'),
+    document.getElementById('lab-testing-section'),
+    document.getElementById('download-section')
+  ].filter(Boolean);
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 140; // 考慮 Header 高度 offset
+
+    let currentSectionId = '';
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const sec = sections[i];
+      if (sec && sec.offsetTop <= scrollPos) {
+        currentSectionId = sec.getAttribute('id');
+        break;
+      }
+    }
+
+    // 更新桌機選單
+    desktopLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      if (href === currentSectionId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // 更新手機快速橫向標籤列
+    quickTabs.forEach(tab => {
+      const href = tab.getAttribute('href').replace('#', '');
+      if (href === currentSectionId) {
+        tab.classList.add('active');
+        // 手機版標籤自動微調滾動到可視區域
+        tab.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    // 更新抽屜選單
+    mobileDrawerLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      if (href === currentSectionId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // 節流滾動事件
+  let isScrolling = false;
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(() => {
+        updateActiveNav();
+        isScrolling = false;
+      });
+      isScrolling = true;
+    }
+  }, { passive: true });
+
+  // 初始觸發一次
+  updateActiveNav();
 }
 
 

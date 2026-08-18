@@ -126,14 +126,30 @@ img {
 }
 
 .logo-container .logo-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo-container .logo-link:hover {
+  opacity: 0.85;
 }
 
 .logo-container img {
-  height: 46px;
-  width: auto;
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
   display: block;
+}
+
+.logo-container .logo-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
 }
 
 /* 桌機版導覽列 */
@@ -494,11 +510,19 @@ img {
     min-height: 60px;
   }
 
+  .logo-container .logo-link {
+    gap: 8px;
+  }
+
   .logo-container img {
-    height: 44px;
-    max-height: 12vw;
-    width: auto;
+    height: 34px;
+    width: 34px;
+    max-height: 10vw;
     object-fit: contain;
+  }
+
+  .logo-container .logo-text {
+    font-size: 1rem;
   }
 }
 
@@ -2921,9 +2945,31 @@ img {
   align-items: center;
 }
 
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo-link:hover {
+  opacity: 0.85;
+}
+
 .footer-logo {
-  height: 44px;
-  width: auto;
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-logo-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
 }
 
 .social-column {
@@ -3174,9 +3220,19 @@ img {
     margin-top: 16px;
   }
 
+  .footer-logo-mobile .footer-logo-link {
+    gap: 8px;
+  }
+
   .footer-logo-mobile .footer-logo {
-    height: 38px;
-    width: auto;
+    height: 34px;
+    width: 34px;
+    object-fit: contain;
+  }
+
+  .footer-logo-mobile .footer-logo-text {
+    font-size: 1rem;
+    color: #ffffff;
   }
 }
 

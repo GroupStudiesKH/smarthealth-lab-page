@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCourseModal();
   initTreeNavigation();
   initNavbarNavigation();
+  initModule4Visibility();
 });
 
 /**
@@ -665,6 +666,41 @@ function initNavbarNavigation() {
 
   // 初始觸發一次
   updateActiveNav();
+}
+
+/**
+ * 模組 4：費用規劃與醫院裝機回饋精算 - 依裝置時間自動解除 display: none (08/24 08:00 後顯示)
+ */
+function initModule4Visibility() {
+  const module4 = document.getElementById('module4-pricing') || document.querySelector('.lab-pricing-block');
+  if (!module4) return;
+
+  function checkVisibility() {
+    const now = new Date();
+    // 08/24 08:00:00 (月份 0-indexed: 7 代表 8 月)
+    const targetDate = new Date(now.getFullYear(), 7, 24, 8, 0, 0);
+
+    if (now >= targetDate) {
+      module4.style.display = '';
+      return true;
+    }
+    return false;
+  }
+
+  // 立即執行檢查
+  const isUnlocked = checkVisibility();
+
+  // 若尚未到達指定時間，計算倒數時間並自動在到達時解除隱藏
+  if (!isUnlocked) {
+    const now = new Date();
+    const targetDate = new Date(now.getFullYear(), 7, 24, 8, 0, 0);
+    const delay = targetDate.getTime() - now.getTime();
+    if (delay > 0 && delay < 2147483647) {
+      setTimeout(() => {
+        checkVisibility();
+      }, delay);
+    }
+  }
 }
 
 

@@ -602,9 +602,9 @@ function initNavbarNavigation() {
     document.getElementById('certification-tracks'),
     document.getElementById('tech-architecture'),
     document.getElementById('training-curriculum'),
-    document.getElementById('lab-testing-section'),
+    // document.getElementById('lab-testing-section'),
     document.getElementById('download-section')
-  ].filter(Boolean);
+  ].filter(sec => sec && sec.offsetParent !== null);
 
   function updateActiveNav() {
     const scrollPos = window.scrollY + 140; // 考慮 Header 高度 offset

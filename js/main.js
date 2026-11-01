@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCourseModal();
   initTreeNavigation();
   initNavbarNavigation();
+  initSubmissionSystem();
 });
 
 /**
@@ -452,6 +453,7 @@ function initModalEscKey() {
     if (e.key === 'Escape') {
       closeVideoModalDirect();
       closeCourseModalDirect();
+      closeSubmissionModalDirect();
     }
   });
 }
@@ -602,7 +604,10 @@ function initNavbarNavigation() {
     document.getElementById('certification-tracks'),
     document.getElementById('tech-architecture'),
     document.getElementById('training-curriculum'),
-    // document.getElementById('lab-testing-section'),
+    document.getElementById('lab-testing-section'),
+    document.getElementById('software-submission'),
+    document.getElementById('hardware-submission'),
+    document.getElementById('certification-apply-form'),
     document.getElementById('download-section')
   ].filter(sec => sec && sec.offsetParent !== null);
 
@@ -666,5 +671,574 @@ function initNavbarNavigation() {
   // 初始觸發一次
   updateActiveNav();
 }
+
+/**
+ * 10. 軟硬體認證收件申請、費用試算、後台 Webhook 串接與自動轉信/回覆邏輯
+ */
+const LAB_OFFICIAL_EMAIL = 'medstandard@itri.org.tw';
+// 若已部署 Google Apps Script (backend/google-apps-script-webhook.gs)，可填入 Web App URL 即時寫入雲端後台與自動寄送雙向確認信
+const LAB_SUBMISSION_WEBHOOK_URL = window.LAB_SUBMISSION_WEBHOOK_URL || '';
+
+const SUBMISSION_TIER_CONFIG = {
+  S1: {
+    track: 'software',
+    trackBadge: '💻 軟體認證收件',
+    name: '類別 S1：CQL 臨床決策支援模組檢測',
+    basePrice: 30000,
+    unit: '件',
+    deliverables: [
+      '工研院國家級沙盒技術驗證（CQL 語法 / ELM JSON / TWCDI 對映）',
+      '長庚 / 三總等醫學中心臨床團隊真實病歷情境測試 1 次',
+      '完整測試 Log 稽核報告與未通過項目輔導補正建議',
+      '通過後核發國家認證標章並登錄 THRS 臨床規則空間白名單'
+    ]
+  },
+  S2: {
+    track: 'software',
+    trackBadge: '💻 軟體認證收件',
+    name: '類別 S2：SMART on FHIR 應用程式檢測',
+    basePrice: 60000,
+    unit: '式',
+    deliverables: [
+      '工研院國家級沙盒技術驗證（TW Core IG / OAuth 2.0 / SMART Launch）',
+      '長庚 / 三總等醫學中心真實 HIS 嵌入與虛擬病歷臨床驗證 1 次',
+      '完整測試 Log 稽核報告與未通過項目輔導補正建議',
+      '通過後核發國家認證標章並開放國家 App Marketplace 上架'
+    ]
+  },
+  S3: {
+    track: 'software',
+    trackBadge: '💻 軟體認證收件',
+    name: '類別 S3：智慧醫療 AI / LLM 複合應用檢測',
+    basePrice: 80000,
+    unit: '式',
+    deliverables: [
+      '含 S2 全項 SMART on FHIR / CDS 授權資安與互通性驗證',
+      'FHIR 醫療資料去識別化合規、AI 推論延遲與臨床準確度實測',
+      '醫學中心臨床工作流壓力測試與確定性校驗評估報告',
+      '通過後核發國家智慧醫療 AI 認證標章並登錄官方白名單'
+    ]
+  },
+  H1: {
+    track: 'hardware',
+    trackBadge: '🖥️ 硬體認證收件',
+    name: '等級 H1：基層診所 / 地區醫院級硬體效能認證',
+    basePrice: 50000,
+    unit: '台',
+    deliverables: [
+      '工研院實驗室機房上架與標準 FHIR Box OS (K8s/RKE2) 裸機部署',
+      '10 萬～20 萬筆標準病歷資料集 · 20～80 併發數燒機壓測',
+      '7 大量化指標（API 成功率 >99%、Latency <500ms 等）完整評估報告',
+      '公開登錄於衛福部基層診所 / 地區醫院合格硬體採購白名單'
+    ]
+  },
+  H2: {
+    track: 'hardware',
+    trackBadge: '🖥️ 硬體認證收件',
+    name: '等級 H2：區域醫院級中大型硬體效能認證',
+    basePrice: 80000,
+    unit: '台',
+    deliverables: [
+      '含 H1 全項標準環境部署與 7 大量化指標檢測',
+      '30 萬～50 萬筆標準病歷資料集 · 80～150 併發數高負載壓測',
+      'Bulk Data 大規模批次匯入與多網卡 I/O 吞吐量基準報告',
+      '公開登錄於衛福部區域醫院級合格硬體採購白名單'
+    ]
+  },
+  H3: {
+    track: 'hardware',
+    trackBadge: '🖥️ 硬體認證收件',
+    name: '等級 H3：醫學中心級高通量硬體效能認證',
+    basePrice: 120000,
+    unit: '台',
+    deliverables: [
+      '含 H2 全項標準環境部署與 Bulk Data 批次交換壓測',
+      '50 萬～100 萬筆標準病歷資料集 · 150～200+ 併發數極限壓測',
+      '2,500～3,000 bundle resources/s 吞吐量與 HA 高可用性容錯驗證',
+      '獲頒最高等級硬體效能認證標章並登錄醫學中心採購白名單'
+    ]
+  }
+};
+
+/**
+ * 表單互動後驗證 Fallback 與 ARIA 狀態同步 (遵循 validate-input-after-interaction 規範)
+ */
+const UserInvalidFallback = (() => {
+  const dirtyState = new WeakMap();
+
+  const updateState = (input) => {
+    if (!input.checkValidity) return;
+    const isValid = input.checkValidity();
+    input.classList.toggle('user-invalid-fallback', !isValid);
+    input.classList.toggle('user-valid-fallback', isValid);
+    if (!isValid) {
+      input.setAttribute('aria-invalid', 'true');
+    } else {
+      input.removeAttribute('aria-invalid');
+    }
+  };
+
+  const handleEvent = (event) => {
+    const input = event.target;
+    if (event.type === 'reset') {
+      const controls = input.elements || [];
+      for (const control of controls) {
+        dirtyState.delete(control);
+        control.classList.remove('user-invalid-fallback', 'user-valid-fallback');
+        control.removeAttribute('aria-invalid');
+      }
+      return;
+    }
+    if (!input || !input.checkValidity) return;
+
+    if (event.type === 'input' || event.type === 'change') {
+      const state = dirtyState.get(input) || { hasInteracted: false, hasBlurred: false };
+      state.hasInteracted = true;
+      dirtyState.set(input, state);
+      if (state.hasBlurred) {
+        updateState(input);
+      }
+    } else if (event.type === 'blur') {
+      const state = dirtyState.get(input) || { hasInteracted: false, hasBlurred: false };
+      state.hasBlurred = true;
+      dirtyState.set(input, state);
+      if (state.hasInteracted) {
+        updateState(input);
+      }
+    }
+  };
+
+  const init = (root = document) => {
+    // 同步原生 :user-invalid 與 aria-invalid 屬性
+    const syncAria = (el) => {
+      if (!el || !el.matches || !el.checkValidity) return;
+      try {
+        if (CSS.supports('selector(:user-invalid)')) {
+          el.setAttribute('aria-invalid', el.matches(':user-invalid') ? 'true' : 'false');
+        }
+      } catch (_) {
+        // 忽略不支援 :user-invalid 之舊瀏覽器
+      }
+    };
+
+    root.addEventListener('blur', (e) => syncAria(e.target), true);
+    root.addEventListener('input', (e) => {
+      if (e.target && e.target.hasAttribute && e.target.hasAttribute('aria-invalid')) {
+        syncAria(e.target);
+      }
+    });
+
+    if (typeof CSS !== 'undefined' && CSS.supports && CSS.supports('selector(:user-invalid)')) {
+      return;
+    }
+
+    root.addEventListener('blur', handleEvent, true);
+    root.addEventListener('input', handleEvent);
+    root.addEventListener('change', handleEvent);
+    root.addEventListener('reset', handleEvent, true);
+  };
+
+  return { init, updateState };
+})();
+
+function initSubmissionSystem() {
+  const form = document.getElementById('labSubmissionForm');
+  if (!form) return;
+
+  UserInvalidFallback.init(form);
+
+  const trackRadios = form.querySelectorAll('input[name="submissionTrack"]');
+  const tierItems = form.querySelectorAll('.tier-radio-item[data-track-option]');
+  const tierRadios = form.querySelectorAll('input[name="submissionTier"]');
+  const natureRadios = form.querySelectorAll('input[name="applicationNature"]');
+  const softwareFieldsGroup = document.getElementById('softwareFieldsGroup');
+  const hardwareFieldsGroup = document.getElementById('hardwareFieldsGroup');
+
+  // 摘要側欄 DOM
+  const summaryTrackBadge = document.getElementById('summaryTrackBadge');
+  const summaryTierName = document.getElementById('summaryTierName');
+  const summaryPriceDisplay = document.getElementById('summaryPriceDisplay');
+  const summaryNatureDisplay = document.getElementById('summaryNatureDisplay');
+  const summaryDeliverablesList = document.getElementById('summaryDeliverablesList');
+  const submitBtnText = document.getElementById('submitBtnText');
+
+  function getSelectedTrack() {
+    const checked = form.querySelector('input[name="submissionTrack"]:checked');
+    return checked ? checked.value : 'software';
+  }
+
+  function getSelectedTier() {
+    const checked = form.querySelector('input[name="submissionTier"]:checked');
+    return checked ? checked.value : 'S2';
+  }
+
+  function getSelectedNature() {
+    const checked = form.querySelector('input[name="applicationNature"]:checked');
+    return checked ? checked.value : '首次送檢認證';
+  }
+
+  function computeEffectivePrice(tierCode, natureVal) {
+    const cfg = SUBMISSION_TIER_CONFIG[tierCode] || SUBMISSION_TIER_CONFIG.S2;
+    if (natureVal === '輔導補正後複驗') {
+      return cfg.track === 'hardware' ? 20000 : 15000;
+    }
+    if (natureVal === '年度續證或衍生機型登錄') {
+      return 15000;
+    }
+    return cfg.basePrice;
+  }
+
+  function updateTrackUI(track, preferredTier) {
+    tierItems.forEach((item) => {
+      const itemTrack = item.getAttribute('data-track-option');
+      if (itemTrack === track) {
+        item.classList.remove('is-hidden');
+      } else {
+        item.classList.add('is-hidden');
+      }
+    });
+
+    // 切換專屬欄位群組並設定 disabled 以確保瀏覽器原生驗證只檢查當前賽道必填項
+    if (track === 'software') {
+      if (softwareFieldsGroup) {
+        softwareFieldsGroup.classList.remove('is-hidden');
+        softwareFieldsGroup.disabled = false;
+      }
+      if (hardwareFieldsGroup) {
+        hardwareFieldsGroup.classList.add('is-hidden');
+        hardwareFieldsGroup.disabled = true;
+      }
+    } else {
+      if (softwareFieldsGroup) {
+        softwareFieldsGroup.classList.add('is-hidden');
+        softwareFieldsGroup.disabled = true;
+      }
+      if (hardwareFieldsGroup) {
+        hardwareFieldsGroup.classList.remove('is-hidden');
+        hardwareFieldsGroup.disabled = false;
+      }
+    }
+
+    // 確認當前選中的 Tier 是否屬於該 Track，若否則自動選取預設 Tier
+    const currentTier = getSelectedTier();
+    const targetTier = preferredTier || (
+      (track === 'software' && !currentTier.startsWith('S')) ? 'S2' :
+        (track === 'hardware' && !currentTier.startsWith('H')) ? 'H2' :
+          currentTier
+    );
+
+    const targetRadio = form.querySelector(`input[name="submissionTier"][value="${targetTier}"]`);
+    if (targetRadio) {
+      targetRadio.checked = true;
+    }
+
+    updateSummarySidebar();
+  }
+
+  function updateSummarySidebar() {
+    const tierCode = getSelectedTier();
+    const natureVal = getSelectedNature();
+    const cfg = SUBMISSION_TIER_CONFIG[tierCode] || SUBMISSION_TIER_CONFIG.S2;
+    const price = computeEffectivePrice(tierCode, natureVal);
+    const formattedPrice = `NT$ ${price.toLocaleString('en-US')}`;
+
+    if (summaryTrackBadge) {
+      summaryTrackBadge.textContent = cfg.trackBadge;
+    }
+    if (summaryTierName) {
+      summaryTierName.textContent = cfg.name;
+    }
+    if (summaryPriceDisplay) {
+      summaryPriceDisplay.textContent = formattedPrice;
+    }
+    if (summaryNatureDisplay) {
+      summaryNatureDisplay.textContent = `${natureVal} · 計價單位：每${cfg.unit}`;
+    }
+    if (summaryDeliverablesList) {
+      summaryDeliverablesList.innerHTML = cfg.deliverables
+        .map(item => `<li>${item}</li>`)
+        .join('');
+    }
+    if (submitBtnText) {
+      submitBtnText.textContent = `送出收件申請並取得檢測資訊回覆信 (預估費用 ${formattedPrice})`;
+    }
+  }
+
+  trackRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      updateTrackUI(getSelectedTrack());
+    });
+  });
+
+  tierRadios.forEach((radio) => {
+    radio.addEventListener('change', updateSummarySidebar);
+  });
+
+  natureRadios.forEach((radio) => {
+    radio.addEventListener('change', updateSummarySidebar);
+  });
+
+  // 綁定軟體收件 / 硬體收件區塊的快速申請 CTA 按鈕
+  const applyTrackButtons = document.querySelectorAll('[data-apply-track]');
+  applyTrackButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetTrack = btn.getAttribute('data-apply-track') || 'software';
+      const targetTier = btn.getAttribute('data-apply-tier') || (targetTrack === 'hardware' ? 'H2' : 'S2');
+
+      const trackRadio = form.querySelector(`input[name="submissionTrack"][value="${targetTrack}"]`);
+      if (trackRadio) {
+        trackRadio.checked = true;
+      }
+      updateTrackUI(targetTrack, targetTier);
+
+      const formSection = document.getElementById('certification-apply-form');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // 表單送出處理
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // 觸發所有啟用欄位的有效性檢查
+    const activeControls = Array.from(form.elements).filter(el => !el.disabled && el.checkValidity);
+    let firstInvalid = null;
+
+    activeControls.forEach((control) => {
+      UserInvalidFallback.updateState(control);
+      if (!control.checkValidity() && !firstInvalid) {
+        firstInvalid = control;
+      }
+    });
+
+    if (firstInvalid) {
+      firstInvalid.focus();
+      if (typeof firstInvalid.reportValidity === 'function') {
+        firstInvalid.reportValidity();
+      }
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitApplicationBtn');
+    if (submitBtn) {
+      submitBtn.disabled = true; // 有效送出後鎖定按鈕避免重複送件
+    }
+
+    const track = getSelectedTrack();
+    const tierCode = getSelectedTier();
+    const natureVal = getSelectedNature();
+    const cfg = SUBMISSION_TIER_CONFIG[tierCode] || SUBMISSION_TIER_CONFIG.S2;
+    const estimatedFee = computeEffectivePrice(tierCode, natureVal);
+
+    // 產生專屬收件單號 (如 SW-20261101-842 或 HW-20261101-519)
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const randSuffix = String(Math.floor(100 + Math.random() * 900));
+    const prefix = track === 'hardware' ? 'HW' : 'SW';
+    const caseId = `${prefix}-${yyyy}${mm}${dd}-${randSuffix}`;
+
+    const standardsChecked = Array.from(form.querySelectorAll('input[name="swStandards"]:checked'))
+      .map(cb => cb.value)
+      .join('、');
+
+    const payload = {
+      caseId,
+      submittedAt: now.toISOString(),
+      track,
+      trackLabel: cfg.trackBadge,
+      tierCode,
+      tierName: cfg.name,
+      applicationNature: natureVal,
+      estimatedFee: `NT$ ${estimatedFee.toLocaleString('en-US')}`,
+      companyName: (document.getElementById('companyName')?.value || '').trim(),
+      taxId: (document.getElementById('taxId')?.value || '').trim(),
+      contactName: (document.getElementById('contactName')?.value || '').trim(),
+      contactRole: (document.getElementById('contactRole')?.value || '').trim(),
+      contactEmail: (document.getElementById('contactEmail')?.value || '').trim(),
+      contactPhone: (document.getElementById('contactPhone')?.value || '').trim(),
+      swProductName: track === 'software' ? (document.getElementById('swProductName')?.value || '').trim() : '',
+      swDocUrl: track === 'software' ? (document.getElementById('swDocUrl')?.value || '').trim() : '',
+      swStandards: track === 'software' ? (standardsChecked || 'TW Core IG') : '',
+      hwModelName: track === 'hardware' ? (document.getElementById('hwModelName')?.value || '').trim() : '',
+      hwSpecs: track === 'hardware' ? (document.getElementById('hwSpecs')?.value || '').trim() : '',
+      hwDeliveryMethod: track === 'hardware'
+        ? (form.querySelector('input[name="hwDeliveryMethod"]:checked')?.value || '')
+        : '',
+      submissionNotes: (document.getElementById('submissionNotes')?.value || '').trim(),
+      officialRecipient: LAB_OFFICIAL_EMAIL
+    };
+
+    // 1. 儲存至瀏覽器本地收件紀錄備份
+    try {
+      const existing = JSON.parse(localStorage.getItem('smarthealth_lab_submissions') || '[]');
+      existing.unshift(payload);
+      localStorage.setItem('smarthealth_lab_submissions', JSON.stringify(existing.slice(0, 30)));
+    } catch (_) {
+      // 忽略無痕模式或 Storage 限制
+    }
+
+    // 2. 若已設定雲端收件後台 Webhook (Google Apps Script / API)，自動非同步送出以觸發轉信與自動回信
+    let webhookDispatched = false;
+    if (LAB_SUBMISSION_WEBHOOK_URL) {
+      try {
+        const res = await fetch(LAB_SUBMISSION_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        webhookDispatched = res.ok;
+      } catch (_) {
+        webhookDispatched = false;
+      }
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+    }
+
+    openSubmissionModal(payload, webhookDispatched);
+  });
+
+  // 初始化預設顯示
+  updateTrackUI('software', 'S2');
+}
+
+function escapeHtmlSafe(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function openSubmissionModal(payload, webhookDispatched) {
+  const modal = document.getElementById('submissionSuccessModal');
+  if (!modal) return;
+
+  const caseIdEl = document.getElementById('receiptCaseId');
+  const statusEl = document.getElementById('receiptModalStatus');
+  const detailsGrid = document.getElementById('receiptDetailsGrid');
+  const nextStepsEl = document.getElementById('receiptNextStepsList');
+  const mailtoLink = document.getElementById('receiptMailtoLink');
+  const copyBtn = document.getElementById('copyReceiptBtn');
+
+  if (caseIdEl) caseIdEl.textContent = payload.caseId;
+  if (statusEl) {
+    statusEl.textContent = webhookDispatched
+      ? '已同步至雲端後台並寄發確認信'
+      : '收件單號已產生 · 可一鍵轉信至官方信箱';
+  }
+
+  const targetItemLabel = payload.track === 'software' ? '送檢軟體名稱與版號' : '送檢硬體型號與尺寸';
+  const targetItemVal = payload.track === 'software' ? payload.swProductName : payload.hwModelName;
+  const specLabel = payload.track === 'software' ? '遵循標準與規格連結' : '硬體配置與進場方式';
+  const specVal = payload.track === 'software'
+    ? `${payload.swStandards}${payload.swDocUrl ? ` (${payload.swDocUrl})` : ''}`
+    : `${payload.hwSpecs} ｜ ${payload.hwDeliveryMethod}`;
+
+  if (detailsGrid) {
+    detailsGrid.innerHTML = `
+      <div class="receipt-detail-item">
+        <span class="receipt-detail-label">收件賽道與檢測等級</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(payload.tierName)}</div>
+      </div>
+      <div class="receipt-detail-item">
+        <span class="receipt-detail-label">申請性質與預估檢測費用</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(payload.applicationNature)}（${escapeHtmlSafe(payload.estimatedFee)}）</div>
+      </div>
+      <div class="receipt-detail-item">
+        <span class="receipt-detail-label">申請機構與統一編號</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(payload.companyName)}（統編：${escapeHtmlSafe(payload.taxId)}）</div>
+      </div>
+      <div class="receipt-detail-item">
+        <span class="receipt-detail-label">專案聯絡人與回覆信箱</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(payload.contactName)} ${escapeHtmlSafe(payload.contactRole)} · ${escapeHtmlSafe(payload.contactEmail)}</div>
+      </div>
+      <div class="receipt-detail-item full-span">
+        <span class="receipt-detail-label">${escapeHtmlSafe(targetItemLabel)}</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(targetItemVal)}</div>
+      </div>
+      <div class="receipt-detail-item full-span">
+        <span class="receipt-detail-label">${escapeHtmlSafe(specLabel)}</span>
+        <div class="receipt-detail-val">${escapeHtmlSafe(specVal)}</div>
+      </div>
+    `;
+  }
+
+  if (nextStepsEl) {
+    if (payload.track === 'software') {
+      nextStepsEl.innerHTML = `
+        <p><strong>1. 官方信箱收件與排程回覆：</strong>實驗室收件小組（<code>${LAB_OFFICIAL_EMAIL}</code>）將於收到申請後 <strong>3 個工作天內</strong>，寄發「軟體檢測排程確認單、繳費通知單与沙盒連線憑證」至 <strong>${escapeHtmlSafe(payload.contactEmail)}</strong>。</p>
+        <p><strong>2. 第一階段技術驗證準備：</strong>請備妥「廠商自我評估檢核表（Self-Assessment）」、「TW Core IG / TWCDI 欄位對映規格書」與測試環境 Endpoint 或 Docker 容器映像檔。</p>
+        <p><strong>3. 第二階段臨床驗證移交：</strong>通過工研院沙盒技術驗證後，實驗室將自動安排長庚醫院或三軍總醫院臨床驗證團隊進行真實 HIS 與虛擬病歷環境測試。</p>
+      `;
+    } else {
+      nextStepsEl.innerHTML = `
+        <p><strong>1. 核發設備進場通知單（Lab Entry Ticket）：</strong>實驗室收件小組（<code>${LAB_OFFICIAL_EMAIL}</code>）將於 <strong>3 個工作天內</strong>完成規格初審，並寄發「機房進場通知單、收件地址與繳費單」至 <strong>${escapeHtmlSafe(payload.contactEmail)}</strong>。</p>
+        <p><strong>2. 實體伺服器寄送與上架準備：</strong>請於收到進場通知單後，隨箱附上標準 19 吋機櫃滑軌、雙電源線、10GbE/25GbE 光纖模組及預設 BMC/IPMI 與 BIOS 管理帳號密碼。</p>
+        <p><strong>3. 7 大指標燒機壓測與 RMA 返還：</strong>設備進場後約 <strong>7～10 個工作天</strong>完成 FHIR Box OS 裸機部署與 10萬～100萬筆病歷高併發壓測；結案後將清除測試資料並通知貴司辦理設備領回。</p>
+      `;
+    }
+  }
+
+  // 組裝結構化文字供複製與官方信箱 mailto 轉發
+  const plainTextSummary = [
+    `【國家數位健康互通性與效能認證實驗室 — 線上收件申請單】`,
+    `收件單號：${payload.caseId}`,
+    `申請時間：${payload.submittedAt}`,
+    `收件類別：${payload.tierName}`,
+    `申請性質：${payload.applicationNature}`,
+    `預估費用：${payload.estimatedFee}`,
+    `申請公司：${payload.companyName}（統編：${payload.taxId}）`,
+    `聯絡窗口：${payload.contactName} / ${payload.contactRole}`,
+    `聯絡電話：${payload.contactPhone}`,
+    `回覆信箱：${payload.contactEmail}`,
+    `${targetItemLabel}：${targetItemVal}`,
+    `${specLabel}：${specVal}`,
+    `備註說明：${payload.submissionNotes || '無'}`,
+    ``,
+    `請實驗室收件小組協助回覆相關檢測排程、應備文件與繳費/進場資訊至申請人信箱：${payload.contactEmail}`
+  ].join('\n');
+
+  if (mailtoLink) {
+    const mailSubject = encodeURIComponent(`[認證實驗室收件申請] ${payload.caseId} - ${payload.companyName} (${payload.tierCode})`);
+    const mailBody = encodeURIComponent(plainTextSummary);
+    mailtoLink.href = `mailto:${LAB_OFFICIAL_EMAIL}?cc=${encodeURIComponent(payload.contactEmail)}&subject=${mailSubject}&body=${mailBody}`;
+  }
+
+  if (copyBtn) {
+    copyBtn.textContent = '複製收件憑證摘要';
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(plainTextSummary);
+        copyBtn.textContent = '✓ 已複製收件單號與明細';
+      } catch (_) {
+        copyBtn.textContent = `單號：${payload.caseId}`;
+      }
+    };
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSubmissionModalDirect() {
+  const modal = document.getElementById('submissionSuccessModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeSubmissionModal(event) {
+  if (event.target && event.target.classList.contains('course-modal-overlay')) {
+    closeSubmissionModalDirect();
+  }
+}
+
 
 

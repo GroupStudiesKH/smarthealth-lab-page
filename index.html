@@ -131,6 +131,13 @@
                     <span>CQL / SMART 兩階段驗測規範與檢測費用</span>
                   </div>
                 </a>
+                <a href="#software-submission" class="mobile-drawer-link">
+                  <span class="drawer-link-num">06</span>
+                  <div class="drawer-link-text">
+                    <strong>軟體認證收件與辦法</strong>
+                    <span>CQL / SMART 兩階段驗測規範與檢測費用</span>
+                  </div>
+                </a>
             </li>
             <li>
               <a href="#hardware-submission" class="mobile-drawer-link">
@@ -1064,136 +1071,673 @@
     <!-- 國家醫療資訊認證實驗室專區：六大原則、軟硬體驗測指標、8 大情境與費用規劃 -->
     <section class="lab-testing-section" id="lab-testing-section" style="display: none;">
       <section class="lab-testing-section" id="lab-testing-section">
-        <div class="lab-testing-container">
-          <!-- Section 頂部引言 -->
-          <div class="lab-section-header">
-            <div class="lab-badge">國家級電子病歷與醫療作業系統認證平台</div>
-            <h2 class="lab-main-title">國家醫療資訊認證實驗室 — 驗測辦法、指標基準與費用規範</h2>
-            <p class="lab-main-subtitle">
-              為避免各醫事機構與廠商自行解讀標準，導致資料欄位、身分驗證、授權範圍、批次讀寫與效能標準不一致，本辦法建立國家級電子病歷認證實驗室，作為廠商生態系介接應用軟體產品、硬體與 TSP 廠商之 FHIR BOX
-              佈署之標準測試、證書核發、年度維護與公開資訊揭露之制度平台。
-            </p>
-          </div>
-
-          <!-- 模組 0：六大認證原則 (6 Core Principles) -->
-          <div class="lab-principles-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Core Principles</div>
-              <h3 class="lab-block-title">國家醫療資訊認證實驗室 — 六大認證原則</h3>
-              <p class="lab-block-desc">
-                遵循標準化、可追溯與持續監管之核心方針，確保全國智慧醫療生態系具備最高安全性與互通性。
+        <section class="lab-testing-section" id="lab-testing-section">
+          <div class="lab-testing-container">
+            <!-- Section 頂部引言 -->
+            <div class="lab-section-header">
+              <div class="lab-badge">國家級電子病歷與醫療作業系統認證平台</div>
+              <h2 class="lab-main-title">國家醫療資訊認證實驗室 — 驗測辦法、指標基準與費用規範</h2>
+              <p class="lab-main-subtitle">
+                為避免各醫事機構與廠商自行解讀標準，導致資料欄位、身分驗證、授權範圍、批次讀寫與效能標準不一致，本辦法建立國家級電子病歷認證實驗室，作為廠商生態系介接應用軟體產品、硬體與 TSP 廠商之 FHIR BOX
+                佈署之標準測試、證書核發、年度維護與公開資訊揭露之制度平台。
               </p>
             </div>
 
-            <div class="principles-grid">
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">01</span>
-                  <span class="principle-name">標準優先 / 資料相容</span>
+            <!-- 模組 0：六大認證原則 (6 Core Principles) -->
+            <div class="lab-principles-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Core Principles</div>
+                <h3 class="lab-block-title">國家醫療資訊認證實驗室 — 六大認證原則</h3>
+                <p class="lab-block-desc">
+                  遵循標準化、可追溯與持續監管之核心方針，確保全國智慧醫療生態系具備最高安全性與互通性。
+                </p>
+              </div>
+
+              <div class="principles-grid">
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">01</span>
+                    <span class="principle-name">標準優先 / 資料相容</span>
+                  </div>
+                  <div class="principle-content">
+                    以 <strong>TW Core IG</strong>、<strong>TW CDI</strong>、<strong>SMART App</strong> 與
+                    <strong>CQL</strong>
+                    等國家公開標準作為權威依據，徹底消除跨機構資料壁壘。
+                  </div>
                 </div>
-                <div class="principle-content">
-                  以 <strong>TW Core IG</strong>、<strong>TW CDI</strong>、<strong>SMART App</strong> 與
-                  <strong>CQL</strong>
-                  等國家公開標準作為權威依據，徹底消除跨機構資料壁壘。
+
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">02</span>
+                    <span class="principle-name">先測試後認證</span>
+                  </div>
+                  <div class="principle-content">
+                    廠商應先完成<strong>自我評估與可測試環境建置</strong>，經認證實驗室正式測試通過後，再由主管機關審查與核發國家認證證書。
+                  </div>
+                </div>
+
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">03</span>
+                    <span class="principle-name">可重現與可稽核</span>
+                  </div>
+                  <div class="principle-content">
+                    測試資料集、測試工具版本、測試案例、執行紀錄與結果報告<strong>均須具備完整可追溯性與稽核憑據</strong>。
+                  </div>
+                </div>
+
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">04</span>
+                    <span class="principle-name">公開透明</span>
+                  </div>
+                  <div class="principle-content">
+                    認證結果、認證範圍、產品版本、測試能量等級與維護狀態，一律於<strong>衛福部指定官方網站即時公開揭露</strong>。
+                  </div>
+                </div>
+
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">05</span>
+                    <span class="principle-name">最小權限與資安保護</span>
+                  </div>
+                  <div class="principle-content">
+                    SMART 授權、Token 管理、TLS 加密傳輸、稽核紀錄、Provenance 與數位簽章機制，須嚴格符合<strong>最小權限原則與可追蹤標準</strong>。
+                  </div>
+                </div>
+
+                <div class="principle-item">
+                  <div class="principle-badge-col">
+                    <span class="principle-num">06</span>
+                    <span class="principle-name">持續監管</span>
+                  </div>
+                  <div class="principle-content">
+                    認證並非一次性通過即可，需透過<strong>年度續證、真實世界臨床測試 (RWT) 與重大版本更新重驗</strong>維持長期有效性。
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模組 1：軟體驗證規範 (Software Track Validation) -->
+            <div class="lab-software-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Software Track Validation</div>
+                <h3 class="lab-block-title">軟體驗證：生態系介接應用功能認證</h3>
+                <p class="lab-block-desc">
+                  針對 SMART on FHIR 與 CQL 臨床決策模組進行技術相容性與臨床互通雙重嚴謹檢測。
+                </p>
+              </div>
+
+              <div class="software-track-matrix">
+                <div class="software-meta-banner">
+                  <div class="meta-item">
+                    <span class="meta-label">認證類型</span>
+                    <span class="meta-val">生態系介接應用功能認證</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">驗測項目</span>
+                    <span class="meta-val">SMART、CQL (含技術測試與臨床測試)</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">驗測重點</span>
+                    <span class="meta-val">安全性、相容性與互通性</span>
+                  </div>
+                </div>
+
+                <div class="software-details-grid">
+                  <div class="software-detail-card">
+                    <h4 class="software-card-title">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                      </svg>
+                      主要驗測範疇與項目細則
+                    </h4>
+                    <ul class="software-check-list">
+                      <li><strong>SMART 應用架構：</strong>SMART App Launch、OAuth 2.0 / OpenID Connect、Standalone Launch 與
+                        EHR
+                        Launch 雙模式支援。</li>
+                      <li><strong>授權與資安控管：</strong>Token Refresh、Introspection API、v1/v2 Scopes 細粒度權限、TLS 安全加密傳輸與數位簽章驗證。
+                      </li>
+                      <li><strong>臨床決策邏輯：</strong>CQL 邏輯語法相容性、ELM JSON 解析與 CDS Hooks Service 觸發卡片機制。</li>
+                    </ul>
+                  </div>
+
+                  <div class="software-detail-card">
+                    <h4 class="software-card-title">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                      </svg>
+                      認證執行程序與實驗室規範 SOP
+                    </h4>
+                    <div class="sop-steps-list">
+                      <div class="sop-step-row">
+                        <span class="sop-step-tag">自測先行</span>
+                        <p>正式測試前，廠商應先完成自測並提交自我評估清單；正式測試以認證實驗室測試環境與工具版本為準。</p>
+                      </div>
+                      <div class="sop-step-row">
+                        <span class="sop-step-tag">完整追溯</span>
+                        <p>所有測試皆保存原始 log、測試工具版本、測試資料集版本、執行時間、測試人員與測試環境設定。</p>
+                      </div>
+                      <div class="sop-step-row">
+                        <span class="sop-step-tag">輔導補正</span>
+                        <p>針對無法通過認證之案例，實驗室提供驗證錯誤訊息與具體建議補正方向。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模組 2：硬體效能驗證 (Hardware Track: Bulk Data & Performance Benchmark) -->
+            <div class="lab-hardware-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Hardware Performance Benchmark</div>
+                <h3 class="lab-block-title">硬體效能驗證：Bulk Data 大規模資料交換與壓力測試</h3>
+                <p class="lab-block-desc">
+                  用於驗證硬體系統支援大規模資料交換與高負載穩定服務能力。測試項目包含批次匯入、併發使用者數、API 成功率、Latency、Token refresh 成功率與 Bulk job 完成率。
+                </p>
+              </div>
+
+              <!-- 硬體效能 7 大量化指標數據基準表 -->
+              <div class="benchmark-table-wrapper">
+                <table class="benchmark-table">
+                  <thead>
+                    <tr>
+                      <th class="col-indicator">驗測指標</th>
+                      <th class="col-standard">國家驗測基準 (Standard)</th>
+                      <th class="col-description">規範說明 (Specification Details)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 01</span>
+                        <strong>API 成功率</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-green">2xx / total；建議 &gt; 99%</span>
+                      </td>
+                      <td class="cell-description">一般 FHIR API 與 SMART 流程呼叫之成功比例。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 02</span>
+                        <strong>平均 Latency</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">&lt; 500 ms</span>
+                      </td>
+                      <td class="cell-description">常用查詢與單筆資源讀取之平均反應時間。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 03</span>
+                        <strong>Token refresh 成功率</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-green">&gt; 99%</span>
+                      </td>
+                      <td class="cell-description">大量使用者情境下 refresh token 流程成功比例。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 04</span>
+                        <strong>Concurrency 併發數量</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">20、80、150、200 (依等級)</span>
+                      </td>
+                      <td class="cell-description">同時連線或同時任務承載能力評估。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 05</span>
+                        <strong>SMART login 成功率</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-green">&gt; 99%</span>
+                      </td>
+                      <td class="cell-description">大量使用者登入與 Launch 場景之成功率。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 06</span>
+                        <strong>Bundle R/W 吞吐量</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">2,500 – 3,000 bundle resources/s</span>
+                      </td>
+                      <td class="cell-description">CQL/CDS Hooks、SMART App 或資料交換場景下之 bundle 讀寫能力。</td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">指標 07</span>
+                        <strong>單筆 Request R/W</strong>
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">約 500 req/s</span>
+                      </td>
+                      <td class="cell-description">單筆 API 讀寫請求之吞吐能力參考。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 邊界規格與病歷規模分級 -->
+              <div class="hardware-scale-banner">
+                <div class="scale-item scale-timeout">
+                  <span class="scale-label">系統 Time-out 設定</span>
+                  <span class="scale-val">60 秒 (60s)</span>
+                </div>
+                <div class="scale-divider"></div>
+                <div class="scale-item scale-records">
+                  <span class="scale-label">病歷規模測試等級 (Dataset Scales)</span>
+                  <div class="scale-pills-list">
+                    <span class="scale-pill">10 萬筆</span>
+                    <span class="scale-pill">20 萬筆</span>
+                    <span class="scale-pill">30 萬筆</span>
+                    <span class="scale-pill">50 萬筆</span>
+                    <span class="scale-pill">100 萬筆</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模組 3：TSP 實機認證 8 大驗測情境項目 -->
+            <div class="lab-scenarios-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">8 Hands-on Testing Scenarios</div>
+                <h3 class="lab-block-title">TSP 實機認證 8 大驗測情境項目與驗收指標</h3>
+                <p class="lab-block-desc">
+                  於國家級沙盒環境進行實機上機檢定，全面考核標準佈署、CDS/CQL 規則、術語映射、AI 語意檢索及故障排除能力。
+                </p>
+              </div>
+
+              <div class="scenarios-grid">
+                <!-- 情境一 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境一</span>
+                    <h4 class="scenario-title">標準環境安裝 (FHIR BOX 佈署)</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>安裝指定容器環境與相依套件</li>
+                      <li>設定環境變數與安全系統設定</li>
+                      <li>交付服務清單、安裝紀錄與操作截圖報告</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境二 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境二</span>
+                    <h4 class="scenario-title">SMART App 佈署與啟動 (THAS)</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>建立符合標準之 SMART Client 端應用</li>
+                      <li>設定 Scope 存取權限與 Token 授權機制</li>
+                      <li>完成標準 EHR Launch 流程整合與介面呼叫</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境三 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境三</span>
+                    <h4 class="scenario-title">CQL / CDS Hooks (THRS)</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>上傳 CQL 臨床邏輯檔或編譯之 ELM JSON</li>
+                      <li>設定 CDS Hooks Service 與觸發 Hook 端點</li>
+                      <li>排除 Library、Terminology 或 Parameter 參數錯誤</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境四 -->
+                <div class="scenario-card scenario-card-featured">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境四</span>
+                    <h4 class="scenario-title">維運與故障排除 (現場隨機抽題)</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <p class="scenario-note">受測 TSP 應能排除至少五類現場隨機抽題之維運問題：</p>
+                    <ul class="scenario-checklist">
+                      <li>TLS Certificate 憑證效期與信任鏈錯誤排查</li>
+                      <li>SMART App <code>redirect_uri</code> mismatch 驗證異常排除</li>
+                      <li>FHIR Server 驗證失敗、網路中斷或連線逾時處理</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境五 -->
+                <div class="scenario-card scenario-card-featured">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境五</span>
+                    <h4 class="scenario-title">術語共同核心實作 (含 LLM)</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>建立簡單 ConceptMap 資源完成跨體系映射</li>
+                      <li>向量資料庫 (Vector DB) 切片策略與語意檢索優化</li>
+                      <li>精確辨識「查到相似名稱但語意不相等」之錯誤案例</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境六 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境六</span>
+                    <h4 class="scenario-title">SNOMED CT 臨床術語實作</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>判斷父子概念層級與 Subsumption 關係</li>
+                      <li>撰寫基本 ECL (Expression Constraint Language) 查詢</li>
+                      <li>撰寫本地化 Extension 擴充規範需求書</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境七 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境七</span>
+                    <h4 class="scenario-title">LOINC 臨床檢驗實作</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>完成指定筆數本地院內檢驗項目精準映射至 LOINC</li>
+                      <li>掌握 Component、System 等六軸向 (Six Axes) 基本觀念與檢核</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- 情境八 -->
+                <div class="scenario-card">
+                  <div class="scenario-card-header">
+                    <span class="scenario-badge">情境八</span>
+                    <h4 class="scenario-title">RxNorm 國際藥品標準實作</h4>
+                  </div>
+                  <div class="scenario-card-body">
+                    <ul class="scenario-checklist">
+                      <li>由藥品成分名稱取得正確 RxCUI 唯一識別碼</li>
+                      <li>完成院內藥碼精準映射至 RxNorm 國際標準</li>
+                      <li>具備正確邏輯判斷單方與複方藥品架構</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 模組 4：費用規劃與醫院裝機回饋精算 -->
+            <div class="lab-pricing-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Pricing & ROI Model</div>
+                <h3 class="lab-block-title">實驗室認證費用規劃與醫院裝機回饋機制</h3>
+                <p class="lab-block-desc">
+                  以模組化學程與嚴謹上機實測為核心，建立清楚透明的考照投資架構，並以政策回饋實質獎勵加速醫療院所落地導入。
+                </p>
+              </div>
+
+              <div class="pricing-matrix-grid">
+                <div class="pricing-card">
+                  <div class="pricing-card-type">學科培訓</div>
+                  <div class="pricing-card-figure">
+                    <span class="currency">NT$</span>
+                    <span class="amount">2,000</span>
+                    <span class="unit">/ 堂課</span>
+                  </div>
+                  <div class="pricing-card-detail">
+                    單張證照需修習 10 堂核心課程，單證學科培訓成本為 <strong>NT$ 20,000</strong>。
+                  </div>
+                </div>
+
+                <div class="pricing-card">
+                  <div class="pricing-card-type">術科實機測驗</div>
+                  <div class="pricing-card-figure">
+                    <span class="currency">NT$</span>
+                    <span class="amount">10,000</span>
+                    <span class="unit">/ 次</span>
+                  </div>
+                  <div class="pricing-card-detail">
+                    於工研院國家級沙盒實驗室進行限時任務導向實機上機檢定（得分需 ≥ 85%）。
+                  </div>
+                </div>
+
+                <div class="pricing-card pricing-card-total">
+                  <div class="pricing-card-type">單張證照取得總成本</div>
+                  <div class="pricing-card-figure">
+                    <span class="currency">NT$</span>
+                    <span class="amount">30,000</span>
+                    <span class="unit">/ 張</span>
+                  </div>
+                  <div class="pricing-card-detail">
+                    包含 10 堂學科完整培訓 (2萬) + 術科實機認證測驗 (1萬)。
+                  </div>
+                </div>
+
+                <div class="pricing-card pricing-card-highlight">
+                  <div class="pricing-card-type">TSP 夥伴認證總資格</div>
+                  <div class="pricing-card-figure">
+                    <span class="currency">NT$</span>
+                    <span class="amount">300,000</span>
+                    <span class="unit">/ 10 張證照</span>
+                  </div>
+                  <div class="pricing-card-detail">
+                    TSP 全方位解決方案夥伴需取得完整 10 張專業證照，累計成本 30 萬元。
+                  </div>
                 </div>
               </div>
 
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">02</span>
-                  <span class="principle-name">先測試後認證</span>
+              <!-- 醫院裝機回饋激勵 Banner -->
+              <div class="hospital-rebate-banner">
+                <div class="rebate-icon-box">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
                 </div>
-                <div class="principle-content">
-                  廠商應先完成<strong>自我評估與可測試環境建置</strong>，經認證實驗室正式測試通過後，再由主管機關審查與核發國家認證證書。
-                </div>
-              </div>
-
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">03</span>
-                  <span class="principle-name">可重現與可稽核</span>
-                </div>
-                <div class="principle-content">
-                  測試資料集、測試工具版本、測試案例、執行紀錄與結果報告<strong>均須具備完整可追溯性與稽核憑據</strong>。
-                </div>
-              </div>
-
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">04</span>
-                  <span class="principle-name">公開透明</span>
-                </div>
-                <div class="principle-content">
-                  認證結果、認證範圍、產品版本、測試能量等級與維護狀態，一律於<strong>衛福部指定官方網站即時公開揭露</strong>。
-                </div>
-              </div>
-
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">05</span>
-                  <span class="principle-name">最小權限與資安保護</span>
-                </div>
-                <div class="principle-content">
-                  SMART 授權、Token 管理、TLS 加密傳輸、稽核紀錄、Provenance 與數位簽章機制，須嚴格符合<strong>最小權限原則與可追蹤標準</strong>。
-                </div>
-              </div>
-
-              <div class="principle-item">
-                <div class="principle-badge-col">
-                  <span class="principle-num">06</span>
-                  <span class="principle-name">持續監管</span>
-                </div>
-                <div class="principle-content">
-                  認證並非一次性通過即可，需透過<strong>年度續證、真實世界臨床測試 (RWT) 與重大版本更新重驗</strong>維持長期有效性。
+                <div class="rebate-info">
+                  <div class="rebate-badge">落地激勵機制</div>
+                  <h4 class="rebate-title">取證後完成醫院裝機，每家醫院專案回饋 NT$ 10,000</h4>
+                  <p class="rebate-desc">
+                    通過認證之 TSP 廠商協助醫療院所（醫學中心、區域醫院、基層診所）完成 FHIR Box 系統實體或虛擬化安裝部署與驗收，<strong>每完成一家醫療院所即提供 1
+                      萬元回饋</strong>，實質加速投資回收並帶動全國智慧醫療升級。
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <!-- 模組 1：軟體驗證規範 (Software Track Validation) -->
-          <div class="lab-software-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Software Track Validation</div>
-              <h3 class="lab-block-title">軟體驗證：生態系介接應用功能認證</h3>
-              <p class="lab-block-desc">
-                針對 SMART on FHIR 與 CQL 臨床決策模組進行技術相容性與臨床互通雙重嚴謹檢測。
+        <!-- 擴充區塊一：軟體認證收件專區 (Software Certification Submission) -->
+        <section class="submission-track-section software-submission-section" id="software-submission">
+          <div class="submission-track-container">
+            <div class="submission-section-header">
+              <div class="submission-badge badge-software">Software Certification &amp; Submission</div>
+              <h2 class="submission-main-title">軟體認證收件專區 — 檢測辦法、收件規範與費用標準</h2>
+              <p class="submission-main-subtitle">
+                凡需與國家級醫療作業系統 <strong>FHIR Box</strong> 介接並上架至國家應用程式市集（App Marketplace / THAS /
+                THRS）之應用軟體，均須通過「工研院國家沙盒技術驗證」與「醫學中心真實臨床環境驗證」雙階段審核。
               </p>
             </div>
 
-            <div class="software-track-matrix">
-              <div class="software-meta-banner">
-                <div class="meta-item">
-                  <span class="meta-label">認證類型</span>
-                  <span class="meta-val">生態系介接應用功能認證</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">驗測項目</span>
-                  <span class="meta-val">SMART、CQL (含技術測試與臨床測試)</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">驗測重點</span>
-                  <span class="meta-val">安全性、相容性與互通性</span>
-                </div>
+            <!-- 1. 軟體收件兩階段檢測辦法 SOP -->
+            <div class="submission-card-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Two-Stage Software Validation SOP</div>
+                <h3 class="lab-block-title">軟體認證收件與兩階段驗測作業辦法</h3>
+                <p class="lab-block-desc">
+                  採「自測先行、雙階驗證、輔導補正」制度，確保所有上架應用符合臺灣核心資料集（TW Core IG / TWCDI）與臨床工作流需求。
+                </p>
               </div>
 
+              <div class="submission-sop-grid">
+                <div class="submission-sop-step">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 01</span>
+                    <span class="sop-step-phase">廠商自測與線上送件</span>
+                  </div>
+                  <h4 class="sop-step-name">提交自評表與介接規格書</h4>
+                  <p class="sop-step-text">
+                    廠商依據公開之 TW Core IG 與 SMART / CQL 規範完成內部自測，於下方線上收件系統填表，提交<strong>自我評估清單（Self-Assessment）</strong>、API
+                    介接規格書與測試環境連線資訊。
+                  </p>
+                </div>
+
+                <div class="submission-sop-step">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 02</span>
+                    <span class="sop-step-phase">第一階段：工研院沙盒</span>
+                  </div>
+                  <h4 class="sop-step-name">技術驗證 (Technical Validation)</h4>
+                  <p class="sop-step-text">
+                    於認證實驗室標準沙盒檢核 <strong>TW Core IG / TWCDI 相容性</strong>、OAuth 2.0 / OIDC 身分驗證、SMART v1/v2 Scopes
+                    最小權限、CQL
+                    ELM JSON 語法解析與 TLS 資安規範。
+                  </p>
+                </div>
+
+                <div class="submission-sop-step">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 03</span>
+                    <span class="sop-step-phase">第二階段：長庚 / 三總團隊</span>
+                  </div>
+                  <h4 class="sop-step-name">臨床驗證 (Clinical Validation)</h4>
+                  <p class="sop-step-text">
+                    委託長庚醫院、三軍總醫院等臨床研究團隊，於<strong>真實 HIS 電子病歷環境與虛擬病歷沙盒</strong>實測臨床觸發流程、AI 推論回應速度與 FHIR 資源回傳準確度。
+                  </p>
+                </div>
+
+                <div class="submission-sop-step">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 04</span>
+                    <span class="sop-step-phase">標章核發與白名單登錄</span>
+                  </div>
+                  <h4 class="sop-step-name">獲頒國家標章與市集上架</h4>
+                  <p class="sop-step-text">
+                    雙階段全數通過後，由主管機關核發<strong>國家數位健康軟體認證標章</strong>，公開揭露於衛福部官方白名單，並取得國家應用程式市集（App Marketplace）正式上架資格。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. 軟體檢測費用與收件類別一覽表 -->
+            <div class="submission-card-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Software Testing Fee Schedule</div>
+                <h3 class="lab-block-title">軟體檢測收件類別與費用標準</h3>
+                <p class="lab-block-desc">
+                  依應用架構複雜度分為三大收件類別（S1～S3），費用均包含「第一階段技術驗證」與「第二階段臨床環境驗證」完整檢測服務與正式報告。
+                </p>
+              </div>
+
+              <div class="benchmark-table-wrapper">
+                <table class="benchmark-table submission-fee-table">
+                  <thead>
+                    <tr>
+                      <th>收件代碼與類別名稱</th>
+                      <th>適用軟體範疇與驗測標的</th>
+                      <th>標準檢測費用</th>
+                      <th>包含服務與交付產出</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-s1">類別 S1</span>
+                        <strong>CQL 臨床決策支援模組</strong>
+                      </td>
+                      <td class="cell-description">
+                        單一臨床主題之 CQL 邏輯規則集、ELM JSON 編譯檔與 CDS Hooks 觸發服務（THRS 規則空間）。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">NT$ 30,000 / 件</span>
+                      </td>
+                      <td class="cell-description">
+                        含工研院語法/TWCDI 技術驗證 ＋ 臨床團隊真實病歷情境測試各 1 次、國家認證報告。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-s2">類別 S2</span>
+                        <strong>SMART on FHIR 應用程式</strong>
+                      </td>
+                      <td class="cell-description">
+                        具備前端臨床互動 UI、EHR / Standalone Launch、OAuth 2.0 授權與 FHIR 讀寫之應用（THAS 應用空間）。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">NT$ 60,000 / 式</span>
+                      </td>
+                      <td class="cell-description">
+                        含 Launch 授權資安驗證、TW Core 互通性驗證 ＋ 醫學中心 HIS 嵌入實測各 1 次、市集上架憑證。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-s3">類別 S3</span>
+                        <strong>智慧醫療 AI / LLM 複合應用</strong>
+                      </td>
+                      <td class="cell-description">
+                        結合 SMART on FHIR 或 CDS Hooks，並整合醫療 AI 模型推論、生成式 LLM 病歷編碼或影像輔助之軟體。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-green">NT$ 80,000 / 式</span>
+                      </td>
+                      <td class="cell-description">
+                        含 S2 全項檢測 ＋ FHIR 去識別化合規、AI 推論延遲與臨床準確度驗證、國家 AI 應用標章。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">複驗項目</span>
+                        <strong>輔導補正後複驗 / 重測費</strong>
+                      </td>
+                      <td class="cell-description">
+                        初測未通過之案例，經實驗室提供錯誤 Log 與補正建議並於 60 日內完成修改後申請重測。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">NT$ 15,000 / 次</span>
+                      </td>
+                      <td class="cell-description">
+                        針對未通過之單一階段（技術驗證或臨床驗證）執行二次複驗並更新核發報告。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">年度維護</span>
+                        <strong>年度續證與改版重驗 (RWT)</strong>
+                      </td>
+                      <td class="cell-description">
+                        已取證軟體之年度標章展延、真實世界臨床追蹤（Real World Testing）或配合 TW Core IG 改版升級。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">NT$ 15,000 / 年</span>
+                      </td>
+                      <td class="cell-description">
+                        Delta 差異驗證、維持衛福部官方白名單即時公開揭露與國家市集持續上架權限。
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 3. 軟體送件應備文件與收件須知 -->
               <div class="software-details-grid">
-                <div class="software-detail-card">
-                  <h4 class="software-card-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    主要驗測範疇與項目細則
-                  </h4>
-                  <ul class="software-check-list">
-                    <li><strong>SMART 應用架構：</strong>SMART App Launch、OAuth 2.0 / OpenID Connect、Standalone Launch 與 EHR
-                      Launch 雙模式支援。</li>
-                    <li><strong>授權與資安控管：</strong>Token Refresh、Introspection API、v1/v2 Scopes 細粒度權限、TLS 安全加密傳輸與數位簽章驗證。
-                    </li>
-                    <li><strong>臨床決策邏輯：</strong>CQL 邏輯語法相容性、ELM JSON 解析與 CDS Hooks Service 觸發卡片機制。</li>
-                  </ul>
-                </div>
-
                 <div class="software-detail-card">
                   <h4 class="software-card-title">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1201,1328 +1745,799 @@
                       <polyline points="14 2 14 8 20 8"></polyline>
                       <line x1="16" y1="13" x2="8" y2="13"></line>
                       <line x1="16" y1="17" x2="8" y2="17"></line>
-                      <polyline points="10 9 9 9 8 9"></polyline>
                     </svg>
-                    認證執行程序與實驗室規範 SOP
+                    軟體收件應備技術文件清單
                   </h4>
-                  <div class="sop-steps-list">
-                    <div class="sop-step-row">
-                      <span class="sop-step-tag">自測先行</span>
-                      <p>正式測試前，廠商應先完成自測並提交自我評估清單；正式測試以認證實驗室測試環境與工具版本為準。</p>
-                    </div>
-                    <div class="sop-step-row">
-                      <span class="sop-step-tag">完整追溯</span>
-                      <p>所有測試皆保存原始 log、測試工具版本、測試資料集版本、執行時間、測試人員與測試環境設定。</p>
-                    </div>
-                    <div class="sop-step-row">
-                      <span class="sop-step-tag">輔導補正</span>
-                      <p>針對無法通過認證之案例，實驗室提供驗證錯誤訊息與具體建議補正方向。</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 模組 2：硬體效能驗證 (Hardware Track: Bulk Data & Performance Benchmark) -->
-          <div class="lab-hardware-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Hardware Performance Benchmark</div>
-              <h3 class="lab-block-title">硬體效能驗證：Bulk Data 大規模資料交換與壓力測試</h3>
-              <p class="lab-block-desc">
-                用於驗證硬體系統支援大規模資料交換與高負載穩定服務能力。測試項目包含批次匯入、併發使用者數、API 成功率、Latency、Token refresh 成功率與 Bulk job 完成率。
-              </p>
-            </div>
-
-            <!-- 硬體效能 7 大量化指標數據基準表 -->
-            <div class="benchmark-table-wrapper">
-              <table class="benchmark-table">
-                <thead>
-                  <tr>
-                    <th class="col-indicator">驗測指標</th>
-                    <th class="col-standard">國家驗測基準 (Standard)</th>
-                    <th class="col-description">規範說明 (Specification Details)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 01</span>
-                      <strong>API 成功率</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-green">2xx / total；建議 &gt; 99%</span>
-                    </td>
-                    <td class="cell-description">一般 FHIR API 與 SMART 流程呼叫之成功比例。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 02</span>
-                      <strong>平均 Latency</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">&lt; 500 ms</span>
-                    </td>
-                    <td class="cell-description">常用查詢與單筆資源讀取之平均反應時間。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 03</span>
-                      <strong>Token refresh 成功率</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-green">&gt; 99%</span>
-                    </td>
-                    <td class="cell-description">大量使用者情境下 refresh token 流程成功比例。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 04</span>
-                      <strong>Concurrency 併發數量</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">20、80、150、200 (依等級)</span>
-                    </td>
-                    <td class="cell-description">同時連線或同時任務承載能力評估。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 05</span>
-                      <strong>SMART login 成功率</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-green">&gt; 99%</span>
-                    </td>
-                    <td class="cell-description">大量使用者登入與 Launch 場景之成功率。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 06</span>
-                      <strong>Bundle R/W 吞吐量</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">2,500 – 3,000 bundle resources/s</span>
-                    </td>
-                    <td class="cell-description">CQL/CDS Hooks、SMART App 或資料交換場景下之 bundle 讀寫能力。</td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">指標 07</span>
-                      <strong>單筆 Request R/W</strong>
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">約 500 req/s</span>
-                    </td>
-                    <td class="cell-description">單筆 API 讀寫請求之吞吐能力參考。</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- 邊界規格與病歷規模分級 -->
-            <div class="hardware-scale-banner">
-              <div class="scale-item scale-timeout">
-                <span class="scale-label">系統 Time-out 設定</span>
-                <span class="scale-val">60 秒 (60s)</span>
-              </div>
-              <div class="scale-divider"></div>
-              <div class="scale-item scale-records">
-                <span class="scale-label">病歷規模測試等級 (Dataset Scales)</span>
-                <div class="scale-pills-list">
-                  <span class="scale-pill">10 萬筆</span>
-                  <span class="scale-pill">20 萬筆</span>
-                  <span class="scale-pill">30 萬筆</span>
-                  <span class="scale-pill">50 萬筆</span>
-                  <span class="scale-pill">100 萬筆</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 模組 3：TSP 實機認證 8 大驗測情境項目 -->
-          <div class="lab-scenarios-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">8 Hands-on Testing Scenarios</div>
-              <h3 class="lab-block-title">TSP 實機認證 8 大驗測情境項目與驗收指標</h3>
-              <p class="lab-block-desc">
-                於國家級沙盒環境進行實機上機檢定，全面考核標準佈署、CDS/CQL 規則、術語映射、AI 語意檢索及故障排除能力。
-              </p>
-            </div>
-
-            <div class="scenarios-grid">
-              <!-- 情境一 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境一</span>
-                  <h4 class="scenario-title">標準環境安裝 (FHIR BOX 佈署)</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>安裝指定容器環境與相依套件</li>
-                    <li>設定環境變數與安全系統設定</li>
-                    <li>交付服務清單、安裝紀錄與操作截圖報告</li>
+                  <ul class="software-check-list">
+                    <li><strong>廠商自我評估檢核表：</strong>完成實驗室公告之 TW Core Profile 與 API 端點自我測試勾選紀錄。</li>
+                    <li><strong>系統架構與介接規格書：</strong>載明使用之 FHIR Resources、Terminology（SNOMED CT / LOINC / RxNorm）對映表與授權
+                      Scopes。</li>
+                    <li><strong>臨床使用情境說明書：</strong>定義目標醫療層級、臨床觸發時機（如門診開立處方、住院交班）與預期決策回饋畫面。</li>
+                    <li><strong>資安與隱私合規聲明：</strong>第三方源碼檢測或弱點掃描初步報告、TLS 1.2+ 傳輸加密與病歷去識別化說明。</li>
                   </ul>
                 </div>
-              </div>
 
-              <!-- 情境二 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境二</span>
-                  <h4 class="scenario-title">SMART App 佈署與啟動 (THAS)</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>建立符合標準之 SMART Client 端應用</li>
-                    <li>設定 Scope 存取權限與 Token 授權機制</li>
-                    <li>完成標準 EHR Launch 流程整合與介面呼叫</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境三 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境三</span>
-                  <h4 class="scenario-title">CQL / CDS Hooks (THRS)</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>上傳 CQL 臨床邏輯檔或編譯之 ELM JSON</li>
-                    <li>設定 CDS Hooks Service 與觸發 Hook 端點</li>
-                    <li>排除 Library、Terminology 或 Parameter 參數錯誤</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境四 -->
-              <div class="scenario-card scenario-card-featured">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境四</span>
-                  <h4 class="scenario-title">維運與故障排除 (現場隨機抽題)</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <p class="scenario-note">受測 TSP 應能排除至少五類現場隨機抽題之維運問題：</p>
-                  <ul class="scenario-checklist">
-                    <li>TLS Certificate 憑證效期與信任鏈錯誤排查</li>
-                    <li>SMART App <code>redirect_uri</code> mismatch 驗證異常排除</li>
-                    <li>FHIR Server 驗證失敗、網路中斷或連線逾時處理</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境五 -->
-              <div class="scenario-card scenario-card-featured">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境五</span>
-                  <h4 class="scenario-title">術語共同核心實作 (含 LLM)</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>建立簡單 ConceptMap 資源完成跨體系映射</li>
-                    <li>向量資料庫 (Vector DB) 切片策略與語意檢索優化</li>
-                    <li>精確辨識「查到相似名稱但語意不相等」之錯誤案例</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境六 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境六</span>
-                  <h4 class="scenario-title">SNOMED CT 臨床術語實作</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>判斷父子概念層級與 Subsumption 關係</li>
-                    <li>撰寫基本 ECL (Expression Constraint Language) 查詢</li>
-                    <li>撰寫本地化 Extension 擴充規範需求書</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境七 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境七</span>
-                  <h4 class="scenario-title">LOINC 臨床檢驗實作</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>完成指定筆數本地院內檢驗項目精準映射至 LOINC</li>
-                    <li>掌握 Component、System 等六軸向 (Six Axes) 基本觀念與檢核</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- 情境八 -->
-              <div class="scenario-card">
-                <div class="scenario-card-header">
-                  <span class="scenario-badge">情境八</span>
-                  <h4 class="scenario-title">RxNorm 國際藥品標準實作</h4>
-                </div>
-                <div class="scenario-card-body">
-                  <ul class="scenario-checklist">
-                    <li>由藥品成分名稱取得正確 RxCUI 唯一識別碼</li>
-                    <li>完成院內藥碼精準映射至 RxNorm 國際標準</li>
-                    <li>具備正確邏輯判斷單方與複方藥品架構</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 模組 4：費用規劃與醫院裝機回饋精算 -->
-          <div class="lab-pricing-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Pricing & ROI Model</div>
-              <h3 class="lab-block-title">實驗室認證費用規劃與醫院裝機回饋機制</h3>
-              <p class="lab-block-desc">
-                以模組化學程與嚴謹上機實測為核心，建立清楚透明的考照投資架構，並以政策回饋實質獎勵加速醫療院所落地導入。
-              </p>
-            </div>
-
-            <div class="pricing-matrix-grid">
-              <div class="pricing-card">
-                <div class="pricing-card-type">學科培訓</div>
-                <div class="pricing-card-figure">
-                  <span class="currency">NT$</span>
-                  <span class="amount">2,000</span>
-                  <span class="unit">/ 堂課</span>
-                </div>
-                <div class="pricing-card-detail">
-                  單張證照需修習 10 堂核心課程，單證學科培訓成本為 <strong>NT$ 20,000</strong>。
-                </div>
-              </div>
-
-              <div class="pricing-card">
-                <div class="pricing-card-type">術科實機測驗</div>
-                <div class="pricing-card-figure">
-                  <span class="currency">NT$</span>
-                  <span class="amount">10,000</span>
-                  <span class="unit">/ 次</span>
-                </div>
-                <div class="pricing-card-detail">
-                  於工研院國家級沙盒實驗室進行限時任務導向實機上機檢定（得分需 ≥ 85%）。
-                </div>
-              </div>
-
-              <div class="pricing-card pricing-card-total">
-                <div class="pricing-card-type">單張證照取得總成本</div>
-                <div class="pricing-card-figure">
-                  <span class="currency">NT$</span>
-                  <span class="amount">30,000</span>
-                  <span class="unit">/ 張</span>
-                </div>
-                <div class="pricing-card-detail">
-                  包含 10 堂學科完整培訓 (2萬) + 術科實機認證測驗 (1萬)。
-                </div>
-              </div>
-
-              <div class="pricing-card pricing-card-highlight">
-                <div class="pricing-card-type">TSP 夥伴認證總資格</div>
-                <div class="pricing-card-figure">
-                  <span class="currency">NT$</span>
-                  <span class="amount">300,000</span>
-                  <span class="unit">/ 10 張證照</span>
-                </div>
-                <div class="pricing-card-detail">
-                  TSP 全方位解決方案夥伴需取得完整 10 張專業證照，累計成本 30 萬元。
-                </div>
-              </div>
-            </div>
-
-            <!-- 醫院裝機回饋激勵 Banner -->
-            <div class="hospital-rebate-banner">
-              <div class="rebate-icon-box">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <div class="rebate-info">
-                <div class="rebate-badge">落地激勵機制</div>
-                <h4 class="rebate-title">取證後完成醫院裝機，每家醫院專案回饋 NT$ 10,000</h4>
-                <p class="rebate-desc">
-                  通過認證之 TSP 廠商協助醫療院所（醫學中心、區域醫院、基層診所）完成 FHIR Box 系統實體或虛擬化安裝部署與驗收，<strong>每完成一家醫療院所即提供 1
-                    萬元回饋</strong>，實質加速投資回收並帶動全國智慧醫療升級。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 擴充區塊一：軟體認證收件專區 (Software Certification Submission) -->
-      <section class="submission-track-section software-submission-section" id="software-submission">
-        <div class="submission-track-container">
-          <div class="submission-section-header">
-            <div class="submission-badge badge-software">Software Certification &amp; Submission</div>
-            <h2 class="submission-main-title">軟體認證收件專區 — 檢測辦法、收件規範與費用標準</h2>
-            <p class="submission-main-subtitle">
-              凡需與國家級醫療作業系統 <strong>FHIR Box</strong> 介接並上架至國家應用程式市集（App Marketplace / THAS /
-              THRS）之應用軟體，均須通過「工研院國家沙盒技術驗證」與「醫學中心真實臨床環境驗證」雙階段審核。
-            </p>
-          </div>
-
-          <!-- 1. 軟體收件兩階段檢測辦法 SOP -->
-          <div class="submission-card-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Two-Stage Software Validation SOP</div>
-              <h3 class="lab-block-title">軟體認證收件與兩階段驗測作業辦法</h3>
-              <p class="lab-block-desc">
-                採「自測先行、雙階驗證、輔導補正」制度，確保所有上架應用符合臺灣核心資料集（TW Core IG / TWCDI）與臨床工作流需求。
-              </p>
-            </div>
-
-            <div class="submission-sop-grid">
-              <div class="submission-sop-step">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 01</span>
-                  <span class="sop-step-phase">廠商自測與線上送件</span>
-                </div>
-                <h4 class="sop-step-name">提交自評表與介接規格書</h4>
-                <p class="sop-step-text">
-                  廠商依據公開之 TW Core IG 與 SMART / CQL 規範完成內部自測，於下方線上收件系統填表，提交<strong>自我評估清單（Self-Assessment）</strong>、API
-                  介接規格書與測試環境連線資訊。
-                </p>
-              </div>
-
-              <div class="submission-sop-step">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 02</span>
-                  <span class="sop-step-phase">第一階段：工研院沙盒</span>
-                </div>
-                <h4 class="sop-step-name">技術驗證 (Technical Validation)</h4>
-                <p class="sop-step-text">
-                  於認證實驗室標準沙盒檢核 <strong>TW Core IG / TWCDI 相容性</strong>、OAuth 2.0 / OIDC 身分驗證、SMART v1/v2 Scopes 最小權限、CQL
-                  ELM JSON 語法解析與 TLS 資安規範。
-                </p>
-              </div>
-
-              <div class="submission-sop-step">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 03</span>
-                  <span class="sop-step-phase">第二階段：長庚 / 三總團隊</span>
-                </div>
-                <h4 class="sop-step-name">臨床驗證 (Clinical Validation)</h4>
-                <p class="sop-step-text">
-                  委託長庚醫院、三軍總醫院等臨床研究團隊，於<strong>真實 HIS 電子病歷環境與虛擬病歷沙盒</strong>實測臨床觸發流程、AI 推論回應速度與 FHIR 資源回傳準確度。
-                </p>
-              </div>
-
-              <div class="submission-sop-step">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 04</span>
-                  <span class="sop-step-phase">標章核發與白名單登錄</span>
-                </div>
-                <h4 class="sop-step-name">獲頒國家標章與市集上架</h4>
-                <p class="sop-step-text">
-                  雙階段全數通過後，由主管機關核發<strong>國家數位健康軟體認證標章</strong>，公開揭露於衛福部官方白名單，並取得國家應用程式市集（App Marketplace）正式上架資格。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. 軟體檢測費用與收件類別一覽表 -->
-          <div class="submission-card-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Software Testing Fee Schedule</div>
-              <h3 class="lab-block-title">軟體檢測收件類別與費用標準</h3>
-              <p class="lab-block-desc">
-                依應用架構複雜度分為三大收件類別（S1～S3），費用均包含「第一階段技術驗證」與「第二階段臨床環境驗證」完整檢測服務與正式報告。
-              </p>
-            </div>
-
-            <div class="benchmark-table-wrapper">
-              <table class="benchmark-table submission-fee-table">
-                <thead>
-                  <tr>
-                    <th>收件代碼與類別名稱</th>
-                    <th>適用軟體範疇與驗測標的</th>
-                    <th>標準檢測費用</th>
-                    <th>包含服務與交付產出</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-s1">類別 S1</span>
-                      <strong>CQL 臨床決策支援模組</strong>
-                    </td>
-                    <td class="cell-description">
-                      單一臨床主題之 CQL 邏輯規則集、ELM JSON 編譯檔與 CDS Hooks 觸發服務（THRS 規則空間）。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">NT$ 30,000 / 件</span>
-                    </td>
-                    <td class="cell-description">
-                      含工研院語法/TWCDI 技術驗證 ＋ 臨床團隊真實病歷情境測試各 1 次、國家認證報告。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-s2">類別 S2</span>
-                      <strong>SMART on FHIR 應用程式</strong>
-                    </td>
-                    <td class="cell-description">
-                      具備前端臨床互動 UI、EHR / Standalone Launch、OAuth 2.0 授權與 FHIR 讀寫之應用（THAS 應用空間）。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">NT$ 60,000 / 式</span>
-                    </td>
-                    <td class="cell-description">
-                      含 Launch 授權資安驗證、TW Core 互通性驗證 ＋ 醫學中心 HIS 嵌入實測各 1 次、市集上架憑證。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-s3">類別 S3</span>
-                      <strong>智慧醫療 AI / LLM 複合應用</strong>
-                    </td>
-                    <td class="cell-description">
-                      結合 SMART on FHIR 或 CDS Hooks，並整合醫療 AI 模型推論、生成式 LLM 病歷編碼或影像輔助之軟體。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-green">NT$ 80,000 / 式</span>
-                    </td>
-                    <td class="cell-description">
-                      含 S2 全項檢測 ＋ FHIR 去識別化合規、AI 推論延遲與臨床準確度驗證、國家 AI 應用標章。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">複驗項目</span>
-                      <strong>輔導補正後複驗 / 重測費</strong>
-                    </td>
-                    <td class="cell-description">
-                      初測未通過之案例，經實驗室提供錯誤 Log 與補正建議並於 60 日內完成修改後申請重測。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">NT$ 15,000 / 次</span>
-                    </td>
-                    <td class="cell-description">
-                      針對未通過之單一階段（技術驗證或臨床驗證）執行二次複驗並更新核發報告。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">年度維護</span>
-                      <strong>年度續證與改版重驗 (RWT)</strong>
-                    </td>
-                    <td class="cell-description">
-                      已取證軟體之年度標章展延、真實世界臨床追蹤（Real World Testing）或配合 TW Core IG 改版升級。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">NT$ 15,000 / 年</span>
-                    </td>
-                    <td class="cell-description">
-                      Delta 差異驗證、維持衛福部官方白名單即時公開揭露與國家市集持續上架權限。
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- 3. 軟體送件應備文件與收件須知 -->
-            <div class="software-details-grid">
-              <div class="software-detail-card">
-                <h4 class="software-card-title">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                  </svg>
-                  軟體收件應備技術文件清單
-                </h4>
-                <ul class="software-check-list">
-                  <li><strong>廠商自我評估檢核表：</strong>完成實驗室公告之 TW Core Profile 與 API 端點自我測試勾選紀錄。</li>
-                  <li><strong>系統架構與介接規格書：</strong>載明使用之 FHIR Resources、Terminology（SNOMED CT / LOINC / RxNorm）對映表與授權
-                    Scopes。</li>
-                  <li><strong>臨床使用情境說明書：</strong>定義目標醫療層級、臨床觸發時機（如門診開立處方、住院交班）與預期決策回饋畫面。</li>
-                  <li><strong>資安與隱私合規聲明：</strong>第三方源碼檢測或弱點掃描初步報告、TLS 1.2+ 傳輸加密與病歷去識別化說明。</li>
-                </ul>
-              </div>
-
-              <div class="software-detail-card">
-                <h4 class="software-card-title">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                  </svg>
-                  測試環境交付方式與審核時程
-                </h4>
-                <ul class="software-check-list">
-                  <li><strong>雲端沙盒連線或容器交付：</strong>可提供對外 HTTPS 測試 Endpoint（含 Client ID / 測試帳號）或標準 Docker Image 容器映像檔。
-                  </li>
-                  <li><strong>收件審核與排程通知：</strong>線上送件後，系統即刻寄發收件單號至您的信箱，實驗室於 <strong>3 個工作天內</strong>由專人回覆排程與繳費通知。</li>
-                  <li><strong>檢測作業週期：</strong>技術驗證約 <strong>5～7 個工作天</strong>；移交醫學中心臨床驗證約 <strong>10～14 個工作天</strong>。
-                  </li>
-                  <li><strong>官方收件諮詢信箱：</strong><code>medstandard@itri.org.tw</code>（工研院數位健康認證實驗室收件小組）。</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- CTA Banner -->
-            <div class="submission-cta-banner">
-              <div class="submission-cta-info">
-                <span class="submission-cta-tag">線上快速收件通道</span>
-                <h4 class="submission-cta-title">準備好提交您的 CQL 模組或 SMART on FHIR 應用程式了嗎？</h4>
-                <p class="submission-cta-desc">點擊右側按鈕前往線上收件表單，系統將自動預選「軟體認證收件」並即時計算檢測費用、寄發檢測準備須知至您的信箱。</p>
-              </div>
-              <button type="button" class="submission-cta-btn" data-apply-track="software" data-apply-tier="S2">
-                申請軟體認證收件
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 擴充區塊二：硬體認證收件專區 (Hardware Certification Submission) -->
-      <section class="submission-track-section hardware-submission-section" id="hardware-submission">
-        <div class="submission-track-container">
-          <div class="submission-section-header">
-            <div class="submission-badge badge-hardware">Hardware Performance &amp; RMA Submission</div>
-            <h2 class="submission-main-title">硬體認證收件專區 — 效能檢測辦法、實體機進場規範與費用標準</h2>
-            <p class="submission-main-subtitle">
-              <strong>FHIR Box</strong> 為軟硬整合之國家級醫療作業系統。硬體供應商可依目標醫療院所層級（基層診所、區域醫院、醫學中心）將實體伺服器設備送交國家認證實驗室，進行 10 萬至 100
-              萬筆病歷規模之高通量壓力測試與公開效能評定。
-            </p>
-          </div>
-
-          <!-- 1. 硬體收件、進場與壓力測試 SOP -->
-          <div class="submission-card-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Hardware Lab Entry &amp; Benchmark SOP</div>
-              <h3 class="lab-block-title">硬體設備收件、機房進場與壓力測試作業辦法</h3>
-              <p class="lab-block-desc">
-                為確保實體設備上架安全與測試客觀性，硬體收件採「線上規格初審 ➔ 憑單寄送進場 ➔ 裸機標準部署壓測 ➔ 公開揭露與退件」四階段辦理。
-              </p>
-            </div>
-
-            <div class="submission-sop-grid">
-              <div class="submission-sop-step sop-step-hw">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 01</span>
-                  <span class="sop-step-phase">線上規格送審與排程</span>
-                </div>
-                <h4 class="sop-step-name">提交伺服器規格與目標等級</h4>
-                <p class="sop-step-text">
-                  於本頁線上收件表單填寫設備品牌型號、CPU 核心數、記憶體容量、NVMe RAID 配置與網卡介面，並選擇欲認證之<strong>醫療院所規模等級（H1～H3）</strong>。
-                </p>
-              </div>
-
-              <div class="submission-sop-step sop-step-hw">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 02</span>
-                  <span class="sop-step-phase">核發進場單與實體寄送</span>
-                </div>
-                <h4 class="sop-step-name">憑進場單寄送實體機至機房</h4>
-                <p class="sop-step-text">
-                  書審通過後實驗室寄發<strong>「設備進場通知單（Lab Entry Ticket）」</strong>。廠商依排程將實體伺服器（含滑軌、雙電源線、光纖模組）貨運寄送或派員親送至工研院實驗室機房。
-                </p>
-              </div>
-
-              <div class="submission-sop-step sop-step-hw">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 03</span>
-                  <span class="sop-step-phase">標準 OS 部署與燒機壓測</span>
-                </div>
-                <h4 class="sop-step-name">7 大量化指標高併發實測</h4>
-                <p class="sop-step-text">
-                  由實驗室裸機安裝標準版 <strong>FHIR Box OS（K8s/RKE2 叢集）</strong>，載入 10 萬～100 萬筆標準病歷資料集，執行連續燒機與 7 大量化指標壓力測試（約 7～10
-                  個工作天）。
-                </p>
-              </div>
-
-              <div class="submission-sop-step sop-step-hw">
-                <div class="sop-step-header">
-                  <span class="sop-step-num">Step 04</span>
-                  <span class="sop-step-phase">效能報告公開與設備領回</span>
-                </div>
-                <h4 class="sop-step-name">官網白名單登錄與設備返還</h4>
-                <p class="sop-step-text">
-                  核發國家認證實驗室硬體效能報告，將實測吞吐量與建議醫院層級<strong>公開登錄於衛福部採購參考白名單</strong>，並通知廠商於 14 日內辦理實體機領回或貨運退件。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2. 硬體檢測分級收件與費用標準表 -->
-          <div class="submission-card-block">
-            <div class="lab-block-header">
-              <div class="lab-block-tag">Hardware Testing Fee Schedule</div>
-              <h3 class="lab-block-title">硬體效能認證分級收件與檢測費用標準</h3>
-              <p class="lab-block-desc">
-                效能最高的設備不一定適合所有醫療院所；實驗室依不同層級醫療機構之資料量與併發需求，提供三級硬體效能認證收件（H1～H3）。
-              </p>
-            </div>
-
-            <div class="benchmark-table-wrapper">
-              <table class="benchmark-table submission-fee-table">
-                <thead>
-                  <tr>
-                    <th>收件代碼與認證等級</th>
-                    <th>壓力測試資料集與併發規模</th>
-                    <th>標準檢測費用</th>
-                    <th>包含服務與交付產出</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-h1">等級 H1</span>
-                      <strong>基層診所 / 地區醫院級設備</strong>
-                    </td>
-                    <td class="cell-description">
-                      <strong>10 萬～20 萬筆</strong>標準病歷資料集 · Concurrency <strong>20～80 併發數</strong> · 60s Time-out 邊界測試。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">NT$ 50,000 / 台</span>
-                    </td>
-                    <td class="cell-description">
-                      含機櫃上架、FHIR Box OS 裸機安裝、7 大指標燒機壓測、基層/地區級合格標章與效能報告。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-h2">等級 H2</span>
-                      <strong>區域醫院級中大型設備</strong>
-                    </td>
-                    <td class="cell-description">
-                      <strong>30 萬～50 萬筆</strong>標準病歷資料集 · Concurrency <strong>80～150 併發數</strong> · Bulk Data 批次交換壓測。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-blue">NT$ 80,000 / 台</span>
-                    </td>
-                    <td class="cell-description">
-                      含 H1 全項檢測 ＋ 中大型高負載 Bulk Data 讀寫吞吐量、多網卡 I/O 壓測與區域醫院級認證報告。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge badge-h3">等級 H3</span>
-                      <strong>醫學中心級高通量運算設備</strong>
-                    </td>
-                    <td class="cell-description">
-                      <strong>50 萬～100 萬筆</strong>標準病歷資料集 · Concurrency <strong>150～200+ 併發數</strong> · 極限吞吐量與容錯測試。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val highlight-green">NT$ 120,000 / 台</span>
-                    </td>
-                    <td class="cell-description">
-                      含 H2 全項檢測 ＋ 百萬筆病歷極限壓測（2,500~3,000 bundle res/s）、HA 容錯驗證與最高等級標章。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">調校重測</span>
-                      <strong>硬體韌體 / 核心參數調校重測費</strong>
-                    </td>
-                    <td class="cell-description">
-                      初測未達目標等級基準，廠商遠端或到場調整 BIOS/UEFI、RAID 或擴充記憶體後於原機櫃重測。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">NT$ 20,000 / 次</span>
-                    </td>
-                    <td class="cell-description">
-                      免重新上下架，直接於實驗室機櫃內重新執行標準壓力測試腳本並更新數據報告。
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="cell-indicator">
-                      <span class="ind-badge">系列登錄</span>
-                      <strong>同系列衍生機型書面審核登錄</strong>
-                    </td>
-                    <td class="cell-description">
-                      與已通過 H1～H3 認證之主機板/CPU 架構完全相同，僅變更機殼外觀或擴充硬碟槽位之衍生型號。
-                    </td>
-                    <td class="cell-standard">
-                      <span class="benchmark-val">NT$ 15,000 / 型號</span>
-                    </td>
-                    <td class="cell-description">
-                      工程規格比對書面審查、核發衍生機型認證證書並增列於衛福部官方合格硬體型錄。
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- 3. 硬體實體機寄送與機房進場規範 -->
-            <div class="software-details-grid">
-              <div class="software-detail-card">
-                <h4 class="software-card-title">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                  </svg>
-                  實體設備寄送與機房上架硬體規範
-                </h4>
-                <ul class="software-check-list">
-                  <li><strong>配件完整性要求：</strong>機架式伺服器（1U/2U/4U）須隨箱附上標準 19 吋機櫃滑軌套件、雙電源線（C13/C14）與對應之 10GbE/25GbE
-                    光纖模組（SFP+/SFP28）或 RJ45 線材。</li>
-                  <li><strong>裸機與儲存狀態：</strong>送測硬碟（NVMe / SAS SSD）請預先清空並解除鎖定，實驗室將統一格式化並植入標準 FHIR Box OS 與測試資料集。</li>
-                  <li><strong>BIOS / BMC 帳號提供：</strong>請於隨箱進場單附上預設 IPMI / iDRAC / iLO 遠端管理帳號密碼及 BIOS 權限，以利壓測監控與溫度紀錄。
-                  </li>
-                  <li><strong>運輸包裝與保險：</strong>請使用原廠防撞泡棉箱或專業伺服器木箱寄送，建議廠商自行投保貨物運輸險。</li>
-                </ul>
-              </div>
-
-              <div class="software-detail-card">
-                <h4 class="software-card-title">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                    </path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                  </svg>
-                  實驗室機房收件窗口與退件 (RMA) 辦法
-                </h4>
-                <ul class="software-check-list">
-                  <li><strong>憑單進場機制：</strong>請務必先於下方完成線上收件申請，取得收件單號與實驗室回覆之「進場通知單」後，再行寄出實體設備。</li>
-                  <li><strong>工程師協同上架：</strong>若選擇「工程師攜機親送」，可於進場當日由廠商硬體工程師進入實驗室緩衝區協同完成機櫃上架與 RAID 初始化。</li>
-                  <li><strong>測試資料清除與返還：</strong>檢測完畢後，實驗室將安全抹除測試病歷資料集，廠商可於收到結案通知後 14 日內派員領回或委由貨運到付退回。</li>
-                  <li><strong>硬體收件聯繫專線：</strong><code>(03) 591-9291</code> / <code>medstandard@itri.org.tw</code>。</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- CTA Banner -->
-            <div class="submission-cta-banner cta-banner-hardware">
-              <div class="submission-cta-info">
-                <span class="submission-cta-tag">硬體設備進場預約</span>
-                <h4 class="submission-cta-title">預約國家認證實驗室機房席次，取得 FHIR Box 官方硬體效能認證</h4>
-                <p class="submission-cta-desc">點擊右側按鈕前往線上收件表單，系統將自動預選「硬體認證收件」並寄發設備進場規格表與後續寄送須知。</p>
-              </div>
-              <button type="button" class="submission-cta-btn cta-btn-hardware" data-apply-track="hardware"
-                data-apply-tier="H2">
-                申請硬體認證收件
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 擴充區塊三：軟硬體認證線上收件申請與自動轉信/回覆專區 (Online Submission Form) -->
-      <section class="apply-form-section" id="certification-apply-form">
-        <div class="apply-form-container">
-          <div class="submission-section-header">
-            <div class="submission-badge badge-apply">Online Application &amp; Automated Dispatch</div>
-            <h2 class="submission-main-title">軟硬體認證線上收件申請與檢測費用試算</h2>
-            <p class="submission-main-subtitle">
-              完成下方線上收件登錄後，系統將自動產生<strong>專屬收件單號</strong>、登錄至實驗室收件管理後台，並同步轉發至<strong>官方信箱（<code>medstandard@itri.org.tw</code>）</strong>及自動回覆<strong>「相關檢測準備須知、應備文件與繳費排程資訊」</strong>至您的聯絡信箱。
-            </p>
-          </div>
-
-          <div class="apply-workspace-grid">
-            <!-- 左側：語意化線上收件申請表單 -->
-            <div class="apply-form-card">
-              <form id="labSubmissionForm" method="POST" action="#certification-apply-form" novalidate>
-                <!-- 1. 選擇收件賽道與檢測等級 -->
-                <fieldset class="form-fieldset">
-                  <legend class="fieldset-legend">
-                    <span class="legend-step-num">01</span>
-                    選擇收件賽道與檢測項目
-                  </legend>
-
-                  <div class="form-group">
-                    <span class="field-group-label" id="track-radio-label">申請認證收件類別 <span class="required-mark"
-                        aria-hidden="true">*</span></span>
-                    <div class="track-radio-cards" role="radiogroup" aria-labelledby="track-radio-label">
-                      <label class="track-radio-card" for="trackSoftware">
-                        <input type="radio" id="trackSoftware" name="submissionTrack" value="software" checked>
-                        <span class="track-radio-content">
-                          <span class="track-radio-badge">Software Track</span>
-                          <strong class="track-radio-title">💻 軟體認證收件</strong>
-                          <span class="track-radio-desc">CQL 臨床決策模組、SMART on FHIR 應用、醫療 AI 軟體</span>
-                        </span>
-                      </label>
-
-                      <label class="track-radio-card" for="trackHardware">
-                        <input type="radio" id="trackHardware" name="submissionTrack" value="hardware">
-                        <span class="track-radio-content">
-                          <span class="track-radio-badge">Hardware Track</span>
-                          <strong class="track-radio-title">🖥️ 硬體認證收件</strong>
-                          <span class="track-radio-desc">FHIR Box 伺服器、邊緣運算設備、Bulk Data 效能壓測</span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <!-- 檢測方案與費用等級選擇 (Radio Buttons，選項 < 6 遵循直覺掃描原則) -->
-                  <div class="form-group">
-                    <span class="field-group-label" id="tier-radio-label">選擇檢測收件等級與對應費用 <span class="required-mark"
-                        aria-hidden="true">*</span></span>
-                    <div class="tier-radio-list" id="tierRadioContainer" role="radiogroup"
-                      aria-labelledby="tier-radio-label">
-                      <!-- 軟體等級選項 (預設顯示) -->
-                      <label class="tier-radio-item" data-track-option="software" for="tierS1">
-                        <input type="radio" id="tierS1" name="submissionTier" value="S1">
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>類別 S1：CQL 臨床決策支援模組檢測</strong>
-                            <span class="tier-radio-sub">含工研院語法/TWCDI 技術驗證 ＋ 臨床情境驗證各 1 次</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 30,000 <small>/ 件</small></span>
-                        </span>
-                      </label>
-
-                      <label class="tier-radio-item" data-track-option="software" for="tierS2">
-                        <input type="radio" id="tierS2" name="submissionTier" value="S2" checked>
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>類別 S2：SMART on FHIR 應用程式檢測</strong>
-                            <span class="tier-radio-sub">含 OAuth 2.0 授權資安、TW Core 互通性 ＋ 醫學中心 HIS 臨床實測</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 60,000 <small>/ 式</small></span>
-                        </span>
-                      </label>
-
-                      <label class="tier-radio-item" data-track-option="software" for="tierS3">
-                        <input type="radio" id="tierS3" name="submissionTier" value="S3">
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>類別 S3：智慧醫療 AI / LLM 複合應用檢測</strong>
-                            <span class="tier-radio-sub">含 S2 全項檢測 ＋ 去識別化合規、AI 推論延遲與臨床準確度驗證</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 80,000 <small>/ 式</small></span>
-                        </span>
-                      </label>
-
-                      <!-- 硬體等級選項 (切換至硬體時顯示) -->
-                      <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH1">
-                        <input type="radio" id="tierH1" name="submissionTier" value="H1">
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>等級 H1：基層診所 / 地區醫院級硬體效能認證</strong>
-                            <span class="tier-radio-sub">10 萬～20 萬筆病歷規模 · Concurrency 20～80 併發數 · 7 大指標壓測</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 50,000 <small>/ 台</small></span>
-                        </span>
-                      </label>
-
-                      <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH2">
-                        <input type="radio" id="tierH2" name="submissionTier" value="H2">
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>等級 H2：區域醫院級中大型硬體效能認證</strong>
-                            <span class="tier-radio-sub">30 萬～50 萬筆病歷規模 · Concurrency 80～150 併發數 · Bulk Data 壓測</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 80,000 <small>/ 台</small></span>
-                        </span>
-                      </label>
-
-                      <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH3">
-                        <input type="radio" id="tierH3" name="submissionTier" value="H3">
-                        <span class="tier-radio-body">
-                          <span class="tier-radio-main">
-                            <strong>等級 H3：醫學中心級高通量硬體效能認證</strong>
-                            <span class="tier-radio-sub">50 萬～100 萬筆病歷規模 · Concurrency 150～200+ 併發數 · 極限吞吐與容錯</span>
-                          </span>
-                          <span class="tier-radio-price">NT$ 120,000 <small>/ 台</small></span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <!-- 申請性質 (首次送檢 / 複驗重測 / 年度續證) -->
-                  <div class="form-group">
-                    <span class="field-group-label" id="nature-radio-label">案件申請性質 <span class="required-mark"
-                        aria-hidden="true">*</span></span>
-                    <div class="inline-radio-group" role="radiogroup" aria-labelledby="nature-radio-label">
-                      <label class="inline-radio-label" for="natureFirst">
-                        <input type="radio" id="natureFirst" name="applicationNature" value="首次送檢認證" checked>
-                        <span>首次送檢認證（依上方標準費用計價）</span>
-                      </label>
-                      <label class="inline-radio-label" for="natureRetest">
-                        <input type="radio" id="natureRetest" name="applicationNature" value="輔導補正後複驗">
-                        <span>輔導補正後複驗（軟體 NT$ 15,000 / 硬體 NT$ 20,000）</span>
-                      </label>
-                      <label class="inline-radio-label" for="natureRenewal">
-                        <input type="radio" id="natureRenewal" name="applicationNature" value="年度續證或衍生機型登錄">
-                        <span>年度續證 / 衍生機型書審（NT$ 15,000）</span>
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <!-- 2. 申請廠商與聯絡窗口資訊 -->
-                <fieldset class="form-fieldset">
-                  <legend class="fieldset-legend">
-                    <span class="legend-step-num">02</span>
-                    申請機構與收件聯絡人資訊
-                  </legend>
-
-                  <div class="form-row-2col">
-                    <div class="form-field">
-                      <label for="companyName" class="field-label">申請公司 / 機構全銜 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="companyName-hint" class="field-hint">請填寫正式公司登記名稱（將列印於認證報告與收據）</span>
-                      <input type="text" id="companyName" name="companyName" class="form-input" required maxlength="100"
-                        autocomplete="organization" placeholder="例如：臺灣智慧醫電股份有限公司" aria-describedby="companyName-hint"
-                        aria-errormessage="companyName-error">
-                      <div id="companyName-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入申請公司或機構全銜。
-                      </div>
-                    </div>
-
-                    <div class="form-field">
-                      <label for="taxId" class="field-label">統一編號 (8 碼數字) <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="taxId-hint" class="field-hint">格式：8 碼半形數字統一編號</span>
-                      <input type="text" id="taxId" name="taxId" class="form-input" required pattern="\d{8}"
-                        inputmode="numeric" maxlength="8" placeholder="例如：12345678" aria-describedby="taxId-hint"
-                        aria-errormessage="taxId-error">
-                      <div id="taxId-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入正確的 8 碼半形數字統一編號。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-row-2col">
-                    <div class="form-field">
-                      <label for="contactName" class="field-label">專案聯絡人姓名 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="contactName-hint" class="field-hint">負責收件聯繫與檢測排程之主要窗口</span>
-                      <input type="text" id="contactName" name="contactName" class="form-input" required maxlength="50"
-                        autocomplete="name" placeholder="例如：王大明" aria-describedby="contactName-hint"
-                        aria-errormessage="contactName-error">
-                      <div id="contactName-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入專案聯絡人姓名。
-                      </div>
-                    </div>
-
-                    <div class="form-field">
-                      <label for="contactRole" class="field-label">部門與職稱 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="contactRole-hint" class="field-hint">例如：研發部 資深工程師 / 產品經理</span>
-                      <input type="text" id="contactRole" name="contactRole" class="form-input" required maxlength="60"
-                        autocomplete="organization-title" placeholder="例如：醫療資訊部 專案經理"
-                        aria-describedby="contactRole-hint" aria-errormessage="contactRole-error">
-                      <div id="contactRole-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入聯絡人部門與職稱。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-row-2col">
-                    <div class="form-field">
-                      <label for="contactEmail" class="field-label">聯絡人電子郵件 (接收檢測須知與單號) <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="contactEmail-hint" class="field-hint">格式：name@company.com（系統將自動寄送收件確認信至此信箱）</span>
-                      <input type="email" id="contactEmail" name="contactEmail" class="form-input" required
-                        autocomplete="email" inputmode="email" placeholder="name@company.com.tw"
-                        aria-describedby="contactEmail-hint" aria-errormessage="contactEmail-error">
-                      <div id="contactEmail-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入有效的電子郵件地址，以利接收檢測資訊回覆信。
-                      </div>
-                    </div>
-
-                    <div class="form-field">
-                      <label for="contactPhone" class="field-label">聯絡電話 / 手機 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="contactPhone-hint" class="field-hint">格式：市話含區碼或手機號碼（如 02-23456789 或 0912-345678）</span>
-                      <input type="tel" id="contactPhone" name="contactPhone" class="form-input" required
-                        autocomplete="tel" inputmode="tel" minlength="8" maxlength="25"
-                        placeholder="02-2345-6789#101 或 0912-345678" aria-describedby="contactPhone-hint"
-                        aria-errormessage="contactPhone-error">
-                      <div id="contactPhone-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請輸入有效的聯絡電話或手機號碼。
-                      </div>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <!-- 3A. 軟體送檢專屬技術規格欄位 -->
-                <fieldset class="form-fieldset" id="softwareFieldsGroup">
-                  <legend class="fieldset-legend">
-                    <span class="legend-step-num">03</span>
-                    送檢軟體產品與技術規格明細
-                  </legend>
-
-                  <div class="form-row-2col">
-                    <div class="form-field">
-                      <label for="swProductName" class="field-label">送檢軟體產品名稱與版本號 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="swProductName-hint" class="field-hint">請填寫欲登錄於認證證書之產品名稱與版號</span>
-                      <input type="text" id="swProductName" name="swProductName" class="form-input" required
-                        maxlength="120" placeholder="例如：SmartSepsis 敗血症臨床決策模組 v2.1"
-                        aria-describedby="swProductName-hint" aria-errormessage="swProductName-error">
-                      <div id="swProductName-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請填寫送檢軟體產品名稱與版本號。
-                      </div>
-                    </div>
-
-                    <div class="form-field">
-                      <label for="swDocUrl" class="field-label">自評表 / 規格書雲端連結或測試 Endpoint (選填)</label>
-                      <span id="swDocUrl-hint" class="field-hint">可先填寫 Google Drive 連結或 Sandbox URL，亦可於收到確認信後補件</span>
-                      <input type="url" id="swDocUrl" name="swDocUrl" class="form-input" inputmode="url"
-                        placeholder="https://drive.google.com/... 或 https://sandbox.example.com"
-                        aria-describedby="swDocUrl-hint" aria-errormessage="swDocUrl-error">
-                      <div id="swDocUrl-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 若有填寫網址，請以 https:// 或 http:// 開頭。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <span class="field-group-label">軟體遵循之國家標準與國際編碼（可複選）</span>
-                    <div class="checkbox-pills-grid">
-                      <label class="checkbox-pill-label" for="stdTwCore">
-                        <input type="checkbox" id="stdTwCore" name="swStandards" value="TW Core IG / TWCDI" checked>
-                        <span>TW Core IG / TWCDI</span>
-                      </label>
-                      <label class="checkbox-pill-label" for="stdSmart">
-                        <input type="checkbox" id="stdSmart" name="swStandards"
-                          value="SMART App Launch (OAuth 2.0 / OIDC)" checked>
-                        <span>SMART App Launch (OAuth 2.0)</span>
-                      </label>
-                      <label class="checkbox-pill-label" for="stdCql">
-                        <input type="checkbox" id="stdCql" name="swStandards" value="CQL & CDS Hooks">
-                        <span>CQL &amp; CDS Hooks</span>
-                      </label>
-                      <label class="checkbox-pill-label" for="stdTerminology">
-                        <input type="checkbox" id="stdTerminology" name="swStandards"
-                          value="SNOMED CT / LOINC / RxNorm">
-                        <span>SNOMED CT / LOINC / RxNorm</span>
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <!-- 3B. 硬體送檢專屬設備規格欄位 (切換至硬體時顯示) -->
-                <fieldset class="form-fieldset is-hidden" id="hardwareFieldsGroup" disabled>
-                  <legend class="fieldset-legend">
-                    <span class="legend-step-num">03</span>
-                    送檢硬體設備型號與機房進場配置
-                  </legend>
-
-                  <div class="form-row-2col">
-                    <div class="form-field">
-                      <label for="hwModelName" class="field-label">送檢伺服器品牌、型號與機身尺寸 <span class="required-mark"
-                          aria-hidden="true">*</span></label>
-                      <span id="hwModelName-hint" class="field-hint">請填寫設備品牌、型號與機架高度（如 1U / 2U / 4U / Tower）</span>
-                      <input type="text" id="hwModelName" name="hwModelName" class="form-input" required maxlength="120"
-                        placeholder="例如：Advantech SKY-8200 / 2U Rackmount Server" aria-describedby="hwModelName-hint"
-                        aria-errormessage="hwModelName-error">
-                      <div id="hwModelName-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請填寫送檢硬體品牌、型號與機身尺寸。
-                      </div>
-                    </div>
-
-                    <div class="form-field">
-                      <label for="hwSpecs" class="field-label">核心硬體配置摘要 (CPU / RAM / NVMe / 網卡) <span
-                          class="required-mark" aria-hidden="true">*</span></label>
-                      <span id="hwSpecs-hint" class="field-hint">簡述處理器核心數、記憶體容量、RAID 磁碟與網路介面</span>
-                      <input type="text" id="hwSpecs" name="hwSpecs" class="form-input" required maxlength="160"
-                        placeholder="例如：Dual Xeon 64C / 256GB DDR5 / 4TB NVMe RAID10 / Dual 25GbE"
-                        aria-describedby="hwSpecs-hint" aria-errormessage="hwSpecs-error">
-                      <div id="hwSpecs-error" class="field-error-msg" role="alert">
-                        <span aria-hidden="true">⚠</span> 請填寫核心硬體配置摘要。
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <span class="field-group-label" id="hw-delivery-label">實體設備送達實驗室機房方式 <span class="required-mark"
-                        aria-hidden="true">*</span></span>
-                    <div class="inline-radio-group" role="radiogroup" aria-labelledby="hw-delivery-label">
-                      <label class="inline-radio-label" for="deliveryFreight">
-                        <input type="radio" id="deliveryFreight" name="hwDeliveryMethod" value="貨運寄送至實驗室機房（含標準滑軌與線材）"
-                          checked>
-                        <span>貨運寄送至實驗室機房（含標準滑軌與線材）</span>
-                      </label>
-                      <label class="inline-radio-label" for="deliveryOnSite">
-                        <input type="radio" id="deliveryOnSite" name="hwDeliveryMethod" value="工程師攜機親送並協同上架初始化">
-                        <span>工程師攜機親送並協同上架初始化</span>
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-
-                <!-- 4. 預計送測時程、備註與送件前檢核確認 -->
-                <fieldset class="form-fieldset">
-                  <legend class="fieldset-legend">
-                    <span class="legend-step-num">04</span>
-                    預計送測時程與送件辦法確認
-                  </legend>
-
-                  <div class="form-field">
-                    <label for="submissionNotes" class="field-label">希望檢測排程時段或專案備註說明 (選填)</label>
-                    <span id="submissionNotes-hint" class="field-hint">可註明預計可交付測試環境/寄出實體機之日期、配合之醫院專案名稱或特殊需求</span>
-                    <textarea id="submissionNotes" name="submissionNotes" class="form-textarea" rows="3" maxlength="500"
-                      placeholder="例如：預計於下月中旬完成內部封測後送交沙盒驗證，或需配合醫學中心專案時程..."
-                      aria-describedby="submissionNotes-hint"></textarea>
-                  </div>
-
-                  <div class="form-Consent-box">
-                    <label class="consent-checkbox-row" for="checkSelfTest">
-                      <input type="checkbox" id="checkSelfTest" name="checkSelfTest" required
-                        aria-errormessage="checkSelfTest-error">
-                      <span>
-                        本單位已詳閱<strong>「國家數位健康互通性與效能認證實驗室」收件辦法與收費標準</strong>，並了解正式檢測前須完成廠商自我評估與測試環境/實體機準備。<span
-                          class="required-mark" aria-hidden="true">*</span>
-                      </span>
-                    </label>
-                    <div id="checkSelfTest-error" class="field-error-msg" role="alert">
-                      <span aria-hidden="true">⚠</span> 請勾選確認已詳閱收件辦法與收費標準。
-                    </div>
-                  </div>
-                </fieldset>
-
-                <div class="form-submit-row">
-                  <button type="submit" class="form-submit-btn" id="submitApplicationBtn" enterkeyhint="send">
-                    <span class="submit-btn-text" id="submitBtnText">送出收件申請並取得檢測資訊回覆信 (預估費用 NT$ 60,000)</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <line x1="22" y1="2" x2="11" y2="13"></line>
-                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                <div class="software-detail-card">
+                  <h4 class="software-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
-                  </button>
-                  <p class="form-submit-note">
-                    送出後系統將自動記錄至實驗室收件後台、轉發至官方信箱 <code>medstandard@itri.org.tw</code>，並立即提供您的專屬收件單號與後續檢測準備須知。
+                    測試環境交付方式與審核時程
+                  </h4>
+                  <ul class="software-check-list">
+                    <li><strong>雲端沙盒連線或容器交付：</strong>可提供對外 HTTPS 測試 Endpoint（含 Client ID / 測試帳號）或標準 Docker Image 容器映像檔。
+                    </li>
+                    <li><strong>收件審核與排程通知：</strong>線上送件後，系統即刻寄發收件單號至您的信箱，實驗室於 <strong>3 個工作天內</strong>由專人回覆排程與繳費通知。</li>
+                    <li><strong>檢測作業週期：</strong>技術驗證約 <strong>5～7 個工作天</strong>；移交醫學中心臨床驗證約 <strong>10～14 個工作天</strong>。
+                    </li>
+                    <li><strong>官方收件諮詢信箱：</strong><code>medstandard@itri.org.tw</code>（工研院數位健康認證實驗室收件小組）。</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- CTA Banner -->
+              <div class="submission-cta-banner">
+                <div class="submission-cta-info">
+                  <span class="submission-cta-tag">線上快速收件通道</span>
+                  <h4 class="submission-cta-title">準備好提交您的 CQL 模組或 SMART on FHIR 應用程式了嗎？</h4>
+                  <p class="submission-cta-desc">點擊右側按鈕前往線上收件表單，系統將自動預選「軟體認證收件」並即時計算檢測費用、寄發檢測準備須知至您的信箱。</p>
+                </div>
+                <button type="button" class="submission-cta-btn" data-apply-track="software" data-apply-tier="S2">
+                  申請軟體認證收件
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 擴充區塊二：硬體認證收件專區 (Hardware Certification Submission) -->
+        <section class="submission-track-section hardware-submission-section" id="hardware-submission">
+          <div class="submission-track-container">
+            <div class="submission-section-header">
+              <div class="submission-badge badge-hardware">Hardware Performance &amp; RMA Submission</div>
+              <h2 class="submission-main-title">硬體認證收件專區 — 效能檢測辦法、實體機進場規範與費用標準</h2>
+              <p class="submission-main-subtitle">
+                <strong>FHIR Box</strong> 為軟硬整合之國家級醫療作業系統。硬體供應商可依目標醫療院所層級（基層診所、區域醫院、醫學中心）將實體伺服器設備送交國家認證實驗室，進行 10 萬至 100
+                萬筆病歷規模之高通量壓力測試與公開效能評定。
+              </p>
+            </div>
+
+            <!-- 1. 硬體收件、進場與壓力測試 SOP -->
+            <div class="submission-card-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Hardware Lab Entry &amp; Benchmark SOP</div>
+                <h3 class="lab-block-title">硬體設備收件、機房進場與壓力測試作業辦法</h3>
+                <p class="lab-block-desc">
+                  為確保實體設備上架安全與測試客觀性，硬體收件採「線上規格初審 ➔ 憑單寄送進場 ➔ 裸機標準部署壓測 ➔ 公開揭露與退件」四階段辦理。
+                </p>
+              </div>
+
+              <div class="submission-sop-grid">
+                <div class="submission-sop-step sop-step-hw">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 01</span>
+                    <span class="sop-step-phase">線上規格送審與排程</span>
+                  </div>
+                  <h4 class="sop-step-name">提交伺服器規格與目標等級</h4>
+                  <p class="sop-step-text">
+                    於本頁線上收件表單填寫設備品牌型號、CPU 核心數、記憶體容量、NVMe RAID 配置與網卡介面，並選擇欲認證之<strong>醫療院所規模等級（H1～H3）</strong>。
                   </p>
                 </div>
-              </form>
+
+                <div class="submission-sop-step sop-step-hw">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 02</span>
+                    <span class="sop-step-phase">核發進場單與實體寄送</span>
+                  </div>
+                  <h4 class="sop-step-name">憑進場單寄送實體機至機房</h4>
+                  <p class="sop-step-text">
+                    書審通過後實驗室寄發<strong>「設備進場通知單（Lab Entry Ticket）」</strong>。廠商依排程將實體伺服器（含滑軌、雙電源線、光纖模組）貨運寄送或派員親送至工研院實驗室機房。
+                  </p>
+                </div>
+
+                <div class="submission-sop-step sop-step-hw">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 03</span>
+                    <span class="sop-step-phase">標準 OS 部署與燒機壓測</span>
+                  </div>
+                  <h4 class="sop-step-name">7 大量化指標高併發實測</h4>
+                  <p class="sop-step-text">
+                    由實驗室裸機安裝標準版 <strong>FHIR Box OS（K8s/RKE2 叢集）</strong>，載入 10 萬～100 萬筆標準病歷資料集，執行連續燒機與 7 大量化指標壓力測試（約
+                    7～10
+                    個工作天）。
+                  </p>
+                </div>
+
+                <div class="submission-sop-step sop-step-hw">
+                  <div class="sop-step-header">
+                    <span class="sop-step-num">Step 04</span>
+                    <span class="sop-step-phase">效能報告公開與設備領回</span>
+                  </div>
+                  <h4 class="sop-step-name">官網白名單登錄與設備返還</h4>
+                  <p class="sop-step-text">
+                    核發國家認證實驗室硬體效能報告，將實測吞吐量與建議醫院層級<strong>公開登錄於衛福部採購參考白名單</strong>，並通知廠商於 14 日內辦理實體機領回或貨運退件。
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <!-- 右側：即時收件費用試算與自動轉信流程說明卡 (Sticky Sidebar) -->
-            <aside class="apply-summary-sidebar" aria-label="收件費用試算與應備清單摘要">
-              <div class="summary-sticky-card">
-                <div class="summary-card-header">
-                  <span class="summary-track-pill" id="summaryTrackBadge">💻 軟體認證收件</span>
-                  <h3 class="summary-card-title" id="summaryTierName">類別 S2：SMART on FHIR 應用程式檢測</h3>
-                </div>
+            <!-- 2. 硬體檢測分級收件與費用標準表 -->
+            <div class="submission-card-block">
+              <div class="lab-block-header">
+                <div class="lab-block-tag">Hardware Testing Fee Schedule</div>
+                <h3 class="lab-block-title">硬體效能認證分級收件與檢測費用標準</h3>
+                <p class="lab-block-desc">
+                  效能最高的設備不一定適合所有醫療院所；實驗室依不同層級醫療機構之資料量與併發需求，提供三級硬體效能認證收件（H1～H3）。
+                </p>
+              </div>
 
-                <div class="summary-price-box">
-                  <span class="summary-price-label">預估標準檢測費用</span>
-                  <div class="summary-price-value" id="summaryPriceDisplay">NT$ 60,000</div>
-                  <span class="summary-price-unit" id="summaryNatureDisplay">首次送檢認證 · 含技術驗證与臨床驗證</span>
-                </div>
+              <div class="benchmark-table-wrapper">
+                <table class="benchmark-table submission-fee-table">
+                  <thead>
+                    <tr>
+                      <th>收件代碼與認證等級</th>
+                      <th>壓力測試資料集與併發規模</th>
+                      <th>標準檢測費用</th>
+                      <th>包含服務與交付產出</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-h1">等級 H1</span>
+                        <strong>基層診所 / 地區醫院級設備</strong>
+                      </td>
+                      <td class="cell-description">
+                        <strong>10 萬～20 萬筆</strong>標準病歷資料集 · Concurrency <strong>20～80 併發數</strong> · 60s Time-out 邊界測試。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">NT$ 50,000 / 台</span>
+                      </td>
+                      <td class="cell-description">
+                        含機櫃上架、FHIR Box OS 裸機安裝、7 大指標燒機壓測、基層/地區級合格標章與效能報告。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-h2">等級 H2</span>
+                        <strong>區域醫院級中大型設備</strong>
+                      </td>
+                      <td class="cell-description">
+                        <strong>30 萬～50 萬筆</strong>標準病歷資料集 · Concurrency <strong>80～150 併發數</strong> · Bulk Data 批次交換壓測。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-blue">NT$ 80,000 / 台</span>
+                      </td>
+                      <td class="cell-description">
+                        含 H1 全項檢測 ＋ 中大型高負載 Bulk Data 讀寫吞吐量、多網卡 I/O 壓測與區域醫院級認證報告。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge badge-h3">等級 H3</span>
+                        <strong>醫學中心級高通量運算設備</strong>
+                      </td>
+                      <td class="cell-description">
+                        <strong>50 萬～100 萬筆</strong>標準病歷資料集 · Concurrency <strong>150～200+ 併發數</strong> · 極限吞吐量與容錯測試。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val highlight-green">NT$ 120,000 / 台</span>
+                      </td>
+                      <td class="cell-description">
+                        含 H2 全項檢測 ＋ 百萬筆病歷極限壓測（2,500~3,000 bundle res/s）、HA 容錯驗證與最高等級標章。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">調校重測</span>
+                        <strong>硬體韌體 / 核心參數調校重測費</strong>
+                      </td>
+                      <td class="cell-description">
+                        初測未達目標等級基準，廠商遠端或到場調整 BIOS/UEFI、RAID 或擴充記憶體後於原機櫃重測。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">NT$ 20,000 / 次</span>
+                      </td>
+                      <td class="cell-description">
+                        免重新上下架，直接於實驗室機櫃內重新執行標準壓力測試腳本並更新數據報告。
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cell-indicator">
+                        <span class="ind-badge">系列登錄</span>
+                        <strong>同系列衍生機型書面審核登錄</strong>
+                      </td>
+                      <td class="cell-description">
+                        與已通過 H1～H3 認證之主機板/CPU 架構完全相同，僅變更機殼外觀或擴充硬碟槽位之衍生型號。
+                      </td>
+                      <td class="cell-standard">
+                        <span class="benchmark-val">NT$ 15,000 / 型號</span>
+                      </td>
+                      <td class="cell-description">
+                        工程規格比對書面審查、核發衍生機型認證證書並增列於衛福部官方合格硬體型錄。
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-                <div class="summary-divider"></div>
-
-                <div class="summary-section-block">
-                  <h4 class="summary-block-title">本項收件包含之實驗室服務</h4>
-                  <ul class="summary-check-list" id="summaryDeliverablesList">
-                    <li>工研院國家級沙盒技術驗證（TW Core IG / OAuth 2.0 / 資安）</li>
-                    <li>長庚 / 三總等醫學中心真實 HIS 與虛擬病歷臨床驗證</li>
-                    <li>完整測試 Log 稽核報告與未通過項目輔導補正建議</li>
-                    <li>通過後核發國家認證標章並登錄衛福部白名單市集</li>
+              <!-- 3. 硬體實體機寄送與機房進場規範 -->
+              <div class="software-details-grid">
+                <div class="software-detail-card">
+                  <h4 class="software-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                    實體設備寄送與機房上架硬體規範
+                  </h4>
+                  <ul class="software-check-list">
+                    <li><strong>配件完整性要求：</strong>機架式伺服器（1U/2U/4U）須隨箱附上標準 19 吋機櫃滑軌套件、雙電源線（C13/C14）與對應之 10GbE/25GbE
+                      光纖模組（SFP+/SFP28）或 RJ45 線材。</li>
+                    <li><strong>裸機與儲存狀態：</strong>送測硬碟（NVMe / SAS SSD）請預先清空並解除鎖定，實驗室將統一格式化並植入標準 FHIR Box OS 與測試資料集。</li>
+                    <li><strong>BIOS / BMC 帳號提供：</strong>請於隨箱進場單附上預設 IPMI / iDRAC / iLO 遠端管理帳號密碼及 BIOS 權限，以利壓測監控與溫度紀錄。
+                    </li>
+                    <li><strong>運輸包裝與保險：</strong>請使用原廠防撞泡棉箱或專業伺服器木箱寄送，建議廠商自行投保貨物運輸險。</li>
                   </ul>
                 </div>
 
-                <div class="summary-section-block">
-                  <h4 class="summary-block-title">送出申請後您將收到的回覆資訊</h4>
-                  <div class="dispatch-flow-box">
-                    <div class="dispatch-flow-item">
-                      <span class="dispatch-dot">1</span>
-                      <div>
-                        <strong>專屬收件單號與後台登錄</strong>
-                        <p>系統自動產生案件單號（如 <code>SW-20261101-xxx</code>）並寫入實驗室收件管理後台。</p>
-                      </div>
-                    </div>
-                    <div class="dispatch-flow-item">
-                      <span class="dispatch-dot">2</span>
-                      <div>
-                        <strong>官方信箱自動轉信通知</strong>
-                        <p>同步轉發申請明細至 <code>medstandard@itri.org.tw</code> 由專責工程師接案。</p>
-                      </div>
-                    </div>
-                    <div class="dispatch-flow-item">
-                      <span class="dispatch-dot">3</span>
-                      <div>
-                        <strong>檢測須知與繳費/進場回覆信</strong>
-                        <p>自動寄發自評表範本、沙盒連線或機房進場單（Lab Entry Ticket）與繳費帳號至您的 Email。</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="summary-official-contact">
-                  <div class="official-contact-title">國家認證實驗室官方收件窗口</div>
-                  <div class="official-contact-row">
-                    <span>官方收件信箱：</span>
-                    <a href="mailto:medstandard@itri.org.tw">medstandard@itri.org.tw</a>
-                  </div>
-                  <div class="official-contact-row">
-                    <span>實驗室諮詢專線：</span>
-                    <a href="tel:035919291">(03) 591-9291</a>
-                  </div>
+                <div class="software-detail-card">
+                  <h4 class="software-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                      </path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    實驗室機房收件窗口與退件 (RMA) 辦法
+                  </h4>
+                  <ul class="software-check-list">
+                    <li><strong>憑單進場機制：</strong>請務必先於下方完成線上收件申請，取得收件單號與實驗室回覆之「進場通知單」後，再行寄出實體設備。</li>
+                    <li><strong>工程師協同上架：</strong>若選擇「工程師攜機親送」，可於進場當日由廠商硬體工程師進入實驗室緩衝區協同完成機櫃上架與 RAID 初始化。</li>
+                    <li><strong>測試資料清除與返還：</strong>檢測完畢後，實驗室將安全抹除測試病歷資料集，廠商可於收到結案通知後 14 日內派員領回或委由貨運到付退回。</li>
+                    <li><strong>硬體收件聯繫專線：</strong><code>(03) 591-9291</code> / <code>medstandard@itri.org.tw</code>。
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </aside>
+
+              <!-- CTA Banner -->
+              <div class="submission-cta-banner cta-banner-hardware">
+                <div class="submission-cta-info">
+                  <span class="submission-cta-tag">硬體設備進場預約</span>
+                  <h4 class="submission-cta-title">預約國家認證實驗室機房席次，取得 FHIR Box 官方硬體效能認證</h4>
+                  <p class="submission-cta-desc">點擊右側按鈕前往線上收件表單，系統將自動預選「硬體認證收件」並寄發設備進場規格表與後續寄送須知。</p>
+                </div>
+                <button type="button" class="submission-cta-btn cta-btn-hardware" data-apply-track="hardware"
+                  data-apply-tier="H2">
+                  申請硬體認證收件
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 擴充區塊三：軟硬體認證線上收件申請與自動轉信/回覆專區 (Online Submission Form) -->
+        <section class="apply-form-section" id="certification-apply-form">
+          <div class="apply-form-container">
+            <div class="submission-section-header">
+              <div class="submission-badge badge-apply">Online Application &amp; Automated Dispatch</div>
+              <h2 class="submission-main-title">軟硬體認證線上收件申請與檢測費用試算</h2>
+              <p class="submission-main-subtitle">
+                完成下方線上收件登錄後，系統將自動產生<strong>專屬收件單號</strong>、登錄至實驗室收件管理後台，並同步轉發至<strong>官方信箱（<code>medstandard@itri.org.tw</code>）</strong>及自動回覆<strong>「相關檢測準備須知、應備文件與繳費排程資訊」</strong>至您的聯絡信箱。
+              </p>
+            </div>
+
+            <div class="apply-workspace-grid">
+              <!-- 左側：語意化線上收件申請表單 -->
+              <div class="apply-form-card">
+                <form id="labSubmissionForm" method="POST" action="#certification-apply-form" novalidate>
+                  <!-- 1. 選擇收件賽道與檢測等級 -->
+                  <fieldset class="form-fieldset">
+                    <legend class="fieldset-legend">
+                      <span class="legend-step-num">01</span>
+                      選擇收件賽道與檢測項目
+                    </legend>
+
+                    <div class="form-group">
+                      <span class="field-group-label" id="track-radio-label">申請認證收件類別 <span class="required-mark"
+                          aria-hidden="true">*</span></span>
+                      <div class="track-radio-cards" role="radiogroup" aria-labelledby="track-radio-label">
+                        <label class="track-radio-card" for="trackSoftware">
+                          <input type="radio" id="trackSoftware" name="submissionTrack" value="software" checked>
+                          <span class="track-radio-content">
+                            <span class="track-radio-badge">Software Track</span>
+                            <strong class="track-radio-title">💻 軟體認證收件</strong>
+                            <span class="track-radio-desc">CQL 臨床決策模組、SMART on FHIR 應用、醫療 AI 軟體</span>
+                          </span>
+                        </label>
+
+                        <label class="track-radio-card" for="trackHardware">
+                          <input type="radio" id="trackHardware" name="submissionTrack" value="hardware">
+                          <span class="track-radio-content">
+                            <span class="track-radio-badge">Hardware Track</span>
+                            <strong class="track-radio-title">🖥️ 硬體認證收件</strong>
+                            <span class="track-radio-desc">FHIR Box 伺服器、邊緣運算設備、Bulk Data 效能壓測</span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- 檢測方案與費用等級選擇 (Radio Buttons，選項 < 6 遵循直覺掃描原則) -->
+                    <div class="form-group">
+                      <span class="field-group-label" id="tier-radio-label">選擇檢測收件等級與對應費用 <span class="required-mark"
+                          aria-hidden="true">*</span></span>
+                      <div class="tier-radio-list" id="tierRadioContainer" role="radiogroup"
+                        aria-labelledby="tier-radio-label">
+                        <!-- 軟體等級選項 (預設顯示) -->
+                        <label class="tier-radio-item" data-track-option="software" for="tierS1">
+                          <input type="radio" id="tierS1" name="submissionTier" value="S1">
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>類別 S1：CQL 臨床決策支援模組檢測</strong>
+                              <span class="tier-radio-sub">含工研院語法/TWCDI 技術驗證 ＋ 臨床情境驗證各 1 次</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 30,000 <small>/ 件</small></span>
+                          </span>
+                        </label>
+
+                        <label class="tier-radio-item" data-track-option="software" for="tierS2">
+                          <input type="radio" id="tierS2" name="submissionTier" value="S2" checked>
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>類別 S2：SMART on FHIR 應用程式檢測</strong>
+                              <span class="tier-radio-sub">含 OAuth 2.0 授權資安、TW Core 互通性 ＋ 醫學中心 HIS 臨床實測</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 60,000 <small>/ 式</small></span>
+                          </span>
+                        </label>
+
+                        <label class="tier-radio-item" data-track-option="software" for="tierS3">
+                          <input type="radio" id="tierS3" name="submissionTier" value="S3">
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>類別 S3：智慧醫療 AI / LLM 複合應用檢測</strong>
+                              <span class="tier-radio-sub">含 S2 全項檢測 ＋ 去識別化合規、AI 推論延遲與臨床準確度驗證</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 80,000 <small>/ 式</small></span>
+                          </span>
+                        </label>
+
+                        <!-- 硬體等級選項 (切換至硬體時顯示) -->
+                        <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH1">
+                          <input type="radio" id="tierH1" name="submissionTier" value="H1">
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>等級 H1：基層診所 / 地區醫院級硬體效能認證</strong>
+                              <span class="tier-radio-sub">10 萬～20 萬筆病歷規模 · Concurrency 20～80 併發數 · 7 大指標壓測</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 50,000 <small>/ 台</small></span>
+                          </span>
+                        </label>
+
+                        <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH2">
+                          <input type="radio" id="tierH2" name="submissionTier" value="H2">
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>等級 H2：區域醫院級中大型硬體效能認證</strong>
+                              <span class="tier-radio-sub">30 萬～50 萬筆病歷規模 · Concurrency 80～150 併發數 · Bulk Data 壓測</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 80,000 <small>/ 台</small></span>
+                          </span>
+                        </label>
+
+                        <label class="tier-radio-item is-hidden" data-track-option="hardware" for="tierH3">
+                          <input type="radio" id="tierH3" name="submissionTier" value="H3">
+                          <span class="tier-radio-body">
+                            <span class="tier-radio-main">
+                              <strong>等級 H3：醫學中心級高通量硬體效能認證</strong>
+                              <span class="tier-radio-sub">50 萬～100 萬筆病歷規模 · Concurrency 150～200+ 併發數 · 極限吞吐與容錯</span>
+                            </span>
+                            <span class="tier-radio-price">NT$ 120,000 <small>/ 台</small></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- 申請性質 (首次送檢 / 複驗重測 / 年度續證) -->
+                    <div class="form-group">
+                      <span class="field-group-label" id="nature-radio-label">案件申請性質 <span class="required-mark"
+                          aria-hidden="true">*</span></span>
+                      <div class="inline-radio-group" role="radiogroup" aria-labelledby="nature-radio-label">
+                        <label class="inline-radio-label" for="natureFirst">
+                          <input type="radio" id="natureFirst" name="applicationNature" value="首次送檢認證" checked>
+                          <span>首次送檢認證（依上方標準費用計價）</span>
+                        </label>
+                        <label class="inline-radio-label" for="natureRetest">
+                          <input type="radio" id="natureRetest" name="applicationNature" value="輔導補正後複驗">
+                          <span>輔導補正後複驗（軟體 NT$ 15,000 / 硬體 NT$ 20,000）</span>
+                        </label>
+                        <label class="inline-radio-label" for="natureRenewal">
+                          <input type="radio" id="natureRenewal" name="applicationNature" value="年度續證或衍生機型登錄">
+                          <span>年度續證 / 衍生機型書審（NT$ 15,000）</span>
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- 2. 申請廠商與聯絡窗口資訊 -->
+                  <fieldset class="form-fieldset">
+                    <legend class="fieldset-legend">
+                      <span class="legend-step-num">02</span>
+                      申請機構與收件聯絡人資訊
+                    </legend>
+
+                    <div class="form-row-2col">
+                      <div class="form-field">
+                        <label for="companyName" class="field-label">申請公司 / 機構全銜 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="companyName-hint" class="field-hint">請填寫正式公司登記名稱（將列印於認證報告與收據）</span>
+                        <input type="text" id="companyName" name="companyName" class="form-input" required
+                          maxlength="100" autocomplete="organization" placeholder="例如：臺灣智慧醫電股份有限公司"
+                          aria-describedby="companyName-hint" aria-errormessage="companyName-error">
+                        <div id="companyName-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入申請公司或機構全銜。
+                        </div>
+                      </div>
+
+                      <div class="form-field">
+                        <label for="taxId" class="field-label">統一編號 (8 碼數字) <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="taxId-hint" class="field-hint">格式：8 碼半形數字統一編號</span>
+                        <input type="text" id="taxId" name="taxId" class="form-input" required pattern="\d{8}"
+                          inputmode="numeric" maxlength="8" placeholder="例如：12345678" aria-describedby="taxId-hint"
+                          aria-errormessage="taxId-error">
+                        <div id="taxId-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入正確的 8 碼半形數字統一編號。
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                      <div class="form-field">
+                        <label for="contactName" class="field-label">專案聯絡人姓名 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="contactName-hint" class="field-hint">負責收件聯繫與檢測排程之主要窗口</span>
+                        <input type="text" id="contactName" name="contactName" class="form-input" required
+                          maxlength="50" autocomplete="name" placeholder="例如：王大明" aria-describedby="contactName-hint"
+                          aria-errormessage="contactName-error">
+                        <div id="contactName-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入專案聯絡人姓名。
+                        </div>
+                      </div>
+
+                      <div class="form-field">
+                        <label for="contactRole" class="field-label">部門與職稱 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="contactRole-hint" class="field-hint">例如：研發部 資深工程師 / 產品經理</span>
+                        <input type="text" id="contactRole" name="contactRole" class="form-input" required
+                          maxlength="60" autocomplete="organization-title" placeholder="例如：醫療資訊部 專案經理"
+                          aria-describedby="contactRole-hint" aria-errormessage="contactRole-error">
+                        <div id="contactRole-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入聯絡人部門與職稱。
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                      <div class="form-field">
+                        <label for="contactEmail" class="field-label">聯絡人電子郵件 (接收檢測須知與單號) <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="contactEmail-hint" class="field-hint">格式：name@company.com（系統將自動寄送收件確認信至此信箱）</span>
+                        <input type="email" id="contactEmail" name="contactEmail" class="form-input" required
+                          autocomplete="email" inputmode="email" placeholder="name@company.com.tw"
+                          aria-describedby="contactEmail-hint" aria-errormessage="contactEmail-error">
+                        <div id="contactEmail-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入有效的電子郵件地址，以利接收檢測資訊回覆信。
+                        </div>
+                      </div>
+
+                      <div class="form-field">
+                        <label for="contactPhone" class="field-label">聯絡電話 / 手機 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="contactPhone-hint" class="field-hint">格式：市話含區碼或手機號碼（如 02-23456789 或
+                          0912-345678）</span>
+                        <input type="tel" id="contactPhone" name="contactPhone" class="form-input" required
+                          autocomplete="tel" inputmode="tel" minlength="8" maxlength="25"
+                          placeholder="02-2345-6789#101 或 0912-345678" aria-describedby="contactPhone-hint"
+                          aria-errormessage="contactPhone-error">
+                        <div id="contactPhone-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請輸入有效的聯絡電話或手機號碼。
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- 3A. 軟體送檢專屬技術規格欄位 -->
+                  <fieldset class="form-fieldset" id="softwareFieldsGroup">
+                    <legend class="fieldset-legend">
+                      <span class="legend-step-num">03</span>
+                      送檢軟體產品與技術規格明細
+                    </legend>
+
+                    <div class="form-row-2col">
+                      <div class="form-field">
+                        <label for="swProductName" class="field-label">送檢軟體產品名稱與版本號 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="swProductName-hint" class="field-hint">請填寫欲登錄於認證證書之產品名稱與版號</span>
+                        <input type="text" id="swProductName" name="swProductName" class="form-input" required
+                          maxlength="120" placeholder="例如：SmartSepsis 敗血症臨床決策模組 v2.1"
+                          aria-describedby="swProductName-hint" aria-errormessage="swProductName-error">
+                        <div id="swProductName-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請填寫送檢軟體產品名稱與版本號。
+                        </div>
+                      </div>
+
+                      <div class="form-field">
+                        <label for="swDocUrl" class="field-label">自評表 / 規格書雲端連結或測試 Endpoint (選填)</label>
+                        <span id="swDocUrl-hint" class="field-hint">可先填寫 Google Drive 連結或 Sandbox URL，亦可於收到確認信後補件</span>
+                        <input type="url" id="swDocUrl" name="swDocUrl" class="form-input" inputmode="url"
+                          placeholder="https://drive.google.com/... 或 https://sandbox.example.com"
+                          aria-describedby="swDocUrl-hint" aria-errormessage="swDocUrl-error">
+                        <div id="swDocUrl-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 若有填寫網址，請以 https:// 或 http:// 開頭。
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <span class="field-group-label">軟體遵循之國家標準與國際編碼（可複選）</span>
+                      <div class="checkbox-pills-grid">
+                        <label class="checkbox-pill-label" for="stdTwCore">
+                          <input type="checkbox" id="stdTwCore" name="swStandards" value="TW Core IG / TWCDI" checked>
+                          <span>TW Core IG / TWCDI</span>
+                        </label>
+                        <label class="checkbox-pill-label" for="stdSmart">
+                          <input type="checkbox" id="stdSmart" name="swStandards"
+                            value="SMART App Launch (OAuth 2.0 / OIDC)" checked>
+                          <span>SMART App Launch (OAuth 2.0)</span>
+                        </label>
+                        <label class="checkbox-pill-label" for="stdCql">
+                          <input type="checkbox" id="stdCql" name="swStandards" value="CQL & CDS Hooks">
+                          <span>CQL &amp; CDS Hooks</span>
+                        </label>
+                        <label class="checkbox-pill-label" for="stdTerminology">
+                          <input type="checkbox" id="stdTerminology" name="swStandards"
+                            value="SNOMED CT / LOINC / RxNorm">
+                          <span>SNOMED CT / LOINC / RxNorm</span>
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- 3B. 硬體送檢專屬設備規格欄位 (切換至硬體時顯示) -->
+                  <fieldset class="form-fieldset is-hidden" id="hardwareFieldsGroup" disabled>
+                    <legend class="fieldset-legend">
+                      <span class="legend-step-num">03</span>
+                      送檢硬體設備型號與機房進場配置
+                    </legend>
+
+                    <div class="form-row-2col">
+                      <div class="form-field">
+                        <label for="hwModelName" class="field-label">送檢伺服器品牌、型號與機身尺寸 <span class="required-mark"
+                            aria-hidden="true">*</span></label>
+                        <span id="hwModelName-hint" class="field-hint">請填寫設備品牌、型號與機架高度（如 1U / 2U / 4U / Tower）</span>
+                        <input type="text" id="hwModelName" name="hwModelName" class="form-input" required
+                          maxlength="120" placeholder="例如：Advantech SKY-8200 / 2U Rackmount Server"
+                          aria-describedby="hwModelName-hint" aria-errormessage="hwModelName-error">
+                        <div id="hwModelName-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請填寫送檢硬體品牌、型號與機身尺寸。
+                        </div>
+                      </div>
+
+                      <div class="form-field">
+                        <label for="hwSpecs" class="field-label">核心硬體配置摘要 (CPU / RAM / NVMe / 網卡) <span
+                            class="required-mark" aria-hidden="true">*</span></label>
+                        <span id="hwSpecs-hint" class="field-hint">簡述處理器核心數、記憶體容量、RAID 磁碟與網路介面</span>
+                        <input type="text" id="hwSpecs" name="hwSpecs" class="form-input" required maxlength="160"
+                          placeholder="例如：Dual Xeon 64C / 256GB DDR5 / 4TB NVMe RAID10 / Dual 25GbE"
+                          aria-describedby="hwSpecs-hint" aria-errormessage="hwSpecs-error">
+                        <div id="hwSpecs-error" class="field-error-msg" role="alert">
+                          <span aria-hidden="true">⚠</span> 請填寫核心硬體配置摘要。
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <span class="field-group-label" id="hw-delivery-label">實體設備送達實驗室機房方式 <span class="required-mark"
+                          aria-hidden="true">*</span></span>
+                      <div class="inline-radio-group" role="radiogroup" aria-labelledby="hw-delivery-label">
+                        <label class="inline-radio-label" for="deliveryFreight">
+                          <input type="radio" id="deliveryFreight" name="hwDeliveryMethod" value="貨運寄送至實驗室機房（含標準滑軌與線材）"
+                            checked>
+                          <span>貨運寄送至實驗室機房（含標準滑軌與線材）</span>
+                        </label>
+                        <label class="inline-radio-label" for="deliveryOnSite">
+                          <input type="radio" id="deliveryOnSite" name="hwDeliveryMethod" value="工程師攜機親送並協同上架初始化">
+                          <span>工程師攜機親送並協同上架初始化</span>
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- 4. 預計送測時程、備註與送件前檢核確認 -->
+                  <fieldset class="form-fieldset">
+                    <legend class="fieldset-legend">
+                      <span class="legend-step-num">04</span>
+                      預計送測時程與送件辦法確認
+                    </legend>
+
+                    <div class="form-field">
+                      <label for="submissionNotes" class="field-label">希望檢測排程時段或專案備註說明 (選填)</label>
+                      <span id="submissionNotes-hint" class="field-hint">可註明預計可交付測試環境/寄出實體機之日期、配合之醫院專案名稱或特殊需求</span>
+                      <textarea id="submissionNotes" name="submissionNotes" class="form-textarea" rows="3"
+                        maxlength="500" placeholder="例如：預計於下月中旬完成內部封測後送交沙盒驗證，或需配合醫學中心專案時程..."
+                        aria-describedby="submissionNotes-hint"></textarea>
+                    </div>
+
+                    <div class="form-Consent-box">
+                      <label class="consent-checkbox-row" for="checkSelfTest">
+                        <input type="checkbox" id="checkSelfTest" name="checkSelfTest" required
+                          aria-errormessage="checkSelfTest-error">
+                        <span>
+                          本單位已詳閱<strong>「國家數位健康互通性與效能認證實驗室」收件辦法與收費標準</strong>，並了解正式檢測前須完成廠商自我評估與測試環境/實體機準備。<span
+                            class="required-mark" aria-hidden="true">*</span>
+                        </span>
+                      </label>
+                      <div id="checkSelfTest-error" class="field-error-msg" role="alert">
+                        <span aria-hidden="true">⚠</span> 請勾選確認已詳閱收件辦法與收費標準。
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <div class="form-submit-row">
+                    <button type="submit" class="form-submit-btn" id="submitApplicationBtn" enterkeyhint="send">
+                      <span class="submit-btn-text" id="submitBtnText">送出收件申請並取得檢測資訊回覆信 (預估費用 NT$ 60,000)</span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                      </svg>
+                    </button>
+                    <p class="form-submit-note">
+                      送出後系統將自動記錄至實驗室收件後台、轉發至官方信箱 <code>medstandard@itri.org.tw</code>，並立即提供您的專屬收件單號與後續檢測準備須知。
+                    </p>
+                  </div>
+                </form>
+              </div>
+
+              <!-- 右側：即時收件費用試算與自動轉信流程說明卡 (Sticky Sidebar) -->
+              <aside class="apply-summary-sidebar" aria-label="收件費用試算與應備清單摘要">
+                <div class="summary-sticky-card">
+                  <div class="summary-card-header">
+                    <span class="summary-track-pill" id="summaryTrackBadge">💻 軟體認證收件</span>
+                    <h3 class="summary-card-title" id="summaryTierName">類別 S2：SMART on FHIR 應用程式檢測</h3>
+                  </div>
+
+                  <div class="summary-price-box">
+                    <span class="summary-price-label">預估標準檢測費用</span>
+                    <div class="summary-price-value" id="summaryPriceDisplay">NT$ 60,000</div>
+                    <span class="summary-price-unit" id="summaryNatureDisplay">首次送檢認證 · 含技術驗證与臨床驗證</span>
+                  </div>
+
+                  <div class="summary-divider"></div>
+
+                  <div class="summary-section-block">
+                    <h4 class="summary-block-title">本項收件包含之實驗室服務</h4>
+                    <ul class="summary-check-list" id="summaryDeliverablesList">
+                      <li>工研院國家級沙盒技術驗證（TW Core IG / OAuth 2.0 / 資安）</li>
+                      <li>長庚 / 三總等醫學中心真實 HIS 與虛擬病歷臨床驗證</li>
+                      <li>完整測試 Log 稽核報告與未通過項目輔導補正建議</li>
+                      <li>通過後核發國家認證標章並登錄衛福部白名單市集</li>
+                    </ul>
+                  </div>
+
+                  <div class="summary-section-block">
+                    <h4 class="summary-block-title">送出申請後您將收到的回覆資訊</h4>
+                    <div class="dispatch-flow-box">
+                      <div class="dispatch-flow-item">
+                        <span class="dispatch-dot">1</span>
+                        <div>
+                          <strong>專屬收件單號與後台登錄</strong>
+                          <p>系統自動產生案件單號（如 <code>SW-20261101-xxx</code>）並寫入實驗室收件管理後台。</p>
+                        </div>
+                      </div>
+                      <div class="dispatch-flow-item">
+                        <span class="dispatch-dot">2</span>
+                        <div>
+                          <strong>官方信箱自動轉信通知</strong>
+                          <p>同步轉發申請明細至 <code>medstandard@itri.org.tw</code> 由專責工程師接案。</p>
+                        </div>
+                      </div>
+                      <div class="dispatch-flow-item">
+                        <span class="dispatch-dot">3</span>
+                        <div>
+                          <strong>檢測須知與繳費/進場回覆信</strong>
+                          <p>自動寄發自評表範本、沙盒連線或機房進場單（Lab Entry Ticket）與繳費帳號至您的 Email。</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="summary-official-contact">
+                    <div class="official-contact-title">國家認證實驗室官方收件窗口</div>
+                    <div class="official-contact-row">
+                      <span>官方收件信箱：</span>
+                      <a href="mailto:medstandard@itri.org.tw">medstandard@itri.org.tw</a>
+                    </div>
+                    <div class="official-contact-row">
+                      <span>實驗室諮詢專線：</span>
+                      <a href="tel:035919291">(03) 591-9291</a>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <!-- 收件申請成功憑證與官方轉信確認彈出視窗 (Submission Receipt Modal) -->
+        <div id="submissionSuccessModal" class="course-modal-overlay" role="dialog" aria-modal="true"
+          aria-labelledby="receiptModalTitle" onclick="closeSubmissionModal(event)">
+          <div class="course-modal-dialog receipt-modal-dialog">
+            <button type="button" class="course-modal-close-btn" onclick="closeSubmissionModalDirect()" title="關閉視窗"
+              aria-label="關閉視窗">&times;</button>
+            <div class="course-modal-header receipt-modal-header">
+              <div class="course-modal-badge-group">
+                <span id="receiptModalBadge" class="course-modal-domain-badge">收件登錄完成</span>
+                <span id="receiptModalStatus" class="course-modal-hours-badge">已記錄並準備轉發官方信箱</span>
+              </div>
+              <h3 id="receiptModalTitle" class="course-modal-title">國家數位健康認證實驗室 — 收件確認憑證</h3>
+              <p id="receiptModalSubtitle" class="course-modal-domain-sub">您的申請資料已建立收件單號，實驗室收件小組將於 3 個工作天內與您聯繫排程</p>
+            </div>
+
+            <div class="course-modal-body">
+              <!-- 案件單號與核心摘要 -->
+              <div class="receipt-summary-box" id="receiptSummaryContent">
+                <div class="receipt-id-banner">
+                  <div>
+                    <span class="receipt-id-label">專屬收件單號 (Case ID)</span>
+                    <strong class="receipt-id-val" id="receiptCaseId">SW-20261101-001</strong>
+                  </div>
+                  <button type="button" class="receipt-copy-btn" id="copyReceiptBtn">複製收件憑證摘要</button>
+                </div>
+
+                <div class="receipt-details-grid" id="receiptDetailsGrid">
+                  <!-- JS 動態填入申請明細 -->
+                </div>
+              </div>
+
+              <!-- 後續檢測辦法與回覆須知 -->
+              <div class="receipt-next-steps-box">
+                <h4 class="course-syllabus-title">後續檢測準備與實驗室回覆流程說明</h4>
+                <div id="receiptNextStepsList" class="receipt-steps-content">
+                  <!-- JS 依據軟體/硬體動態填入專屬準備須知 -->
+                </div>
+              </div>
+            </div>
+
+            <div class="course-modal-footer receipt-modal-footer">
+              <a id="receiptMailtoLink" href="mailto:medstandard@itri.org.tw" class="receipt-mailto-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                一鍵傳送正式收件信至官方信箱 (medstandard@itri.org.tw)
+              </a>
+              <button type="button" class="receipt-print-btn" onclick="window.print()">列印 / 存成 PDF</button>
+              <button type="button" class="course-modal-btn-close" onclick="closeSubmissionModalDirect()">完成並關閉</button>
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- 收件申請成功憑證與官方轉信確認彈出視窗 (Submission Receipt Modal) -->
-      <div id="submissionSuccessModal" class="course-modal-overlay" role="dialog" aria-modal="true"
-        aria-labelledby="receiptModalTitle" onclick="closeSubmissionModal(event)">
-        <div class="course-modal-dialog receipt-modal-dialog">
-          <button type="button" class="course-modal-close-btn" onclick="closeSubmissionModalDirect()" title="關閉視窗"
-            aria-label="關閉視窗">&times;</button>
-          <div class="course-modal-header receipt-modal-header">
-            <div class="course-modal-badge-group">
-              <span id="receiptModalBadge" class="course-modal-domain-badge">收件登錄完成</span>
-              <span id="receiptModalStatus" class="course-modal-hours-badge">已記錄並準備轉發官方信箱</span>
-            </div>
-            <h3 id="receiptModalTitle" class="course-modal-title">國家數位健康認證實驗室 — 收件確認憑證</h3>
-            <p id="receiptModalSubtitle" class="course-modal-domain-sub">您的申請資料已建立收件單號，實驗室收件小組將於 3 個工作天內與您聯繫排程</p>
-          </div>
-
-          <div class="course-modal-body">
-            <!-- 案件單號與核心摘要 -->
-            <div class="receipt-summary-box" id="receiptSummaryContent">
-              <div class="receipt-id-banner">
-                <div>
-                  <span class="receipt-id-label">專屬收件單號 (Case ID)</span>
-                  <strong class="receipt-id-val" id="receiptCaseId">SW-20261101-001</strong>
-                </div>
-                <button type="button" class="receipt-copy-btn" id="copyReceiptBtn">複製收件憑證摘要</button>
-              </div>
-
-              <div class="receipt-details-grid" id="receiptDetailsGrid">
-                <!-- JS 動態填入申請明細 -->
-              </div>
-            </div>
-
-            <!-- 後續檢測辦法與回覆須知 -->
-            <div class="receipt-next-steps-box">
-              <h4 class="course-syllabus-title">後續檢測準備與實驗室回覆流程說明</h4>
-              <div id="receiptNextStepsList" class="receipt-steps-content">
-                <!-- JS 依據軟體/硬體動態填入專屬準備須知 -->
-              </div>
-            </div>
-          </div>
-
-          <div class="course-modal-footer receipt-modal-footer">
-            <a id="receiptMailtoLink" href="mailto:medstandard@itri.org.tw" class="receipt-mailto-btn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              一鍵傳送正式收件信至官方信箱 (medstandard@itri.org.tw)
-            </a>
-            <button type="button" class="receipt-print-btn" onclick="window.print()">列印 / 存成 PDF</button>
-            <button type="button" class="course-modal-btn-close" onclick="closeSubmissionModalDirect()">完成並關閉</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 下載專區 -->
-      <!-- <section class="download-section" id="download-section">
+        <!-- 下載專區 -->
+        <!-- <section class="download-section" id="download-section">
       <div class="download-container">
         <h2 class="download-title">相關文件下載區</h2>
         <div class="download-table">
@@ -2545,67 +2560,140 @@
       </div>
     </section> -->
 
-      <!-- 影片彈出視窗 (Modal) -->
-      <div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
-        <div class="modal-dialog">
-          <button class="modal-close-btn" onclick="closeVideoModalDirect()">&times;</button>
-          <div class="modal-header">
-            <img id="modalPersonPhoto" src="" alt="Speaker" class="modal-person-photo" />
-            <div class="person-details">
-              <h3 id="modalSpeakerName"></h3>
-              <p id="modalSpeakerRole"></p>
-            </div>
-          </div>
-          <div class="modal-body">
-            <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-
-      <!-- 課程詳細課綱彈出視窗 (Course Syllabus Modal) -->
-      <div id="courseDetailModal" class="course-modal-overlay" onclick="closeCourseModal(event)">
-        <div class="course-modal-dialog">
-          <button class="course-modal-close-btn" onclick="closeCourseModalDirect()" title="關閉視窗">&times;</button>
-          <div class="course-modal-header">
-            <div class="course-modal-badge-group">
-              <span id="courseModalDomainBadge" class="course-modal-domain-badge">Domain</span>
-              <span id="courseModalTotalHours" class="course-modal-hours-badge">共 10 堂課 · 總計 10 小時</span>
-            </div>
-            <h3 id="courseModalTitle" class="course-modal-title">課程名稱</h3>
-            <p id="courseModalDomainName" class="course-modal-domain-sub">所屬領域說明</p>
-          </div>
-          <div class="course-modal-body">
-            <div class="course-modal-desc-box">
-              <h4 class="course-desc-label">學程核心目標與培訓範疇</h4>
-              <p id="courseModalDesc" class="course-desc-content"></p>
-            </div>
-            <div class="course-syllabus-section">
-              <h4 class="course-syllabus-title">10 堂精選單元課綱清單 (Syllabus)</h4>
-              <div id="courseModalLessonsList" class="course-lessons-container">
-                <!-- 動態載入 10 堂課綱 -->
+        <!-- 影片彈出視窗 (Modal) -->
+        <div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
+          <div class="modal-dialog">
+            <button class="modal-close-btn" onclick="closeVideoModalDirect()">&times;</button>
+            <div class="modal-header">
+              <img id="modalPersonPhoto" src="" alt="Speaker" class="modal-person-photo" />
+              <div class="person-details">
+                <h3 id="modalSpeakerName"></h3>
+                <p id="modalSpeakerRole"></p>
               </div>
             </div>
-          </div>
-          <div class="course-modal-footer">
-            <button type="button" class="course-modal-btn-close" onclick="closeCourseModalDirect()">關閉課綱視窗</button>
+            <div class="modal-body">
+              <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Footer 頁尾 -->
-      <footer class="footer">
-        <div class="footer-container">
-          <!-- 桌機版 Top 區域：Logo 與 4 個圓形社群連結 -->
-          <div class="footer-top-section">
-            <div class="footer-top-columns">
-              <div class="top-column logo-column">
-                <a href="https://medstandard.mohw.gov.tw/" class="footer-logo-link">
-                  <img src="assets/logo.webp" alt="臺灣醫療資訊標準大平台 Logo" class="footer-logo" />
-                  <span class="footer-logo-text">臺灣醫療資訊標準大平台</span>
-                </a>
+        <!-- 課程詳細課綱彈出視窗 (Course Syllabus Modal) -->
+        <div id="courseDetailModal" class="course-modal-overlay" onclick="closeCourseModal(event)">
+          <div class="course-modal-dialog">
+            <button class="course-modal-close-btn" onclick="closeCourseModalDirect()" title="關閉視窗">&times;</button>
+            <div class="course-modal-header">
+              <div class="course-modal-badge-group">
+                <span id="courseModalDomainBadge" class="course-modal-domain-badge">Domain</span>
+                <span id="courseModalTotalHours" class="course-modal-hours-badge">共 10 堂課 · 總計 10 小時</span>
               </div>
-              <div class="top-column social-column">
+              <h3 id="courseModalTitle" class="course-modal-title">課程名稱</h3>
+              <p id="courseModalDomainName" class="course-modal-domain-sub">所屬領域說明</p>
+            </div>
+            <div class="course-modal-body">
+              <div class="course-modal-desc-box">
+                <h4 class="course-desc-label">學程核心目標與培訓範疇</h4>
+                <p id="courseModalDesc" class="course-desc-content"></p>
+              </div>
+              <div class="course-syllabus-section">
+                <h4 class="course-syllabus-title">10 堂精選單元課綱清單 (Syllabus)</h4>
+                <div id="courseModalLessonsList" class="course-lessons-container">
+                  <!-- 動態載入 10 堂課綱 -->
+                </div>
+              </div>
+            </div>
+            <div class="course-modal-footer">
+              <button type="button" class="course-modal-btn-close" onclick="closeCourseModalDirect()">關閉課綱視窗</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer 頁尾 -->
+        <footer class="footer">
+          <div class="footer-container">
+            <!-- 桌機版 Top 區域：Logo 與 4 個圓形社群連結 -->
+            <div class="footer-top-section">
+              <div class="footer-top-columns">
+                <div class="top-column logo-column">
+                  <a href="https://medstandard.mohw.gov.tw/" class="footer-logo-link">
+                    <img src="assets/logo.webp" alt="臺灣醫療資訊標準大平台 Logo" class="footer-logo" />
+                    <span class="footer-logo-text">臺灣醫療資訊標準大平台</span>
+                  </a>
+                </div>
+                <div class="top-column social-column">
+                  <div class="social-circle-list">
+                    <a href="https://www.youtube.com/channel/UCq4faIq5dri0n66RtLGRrWQ" target="_blank"
+                      rel="noopener noreferrer" title="YouTube" class="social-circle-btn" aria-label="YouTube">
+                      <span class="sr-only">YouTube</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
+                        <path
+                          d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                      </svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61584176884898" target="_blank"
+                      rel="noopener noreferrer" title="Facebook" class="social-circle-btn" aria-label="Facebook">
+                      <span class="sr-only">Facebook</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
+                        <path fill-rule="evenodd"
+                          d="M9.94474914,22 L9.94474914,13.1657526 L7,13.1657526 L7,9.48481614 L9.94474914,9.48481614 L9.94474914,6.54006699 C9.94474914,3.49740494 11.8713513,2 14.5856738,2 C15.8857805,2 17.0033128,2.09717672 17.3287076,2.13987558 L17.3287076,5.32020466 L15.4462767,5.32094085 C13.9702212,5.32094085 13.6256856,6.02252733 13.6256856,7.05171716 L13.6256856,9.48481614 L17.306622,9.48481614 L16.5704347,13.1657526 L13.6256856,13.1657526 L13.6845806,22" />
+                      </svg>
+                    </a>
+                    <a href="https://www.threads.com/@mohw_digital_health_platform" target="_blank"
+                      rel="noopener noreferrer" title="Threads" class="social-circle-btn" aria-label="Threads">
+                      <span class="sr-only">Threads</span>
+                      <svg width="18" height="18" viewBox="0 0 448 512" fill="#001f54">
+                        <path
+                          d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2 95.8-30.3 143.2c-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2c-32.3-41-48.9-98.1-49.5-169.6V256v-.2C17 184.3 33.6 127.2 65.9 86.2C102.2 40.1 156.2 16.5 226.4 16h.3c70.3 .5 124.9 24 162.3 69.9c18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.8-47.8-32.2-65.4c-29.2-35.8-73-54.2-130.5-54.6c-57 .5-100.1 18.8-128.2 54.4C72.1 146.1 58.5 194.3 58 256c.5 61.7 14.1 109.9 40.3 143.3c28 35.6 71.2 53.9 128.2 54.4c51.4-.4 85.4-12.6 113.7-40.9c32.3-32.2 31.7-71.8 21.4-95.9c-6.1-14.2-17.1-26-31.9-34.9c-3.7 26.9-11.8 48.3-24.7 64.8c-17.1 21.8-41.4 33.6-72.7 35.3c-23.6 1.3-46.3-4.4-63.9-16c-20.8-13.8-33-34.8-34.3-59.3c-2.5-48.3 35.7-83 95.2-86.4c21.1-1.2 40.9-.3 59.2 2.8c-2.4-14.8-7.3-26.6-14.6-35.2c-10-11.7-25.6-17.7-46.2-17.8H227c-16.6 0-39 4.6-53.3 26.3l-34.4-23.6c19.2-29.1 50.3-45.1 87.8-45.1h.8c62.6 .4 99.9 39.5 103.7 107.7l-.2 .2zm-156 68.8c1.3 25.1 28.4 36.8 54.6 35.3c25.6-1.4 54.6-11.4 59.5-73.2c-13.2-2.9-27.8-4.4-43.4-4.4c-4.8 0-9.6 .1-14.4 .4c-42.9 2.4-57.2 23.2-56.2 41.8l-.1 .1z" />
+                      </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dhphello/" target="_blank" rel="noopener noreferrer"
+                      title="LinkedIn" class="social-circle-btn" aria-label="LinkedIn">
+                      <span class="sr-only">LinkedIn</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
+                        <circle cx="4.983" cy="5.009" r="2.188"></circle>
+                        <path
+                          d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- 桌機版 Main 聯絡資訊 -->
+            <div class="footer-main-content">
+              <div class="footer-bottom-info">
+                <div class="footer-contact-list">
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    : (03) 591-9291
+                  </div>
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    : medstandard@itri.org.tw
+                  </div>
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    : 115204 台北市南港區忠孝東路6段488號
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 手機版聯絡資訊與社群 -->
+            <div class="mobile-menu-section">
+              <div class="mobile-contact-section">
                 <div class="social-circle-list">
                   <a href="https://www.youtube.com/channel/UCq4faIq5dri0n66RtLGRrWQ" target="_blank"
                     rel="noopener noreferrer" title="YouTube" class="social-circle-btn" aria-label="YouTube">
@@ -2641,117 +2729,44 @@
                     </svg>
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="footer-divider"></div>
-
-          <!-- 桌機版 Main 聯絡資訊 -->
-          <div class="footer-main-content">
-            <div class="footer-bottom-info">
-              <div class="footer-contact-list">
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                  : (03) 591-9291
-                </div>
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                  </svg>
-                  : medstandard@itri.org.tw
-                </div>
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                  : 115204 台北市南港區忠孝東路6段488號
+                <div class="footer-contact-list mobile-contact-list">
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    : (03) 591-9291
+                  </div>
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    : medstandard@itri.org.tw
+                  </div>
+                  <div class="contact-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    : 115204 台北市南港區忠孝東路6段488號
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- 手機版聯絡資訊與社群 -->
-          <div class="mobile-menu-section">
-            <div class="mobile-contact-section">
-              <div class="social-circle-list">
-                <a href="https://www.youtube.com/channel/UCq4faIq5dri0n66RtLGRrWQ" target="_blank"
-                  rel="noopener noreferrer" title="YouTube" class="social-circle-btn" aria-label="YouTube">
-                  <span class="sr-only">YouTube</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
-                    <path
-                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
+            <!-- 底部 Logo (手機版) -->
+            <div class="footer-bottom-row">
+              <div class="footer-logo-mobile">
+                <a href="https://medstandard.mohw.gov.tw/" class="footer-logo-link">
+                  <img src="assets/logo.webp" alt="臺灣醫療資訊標準大平台 Logo" class="footer-logo" />
+                  <span class="footer-logo-text">臺灣醫療資訊標準大平台</span>
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61584176884898" target="_blank"
-                  rel="noopener noreferrer" title="Facebook" class="social-circle-btn" aria-label="Facebook">
-                  <span class="sr-only">Facebook</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
-                    <path fill-rule="evenodd"
-                      d="M9.94474914,22 L9.94474914,13.1657526 L7,13.1657526 L7,9.48481614 L9.94474914,9.48481614 L9.94474914,6.54006699 C9.94474914,3.49740494 11.8713513,2 14.5856738,2 C15.8857805,2 17.0033128,2.09717672 17.3287076,2.13987558 L17.3287076,5.32020466 L15.4462767,5.32094085 C13.9702212,5.32094085 13.6256856,6.02252733 13.6256856,7.05171716 L13.6256856,9.48481614 L17.306622,9.48481614 L16.5704347,13.1657526 L13.6256856,13.1657526 L13.6845806,22" />
-                  </svg>
-                </a>
-                <a href="https://www.threads.com/@mohw_digital_health_platform" target="_blank"
-                  rel="noopener noreferrer" title="Threads" class="social-circle-btn" aria-label="Threads">
-                  <span class="sr-only">Threads</span>
-                  <svg width="18" height="18" viewBox="0 0 448 512" fill="#001f54">
-                    <path
-                      d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2 95.8-30.3 143.2c-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2c-32.3-41-48.9-98.1-49.5-169.6V256v-.2C17 184.3 33.6 127.2 65.9 86.2C102.2 40.1 156.2 16.5 226.4 16h.3c70.3 .5 124.9 24 162.3 69.9c18.4 22.7 32 50 40.6 81.7l-40.4 10.8c-7.1-25.8-17.8-47.8-32.2-65.4c-29.2-35.8-73-54.2-130.5-54.6c-57 .5-100.1 18.8-128.2 54.4C72.1 146.1 58.5 194.3 58 256c.5 61.7 14.1 109.9 40.3 143.3c28 35.6 71.2 53.9 128.2 54.4c51.4-.4 85.4-12.6 113.7-40.9c32.3-32.2 31.7-71.8 21.4-95.9c-6.1-14.2-17.1-26-31.9-34.9c-3.7 26.9-11.8 48.3-24.7 64.8c-17.1 21.8-41.4 33.6-72.7 35.3c-23.6 1.3-46.3-4.4-63.9-16c-20.8-13.8-33-34.8-34.3-59.3c-2.5-48.3 35.7-83 95.2-86.4c21.1-1.2 40.9-.3 59.2 2.8c-2.4-14.8-7.3-26.6-14.6-35.2c-10-11.7-25.6-17.7-46.2-17.8H227c-16.6 0-39 4.6-53.3 26.3l-34.4-23.6c19.2-29.1 50.3-45.1 87.8-45.1h.8c62.6 .4 99.9 39.5 103.7 107.7l-.2 .2zm-156 68.8c1.3 25.1 28.4 36.8 54.6 35.3c25.6-1.4 54.6-11.4 59.5-73.2c-13.2-2.9-27.8-4.4-43.4-4.4c-4.8 0-9.6 .1-14.4 .4c-42.9 2.4-57.2 23.2-56.2 41.8l-.1 .1z" />
-                  </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/dhphello/" target="_blank" rel="noopener noreferrer"
-                  title="LinkedIn" class="social-circle-btn" aria-label="LinkedIn">
-                  <span class="sr-only">LinkedIn</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#001f54">
-                    <circle cx="4.983" cy="5.009" r="2.188"></circle>
-                    <path
-                      d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z" />
-                  </svg>
-                </a>
-              </div>
-
-              <div class="footer-contact-list mobile-contact-list">
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                  : (03) 591-9291
-                </div>
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                  </svg>
-                  : medstandard@itri.org.tw
-                </div>
-                <div class="contact-line">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                  : 115204 台北市南港區忠孝東路6段488號
-                </div>
               </div>
             </div>
           </div>
-
-          <!-- 底部 Logo (手機版) -->
-          <div class="footer-bottom-row">
-            <div class="footer-logo-mobile">
-              <a href="https://medstandard.mohw.gov.tw/" class="footer-logo-link">
-                <img src="assets/logo.webp" alt="臺灣醫療資訊標準大平台 Logo" class="footer-logo" />
-                <span class="footer-logo-text">臺灣醫療資訊標準大平台</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+        </footer>
   </div>
 
   <script src="js/main.js?v=1.2.0"></script>
